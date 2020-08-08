@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C7A5567424DE536E00C21123 /* Cloudflare.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A5567324DE536E00C21123 /* Cloudflare.swift */; };
+		C7A5567624DE55A900C21123 /* AnalyticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A5567524DE55A900C21123 /* AnalyticsViewModel.swift */; };
 		C7B95A2B24DE4C0B00459A5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B95A2A24DE4C0B00459A5C /* AppDelegate.swift */; };
 		C7B95A2D24DE4C0B00459A5C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B95A2C24DE4C0B00459A5C /* ViewController.swift */; };
 		C7B95A3024DE4C0B00459A5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7B95A2E24DE4C0B00459A5C /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C7A5567324DE536E00C21123 /* Cloudflare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloudflare.swift; sourceTree = "<group>"; };
+		C7A5567524DE55A900C21123 /* AnalyticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewModel.swift; sourceTree = "<group>"; };
 		C7B95A2724DE4C0B00459A5C /* Bonfire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bonfire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7B95A2A24DE4C0B00459A5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7B95A2C24DE4C0B00459A5C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +80,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C7A5566F24DE518900C21123 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C7A5567324DE536E00C21123 /* Cloudflare.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C7A5567024DE519000C21123 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C7B95A2E24DE4C0B00459A5C /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C7A5567124DE51A900C21123 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C7A5567224DE51CE00C21123 /* ViewModel */,
+				C7B95A2C24DE4C0B00459A5C /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C7A5567224DE51CE00C21123 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C7A5567524DE55A900C21123 /* AnalyticsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		C7B95A1E24DE4C0B00459A5C = {
 			isa = PBXGroup;
 			children = (
@@ -99,11 +136,12 @@
 		C7B95A2924DE4C0B00459A5C /* Bonfire */ = {
 			isa = PBXGroup;
 			children = (
+				C7A5566F24DE518900C21123 /* Model */,
+				C7A5567024DE519000C21123 /* View */,
+				C7A5567124DE51A900C21123 /* Controller */,
 				C7B95A2A24DE4C0B00459A5C /* AppDelegate.swift */,
-				C7B95A2C24DE4C0B00459A5C /* ViewController.swift */,
-				C7B95A2E24DE4C0B00459A5C /* Main.storyboard */,
-				C7B95A3424DE4C0D00459A5C /* Assets.xcassets */,
 				C7B95A3624DE4C0D00459A5C /* LaunchScreen.storyboard */,
+				C7B95A3424DE4C0D00459A5C /* Assets.xcassets */,
 				C7B95A3924DE4C0D00459A5C /* Info.plist */,
 				C7B95A3124DE4C0B00459A5C /* Bonfire.xcdatamodeld */,
 			);
@@ -259,9 +297,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7A5567424DE536E00C21123 /* Cloudflare.swift in Sources */,
 				C7B95A2D24DE4C0B00459A5C /* ViewController.swift in Sources */,
 				C7B95A3324DE4C0B00459A5C /* Bonfire.xcdatamodeld in Sources */,
 				C7B95A2B24DE4C0B00459A5C /* AppDelegate.swift in Sources */,
+				C7A5567624DE55A900C21123 /* AnalyticsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,7 +484,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ipse.Bonfire;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -461,7 +501,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ipse.Bonfire;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

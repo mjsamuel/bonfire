@@ -2,7 +2,6 @@
 //  ViewController.swift
 //  Bonfire
 //
-//  Created by Matthew Samuel on 8/8/20.
 //  Copyright © 2020 ipse. All rights reserved.
 //
 
