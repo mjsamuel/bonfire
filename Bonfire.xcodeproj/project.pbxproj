@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C71E19CC24EAB8C9001E83C1 /* Analytics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71E19CB24EAB8C9001E83C1 /* Analytics.storyboard */; };
+		C71E19D324EABE65001E83C1 /* Requests.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71E19D224EABE65001E83C1 /* Requests.storyboard */; };
+		C71E19D524EABE79001E83C1 /* DNS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71E19D424EABE79001E83C1 /* DNS.storyboard */; };
+		C71E19D724EABE88001E83C1 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71E19D624EABE88001E83C1 /* Settings.storyboard */; };
 		C7A5567424DE536E00C21123 /* Cloudflare.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A5567324DE536E00C21123 /* Cloudflare.swift */; };
 		C7A5567624DE55A900C21123 /* AnalyticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A5567524DE55A900C21123 /* AnalyticsViewModel.swift */; };
 		C7B95A2B24DE4C0B00459A5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B95A2A24DE4C0B00459A5C /* AppDelegate.swift */; };
@@ -37,6 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C71E19CB24EAB8C9001E83C1 /* Analytics.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Analytics.storyboard; sourceTree = "<group>"; };
+		C71E19D224EABE65001E83C1 /* Requests.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Requests.storyboard; sourceTree = "<group>"; };
+		C71E19D424EABE79001E83C1 /* DNS.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DNS.storyboard; sourceTree = "<group>"; };
+		C71E19D624EABE88001E83C1 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		C7A5567324DE536E00C21123 /* Cloudflare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloudflare.swift; sourceTree = "<group>"; };
 		C7A5567524DE55A900C21123 /* AnalyticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewModel.swift; sourceTree = "<group>"; };
 		C7B95A2724DE4C0B00459A5C /* Bonfire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bonfire.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +100,10 @@
 			isa = PBXGroup;
 			children = (
 				C7B95A2E24DE4C0B00459A5C /* Main.storyboard */,
+				C71E19CB24EAB8C9001E83C1 /* Analytics.storyboard */,
+				C71E19D224EABE65001E83C1 /* Requests.storyboard */,
+				C71E19D424EABE79001E83C1 /* DNS.storyboard */,
+				C71E19D624EABE88001E83C1 /* Settings.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -272,7 +284,11 @@
 			files = (
 				C7B95A3824DE4C0D00459A5C /* LaunchScreen.storyboard in Resources */,
 				C7B95A3524DE4C0D00459A5C /* Assets.xcassets in Resources */,
+				C71E19D524EABE79001E83C1 /* DNS.storyboard in Resources */,
 				C7B95A3024DE4C0B00459A5C /* Main.storyboard in Resources */,
+				C71E19D324EABE65001E83C1 /* Requests.storyboard in Resources */,
+				C71E19CC24EAB8C9001E83C1 /* Analytics.storyboard in Resources */,
+				C71E19D724EABE88001E83C1 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
