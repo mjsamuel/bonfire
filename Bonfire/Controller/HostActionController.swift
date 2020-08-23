@@ -26,15 +26,20 @@ class HostActionController: UIViewController, UIPickerViewDataSource, UIPickerVi
     
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return host.getActions()[row] // defie what text should be in each row.
+//        for value in Action.allValues {
+//            print(value)
+//        }
+        return Action.allValues[row].rawValue // define what text should be in each row.
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return host.getActions().count // how many rows we want in the picker.
+        return Action.allValues.count // how many rows we want in the picker.
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print(host.getActions()[row])
+        let actionSelected = Action.allValues[row]
+        print("[+] DEBUG: Action selected \(actionSelected)")
+        print("[+] DEBUG: Action description: \(actionSelected.description)")
     }
     
     @IBOutlet weak var picker: UIPickerView!
