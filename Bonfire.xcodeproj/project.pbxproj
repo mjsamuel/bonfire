@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A610F6224F112E9003E7BB0 /* HostActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A610F6124F112E9003E7BB0 /* HostActions.swift */; };
+		1A610F6424F11470003E7BB0 /* HostActionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A610F6324F11470003E7BB0 /* HostActionController.swift */; };
 		C71E19CC24EAB8C9001E83C1 /* Analytics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71E19CB24EAB8C9001E83C1 /* Analytics.storyboard */; };
 		C71E19D324EABE65001E83C1 /* Requests.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71E19D224EABE65001E83C1 /* Requests.storyboard */; };
 		C71E19D524EABE79001E83C1 /* DNS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71E19D424EABE79001E83C1 /* DNS.storyboard */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A610F6124F112E9003E7BB0 /* HostActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostActions.swift; sourceTree = "<group>"; };
+		1A610F6324F11470003E7BB0 /* HostActionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostActionController.swift; sourceTree = "<group>"; };
 		C71E19CB24EAB8C9001E83C1 /* Analytics.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Analytics.storyboard; sourceTree = "<group>"; };
 		C71E19D224EABE65001E83C1 /* Requests.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Requests.storyboard; sourceTree = "<group>"; };
 		C71E19D424EABE79001E83C1 /* DNS.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DNS.storyboard; sourceTree = "<group>"; };
@@ -92,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				C7A5567324DE536E00C21123 /* Cloudflare.swift */,
+				1A610F6124F112E9003E7BB0 /* HostActions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -113,6 +118,7 @@
 			children = (
 				C7A5567224DE51CE00C21123 /* ViewModel */,
 				C7B95A2C24DE4C0B00459A5C /* ViewController.swift */,
+				1A610F6324F11470003E7BB0 /* HostActionController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -314,10 +320,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7A5567424DE536E00C21123 /* Cloudflare.swift in Sources */,
+				1A610F6224F112E9003E7BB0 /* HostActions.swift in Sources */,
 				C7B95A2D24DE4C0B00459A5C /* ViewController.swift in Sources */,
 				C7B95A3324DE4C0B00459A5C /* Bonfire.xcdatamodeld in Sources */,
 				C7B95A2B24DE4C0B00459A5C /* AppDelegate.swift in Sources */,
 				C7A5567624DE55A900C21123 /* AnalyticsViewModel.swift in Sources */,
+				1A610F6424F11470003E7BB0 /* HostActionController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
