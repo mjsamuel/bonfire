@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 class HostActionController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
 
     override func viewDidLoad() {
@@ -20,23 +19,22 @@ class HostActionController: UIViewController, UIPickerViewDataSource, UIPickerVi
         print("hello world")
     }
     
-    let items = ["ban", "JS Challenge"]
-    
+    var host = HostAction(ipAddress: 1)
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1 // return number 'sections' in a row.
     }
     
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return items[row] // defie what text should be in each row.
+        return host.getActions()[row] // defie what text should be in each row.
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return items.count // how many rows we want in the picker.
+        return host.getActions().count // how many rows we want in the picker.
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print(items[row])
+        print(host.getActions()[row])
     }
     
     @IBOutlet weak var picker: UIPickerView!
