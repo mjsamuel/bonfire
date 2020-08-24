@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		453FE08024F347F500DA3383 /* SettingsTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453FE07F24F347F500DA3383 /* SettingsTableTableViewController.swift */; };
+		453FE08224F3593600DA3383 /* SelectZone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453FE08124F3593600DA3383 /* SelectZone.storyboard */; };
+		453FE08424F3627B00DA3383 /* SelectZoneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453FE08324F3627B00DA3383 /* SelectZoneController.swift */; };
 		C71E19CC24EAB8C9001E83C1 /* Analytics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71E19CB24EAB8C9001E83C1 /* Analytics.storyboard */; };
 		C71E19D324EABE65001E83C1 /* Requests.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71E19D224EABE65001E83C1 /* Requests.storyboard */; };
 		C71E19D524EABE79001E83C1 /* DNS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71E19D424EABE79001E83C1 /* DNS.storyboard */; };
@@ -43,6 +45,8 @@
 
 /* Begin PBXFileReference section */
 		453FE07F24F347F500DA3383 /* SettingsTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableTableViewController.swift; sourceTree = "<group>"; };
+		453FE08124F3593600DA3383 /* SelectZone.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectZone.storyboard; sourceTree = "<group>"; };
+		453FE08324F3627B00DA3383 /* SelectZoneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectZoneController.swift; sourceTree = "<group>"; };
 		C71E19CB24EAB8C9001E83C1 /* Analytics.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Analytics.storyboard; sourceTree = "<group>"; };
 		C71E19D224EABE65001E83C1 /* Requests.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Requests.storyboard; sourceTree = "<group>"; };
 		C71E19D424EABE79001E83C1 /* DNS.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DNS.storyboard; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 				C71E19D224EABE65001E83C1 /* Requests.storyboard */,
 				C71E19D424EABE79001E83C1 /* DNS.storyboard */,
 				C71E19D624EABE88001E83C1 /* Settings.storyboard */,
+				453FE08124F3593600DA3383 /* SelectZone.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -116,6 +121,7 @@
 				C7A5567224DE51CE00C21123 /* ViewModel */,
 				C7B95A2C24DE4C0B00459A5C /* ViewController.swift */,
 				453FE07F24F347F500DA3383 /* SettingsTableTableViewController.swift */,
+				453FE08324F3627B00DA3383 /* SelectZoneController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -285,6 +291,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				453FE08224F3593600DA3383 /* SelectZone.storyboard in Resources */,
 				C7B95A3824DE4C0D00459A5C /* LaunchScreen.storyboard in Resources */,
 				C7B95A3524DE4C0D00459A5C /* Assets.xcassets in Resources */,
 				C71E19D524EABE79001E83C1 /* DNS.storyboard in Resources */,
@@ -321,6 +328,7 @@
 				C7B95A3324DE4C0B00459A5C /* Bonfire.xcdatamodeld in Sources */,
 				453FE08024F347F500DA3383 /* SettingsTableTableViewController.swift in Sources */,
 				C7B95A2B24DE4C0B00459A5C /* AppDelegate.swift in Sources */,
+				453FE08424F3627B00DA3383 /* SelectZoneController.swift in Sources */,
 				C7A5567624DE55A900C21123 /* AnalyticsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
