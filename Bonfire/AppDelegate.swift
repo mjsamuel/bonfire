@@ -16,6 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // If user is not logged in display login view
+        let userLoggedIn = false
+        
+        if (!userLoggedIn) {
+            // Create a window to show the login VC
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            // Set the login VC as the rootVC
+            self.window?.rootViewController = UIStoryboard(name: "login", bundle: nil).instantiateViewController(withIdentifier: "LoginView")
+            // Show the window
+            self.window?.makeKeyAndVisible()
+        }
+        
         return true
     }
 
