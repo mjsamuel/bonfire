@@ -20,14 +20,27 @@ class Bonfire {
         currentZone = zones?[0]
     }
     
+    /**
+     Logs in a user with thier credentials
+     
+     - Parameters:
+        - email: The email of the user
+        - apiKey: The api key corresponding to that account
+     */
     public func login(email: String, apiKey: String) {
         cloudflare = Cloudflare(email: email, apiKey: apiKey)
         zones = cloudflare?.getZones()
         currentZone = zones?[0]
     }
     
+    
+    /**
+     Logs out a user and discards their credentials
+     */
     public func logout() {
         cloudflare = nil
+        zones = nil
+        currentZone = nil
     }
     
     public func setCurrentZone() {

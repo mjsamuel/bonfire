@@ -33,7 +33,7 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource {
     }
     
     /**
-        Updates the text of all labels from the view model
+     Updates the text of all labels from the view model
      */
     private func updateLabels() {
         pageviewsLabel.text = viewModel.getPageviews()
@@ -48,7 +48,7 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource {
     }
     
     /**
-        Sets the font size of data point labels to fit within the width of their tile
+     Sets the font size of data point labels to fit within the width of their tile
      */
     private func setFontSize() {
         pageviewsLabel.adjustsFontSizeToFitWidth = true

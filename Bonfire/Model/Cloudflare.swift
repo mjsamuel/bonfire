@@ -11,6 +11,13 @@ struct Cloudflare {
     
     init(email: String, apiKey: String) {}
     
+    /**
+     Calls Clourflares's get zones API endpoint and returns all of them
+     API documentation:
+     [GET zones](https://api.cloudflare.com/#zone-list-zones)
+     
+     - Returns: A dictionary containing relevant data points
+     */
     public func getZones() -> [Zone] {
         let retVal: [Zone] = [
             Zone(name: "example.com", id: "023e105f4ecef8ad9ca31a8372d0c353"),
@@ -21,6 +28,16 @@ struct Cloudflare {
         return retVal
     }
     
+    /**
+     Calls Clourflare's analytics API endpoint and returns certain data points
+     
+     API documentation:
+     [GET zones/:zone_identifier/analytics/dashboard](https://api.cloudflare.com/#zone-analytics-dashboard)
+     
+     - Parameters:
+        - zoneId: The id of the zone that you want analytics for
+     - Returns: A dictionary containing relevant data points
+     */
     public func getAnalytics(zoneId: String) -> [String: Any]? {
         let data: Data = """
             {
