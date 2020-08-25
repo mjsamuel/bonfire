@@ -9,12 +9,12 @@ import Foundation
 
 struct Zone {
     
-    private let identifier: String
+    private let id: String
     public var name: String
     
-    init(identifier: String, name: String) {
-        self.identifier = identifier
+    init(name: String, id: String) {
         self.name = name
+        self.id = id
     }
     
 }

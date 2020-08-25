@@ -15,9 +15,9 @@ class Bonfire {
     public var currentZone: Zone?
 
     private init() {
-        cloudflare = nil
-        zones = nil
-        currentZone = nil
+        cloudflare = Cloudflare(email: "...", apiKey: "...")
+        zones = cloudflare?.getZones()
+        currentZone = zones?[0]
     }
     
     public func login(email: String, apiKey: String) {

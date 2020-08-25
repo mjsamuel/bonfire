@@ -12,12 +12,16 @@ struct Cloudflare {
     init(email: String, apiKey: String) {}
     
     public func getZones() -> [Zone] {
-        let retVal: [Zone] = []
+        let retVal: [Zone] = [
+            Zone(name: "example.com", id: "023e105f4ecef8ad9ca31a8372d0c353"),
+            Zone(name: "test.com", id: "353c0d2738a13ac9da8fece4f501e320"),
+            Zone(name: "a.site", id: "853e105f4ecef8ad9ca31a8372d0c432")
+        ]
         
         return retVal
     }
     
-    public func getAnalytics(zoneId: String) -> Any? {
+    public func getAnalytics(zoneId: String) -> [String: Any]? {
         let data: Data = """
             {
               "success": true,
@@ -28,9 +32,9 @@ struct Cloudflare {
                   "since": "2015-01-01T12:23:00Z",
                   "until": "2015-01-02T12:23:00Z",
                   "requests": {
-                    "all": 1234085328,
-                    "cached": 1234085330,
-                    "uncached": 13876154,
+                    "all": 2000,
+                    "cached": 750,
+                    "uncached": 1250,
                     "content_type": {
                       "css": 15343,
                       "html": 1234213,
@@ -231,7 +235,6 @@ struct Cloudflare {
         guard let results = json["result"] as? [String: Any],
             let totals = results["totals"] as? [String: Any],
             let requests = totals["requests"] as? [String: Any],
-            let requests_all = requests["all"] as? Int,
             let requests_cached = requests["cached"] as? Int,
             let requests_uncached = requests["uncached"] as? Int,
             let top_countries = requests["country"] as? [String: Int],
@@ -244,7 +247,6 @@ struct Cloudflare {
         }
         
         return [
-            "requests_all": requests_all,
             "requests_cached": requests_cached,
             "requests_uncached": requests_uncached,
             "top_countries": top_countries,
