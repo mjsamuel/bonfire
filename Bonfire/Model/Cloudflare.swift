@@ -61,8 +61,8 @@ struct Cloudflare {
                     },
                     "country": {
                       "US": 4181364,
-                      "AG": 37298,
-                      "GI": 293846
+                      "AU": 37298,
+                      "GB": 293846
                     },
                     "ssl": {
                       "encrypted": 12978361,

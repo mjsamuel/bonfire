@@ -65,8 +65,9 @@ struct AnalyticsViewModel {
         var countriesArray: [Country] = []
         
         //  Converting retrieved countries to an array of countries
-        for(country, noRequests) in countries {
-            countriesArray.append(Country(name: country, noRequests: noRequests))
+        for(countryCode, noRequests) in countries {
+            let name: String = self.getCountry(countryCode: countryCode)
+            countriesArray.append(Country(name: name, noRequests: noRequests))
         }
         
         // Sorting the array from largest to smallest number of requests
@@ -83,6 +84,47 @@ struct AnalyticsViewModel {
     
     public func getCostPerRequest() -> String {
         return String(costPerRequest)
+    }
+    
+    /**
+     Converts an ISO 3166 country code to a country name
+     
+     - Parameters:
+        - countryCode: A valid ISO 3166 country code
+     - Returns: The country name if successful or the passed in code if unsuccessful
+     */
+
+    private func getCountry(countryCode: String) -> String {
+        let countryName: String
+        
+        switch countryCode {
+            case "AU":
+                countryName = "Australia"
+            case "US":
+                countryName = "United States"
+            case "GB":
+                countryName = "Great Britain"
+            case "CN":
+                countryName = "China"
+            case "RU":
+                countryName = "Russia"
+            case "JP":
+                countryName = "Japan"
+            case "DE":
+                countryName = "Germany"
+            case "FR":
+                countryName = "France"
+            case "IT":
+                countryName = "Italy"
+            case "IN":
+                countryName = "India"
+            case "ZA":
+                countryName = "South Africa"
+            default:
+                countryName = countryCode
+        }
+        
+        return countryName
     }
 }
 
