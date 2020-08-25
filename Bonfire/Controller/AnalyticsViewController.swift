@@ -7,9 +7,9 @@
 
 import UIKit
 
-class AnalyticsViewController: UIViewController {
-    
+class AnalyticsViewController: UIViewController, UITableViewDataSource {
     private let viewModel: AnalyticsViewModel = AnalyticsViewModel()
+    private var countries: [Country] = []
     
     @IBOutlet weak var pageviewsLabel: UILabel!
     @IBOutlet weak var threatsLabel: UILabel!
@@ -18,13 +18,15 @@ class AnalyticsViewController: UIViewController {
     @IBOutlet weak var uncachedLabel: UILabel!
     @IBOutlet weak var percentCachedLabel: UILabel!
     
-    @IBOutlet weak var countries: UITableView!
-
+    @IBOutlet weak var countriesTable: UITableView!
+    
     @IBOutlet weak var cpmLabel: UILabel!
     @IBOutlet weak var cprLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        countriesTable.dataSource = self
         
         setFontSize()
         updateLabels()
@@ -42,10 +44,7 @@ class AnalyticsViewController: UIViewController {
         cpmLabel.text = "$" + viewModel.getCostPerMonth()
         cprLabel.text = "$" + viewModel.getCostPerRequest()
         
-        let countries = viewModel.getCountries()
-        for country in countries {
-            print(country)
-        }
+        self.countries = viewModel.getCountries()
     }
     
     /**
@@ -59,5 +58,23 @@ class AnalyticsViewController: UIViewController {
         percentCachedLabel.adjustsFontSizeToFitWidth = true
         cpmLabel.adjustsFontSizeToFitWidth = true
         cprLabel.adjustsFontSizeToFitWidth = true
+    }
+    
+    // Table view functions for the 'top countries' tile
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return countries.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "countryIdentifier", for: indexPath)
+        let country: Country = countries[indexPath.row]
+
+        let countriesLabel = cell.viewWithTag(1000) as! UILabel
+        countriesLabel.text = country.name
+
+        let noRequestsLabel = cell.viewWithTag(1001) as! UILabel
+        noRequestsLabel.text = String(country.noRequests)
+
+        return cell
     }
 }

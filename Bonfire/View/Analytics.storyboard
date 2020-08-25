@@ -190,28 +190,58 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAw-VA-RWj" userLabel="Countries Tile">
                                                 <rect key="frame" x="0.0" y="251.5" width="300" height="114"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="aEP-aj-a5L">
-                                                        <rect key="frame" x="12" y="6" width="282" height="102"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top 3 Countries" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQA-ya-huR">
-                                                                <rect key="frame" x="0.0" y="0.0" width="282" height="17.5"/>
-                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LYu-zr-4xp">
-                                                                <rect key="frame" x="0.0" y="17.5" width="282" height="84.5"/>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </tableView>
-                                                        </subviews>
-                                                    </stackView>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LYu-zr-4xp">
+                                                        <rect key="frame" x="2" y="27" width="296" height="79"/>
+                                                        <color key="backgroundColor" red="0.92146831750000002" green="0.92162626979999995" blue="0.92145836349999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <prototypes>
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="countryIdentifier" id="Y8o-Ad-sRd">
+                                                                <rect key="frame" x="0.0" y="28" width="296" height="44"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Y8o-Ad-sRd" id="VCe-XX-hmc">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="296" height="44"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rtg-XZ-5AD">
+                                                                            <rect key="frame" x="239" y="11.5" width="42" height="20.5"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2G-be-o8z">
+                                                                            <rect key="frame" x="15" y="11.5" width="42" height="20.5"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                            <nil key="textColor"/>
+                                                                            <nil key="highlightedColor"/>
+                                                                        </label>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstItem="Rtg-XZ-5AD" firstAttribute="centerY" secondItem="VCe-XX-hmc" secondAttribute="centerY" id="3F7-Ye-ei8"/>
+                                                                        <constraint firstItem="S2G-be-o8z" firstAttribute="centerY" secondItem="VCe-XX-hmc" secondAttribute="centerY" id="MqT-IK-pi6"/>
+                                                                        <constraint firstItem="S2G-be-o8z" firstAttribute="leading" secondItem="VCe-XX-hmc" secondAttribute="leading" constant="15" id="Syq-jZ-pfX"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="Rtg-XZ-5AD" secondAttribute="trailing" constant="15" id="zb0-0m-fkt"/>
+                                                                    </constraints>
+                                                                </tableViewCellContentView>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </tableViewCell>
+                                                        </prototypes>
+                                                    </tableView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Countries" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQA-ya-huR" userLabel="Top Countries">
+                                                        <rect key="frame" x="8" y="8" width="96.5" height="17"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.92146831750000002" green="0.92162626979999995" blue="0.92145836349999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstItem="aEP-aj-a5L" firstAttribute="leading" secondItem="nAw-VA-RWj" secondAttribute="leading" constant="12" id="3h0-2c-SOf"/>
-                                                    <constraint firstItem="aEP-aj-a5L" firstAttribute="top" secondItem="nAw-VA-RWj" secondAttribute="top" constant="6" id="Gve-Kg-9Pv"/>
-                                                    <constraint firstAttribute="bottom" secondItem="aEP-aj-a5L" secondAttribute="bottom" constant="6" id="MJs-Qj-YjJ"/>
-                                                    <constraint firstAttribute="trailing" secondItem="aEP-aj-a5L" secondAttribute="trailing" constant="6" id="a2l-CN-XAe"/>
+                                                    <constraint firstAttribute="trailing" secondItem="LYu-zr-4xp" secondAttribute="trailing" constant="2" id="5pC-oI-05c"/>
+                                                    <constraint firstItem="LYu-zr-4xp" firstAttribute="leading" secondItem="nAw-VA-RWj" secondAttribute="leading" constant="2" id="9hc-JV-JEn"/>
+                                                    <constraint firstItem="gQA-ya-huR" firstAttribute="top" secondItem="nAw-VA-RWj" secondAttribute="top" constant="8" id="ZxK-Sk-sf3"/>
+                                                    <constraint firstAttribute="bottom" secondItem="LYu-zr-4xp" secondAttribute="bottom" constant="8" id="kOd-p1-bid"/>
+                                                    <constraint firstItem="gQA-ya-huR" firstAttribute="leading" secondItem="nAw-VA-RWj" secondAttribute="leading" constant="8" id="liF-iv-bcg"/>
+                                                    <constraint firstItem="LYu-zr-4xp" firstAttribute="top" secondItem="gQA-ya-huR" secondAttribute="bottom" constant="2" id="wZA-6h-e4w"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -322,7 +352,7 @@
                     <navigationItem key="navigationItem" title="Analytics" id="iQ1-Po-MQq"/>
                     <connections>
                         <outlet property="cachedLabel" destination="lwR-AH-LqO" id="g90-ob-hZM"/>
-                        <outlet property="countries" destination="LYu-zr-4xp" id="shR-cS-e5S"/>
+                        <outlet property="countriesTable" destination="LYu-zr-4xp" id="WXK-k3-Mbj"/>
                         <outlet property="cpmLabel" destination="1ys-zO-40g" id="T3k-rg-tY8"/>
                         <outlet property="cprLabel" destination="Rh1-q1-8q5" id="Nhg-OS-gVf"/>
                         <outlet property="pageviewsLabel" destination="Ggr-Se-5v5" id="9gc-FE-PSf"/>

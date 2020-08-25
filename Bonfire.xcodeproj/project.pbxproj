@@ -120,8 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				C7A5567224DE51CE00C21123 /* ViewModel */,
-				C7B95A2C24DE4C0B00459A5C /* ViewController.swift */,
 				C73F9E9824EF5A5A0014B594 /* AnalyticsViewController.swift */,
+				C7B95A2C24DE4C0B00459A5C /* ViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

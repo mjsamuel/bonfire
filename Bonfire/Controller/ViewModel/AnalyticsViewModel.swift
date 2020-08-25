@@ -14,7 +14,6 @@ struct AnalyticsViewModel {
     private var threats: Int = 0
     private var cached: Int = 0
     private var uncached: Int = 0
-    private var percentCached: Float = 0
     private var countries: [String: Int] = [:]
     private var costPerMonth: Float = 0
     private var costPerRequest: Float = 0
@@ -31,9 +30,6 @@ struct AnalyticsViewModel {
             self.uncached = rawData["requests_uncached"] as! Int
             
             self.countries = rawData["top_countries"] as! [String: Int]
-            
-            let allRequests: Int = self.cached + self.uncached
-            self.percentCached = Float(self.cached) / Float(allRequests) * 100
         }
     }
     
@@ -54,11 +50,29 @@ struct AnalyticsViewModel {
     }
     
     public func getPercentCached() -> String {
+        let allRequests: Int = self.cached + self.uncached
+        let percentCached: Float = Float(self.cached) / Float(allRequests) * 100
+        
         return String(percentCached)
     }
     
-    public func getCountries() -> [String: Int] {
-        return countries
+    /**
+     Returns a sorted array of countries
+     */
+    public func getCountries() -> [Country] {
+        var countriesArray: [Country] = []
+        
+        //  Converting retrieved countries to an array of countries
+        for(country, noRequests) in countries {
+            countriesArray.append(Country(name: country, noRequests: noRequests))
+        }
+        
+        // Sorting the array from largest to smallest number of requests
+        countriesArray.sort {
+            $0.noRequests > $1.noRequests
+        }
+        
+        return countriesArray
     }
     
     public func getCostPerMonth() -> String {
@@ -68,4 +82,16 @@ struct AnalyticsViewModel {
     public func getCostPerRequest() -> String {
         return String(costPerRequest)
     }
+}
+
+/**
+ Helper struct to store and pass around country information
+ 
+ - Parameters
+    - name: The name of the country
+    - noRequests: The number of requests for that country
+ */
+struct Country {
+    let name: String
+    let noRequests: Int
 }
