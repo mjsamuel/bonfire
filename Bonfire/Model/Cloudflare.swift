@@ -6,3 +6,342 @@
 //
 
 import Foundation
+
+struct Cloudflare {
+    
+    init(email: String, apiKey: String) {}
+    
+    /**
+     Calls Clourflares's get zones API endpoint and returns a list of all zones
+     API documentation:
+     [GET zones](https://api.cloudflare.com/#zone-list-zones)
+     
+     - Returns: A dictionary containing relevant data points
+     */
+    public func getZones() -> [Zone] {
+        let retVal: [Zone] = [
+            Zone(name: "example.com", id: "023e105f4ecef8ad9ca31a8372d0c353"),
+            Zone(name: "test.com", id: "353c0d2738a13ac9da8fece4f501e320"),
+            Zone(name: "a.site", id: "853e105f4ecef8ad9ca31a8372d0c432")
+        ]
+        
+        return retVal
+    }
+    
+    /**
+     Calls Clourflare's analytics API endpoint and returns certain data points
+     
+     API documentation:
+     [GET zones/:zone_identifier/analytics/dashboard](https://api.cloudflare.com/#zone-analytics-dashboard)
+     
+     - Parameters:
+        - zoneId: The id of the zone that you want analytics for
+     - Returns: A dictionary containing relevant data points
+     */
+    public func getAnalytics(zoneId: String) -> [String: Any]? {
+        let data: Data = """
+            {
+              "success": true,
+              "errors": [],
+              "messages": [],
+              "result": {
+                "totals": {
+                  "since": "2015-01-01T12:23:00Z",
+                  "until": "2015-01-02T12:23:00Z",
+                  "requests": {
+                    "all": 2000,
+                    "cached": 750,
+                    "uncached": 1250,
+                    "content_type": {
+                      "css": 15343,
+                      "html": 1234213,
+                      "javascript": 318236,
+                      "gif": 23178,
+                      "jpeg": 1982048
+                    },
+                    "country": {
+                      "US": 4181364,
+                      "AU": 37298,
+                      "GB": 293846
+                    },
+                    "ssl": {
+                      "encrypted": 12978361,
+                      "unencrypted": 781263
+                    },
+                    "ssl_protocols": {
+                      "TLSv1": 398232,
+                      "TLSv1.1": 12532236,
+                      "TLSv1.2": 2447136,
+                      "TLSv1.3": 10483332,
+                      "none": 781263
+                    },
+                    "http_status": {
+                      "200": 13496983,
+                      "301": 283,
+                      "400": 187936,
+                      "402": 1828,
+                      "404": 1293
+                    }
+                  },
+                  "bandwidth": {
+                    "all": 213867451,
+                    "cached": 113205063,
+                    "uncached": 113205063,
+                    "content_type": {
+                      "css": 237421,
+                      "html": 1231290,
+                      "javascript": 123245,
+                      "gif": 1234242,
+                      "jpeg": 784278
+                    },
+                    "country": {
+                      "US": 123145433,
+                      "AG": 2342483,
+                      "GI": 984753
+                    },
+                    "ssl": {
+                      "encrypted": 37592942,
+                      "unencrypted": 237654192
+                    },
+                    "ssl_protocols": {
+                      "TLSv1": 398232,
+                      "TLSv1.1": 12532236,
+                      "TLSv1.2": 2447136,
+                      "TLSv1.3": 10483332,
+                      "none": 781263
+                    }
+                  },
+                  "threats": {
+                    "all": 23423873,
+                    "country": {
+                      "US": 123,
+                      "CN": 523423,
+                      "AU": 91
+                    },
+                    "type": {
+                      "user.ban.ip": 123,
+                      "hot.ban.unknown": 5324,
+                      "macro.chl.captchaErr": 1341,
+                      "macro.chl.jschlErr": 5323
+                    }
+                  },
+                  "pageviews": {
+                    "all": 5724723,
+                    "search_engine": {
+                      "googlebot": 35272,
+                      "pingdom": 13435,
+                      "bingbot": 5372,
+                      "baidubot": 1345
+                    }
+                  },
+                  "uniques": {
+                    "all": 12343
+                  }
+                },
+                "timeseries": [
+                  {
+                    "since": "2015-01-01T12:23:00Z",
+                    "until": "2015-01-02T12:23:00Z",
+                    "requests": {
+                      "all": 1234085328,
+                      "cached": 1234085328,
+                      "uncached": 13876154,
+                      "content_type": {
+                        "css": 15343,
+                        "html": 1234213,
+                        "javascript": 318236,
+                        "gif": 23178,
+                        "jpeg": 1982048
+                      },
+                      "country": {
+                        "US": 4181364,
+                        "AG": 37298,
+                        "GI": 293846
+                      },
+                      "ssl": {
+                        "encrypted": 12978361,
+                        "unencrypted": 781263
+                      },
+                      "ssl_protocols": {
+                        "TLSv1": 398232,
+                        "TLSv1.1": 12532236,
+                        "TLSv1.2": 2447136,
+                        "TLSv1.3": 10483332,
+                        "none": 781263
+                      },
+                      "http_status": {
+                        "200": 13496983,
+                        "301": 283,
+                        "400": 187936,
+                        "402": 1828,
+                        "404": 1293
+                      }
+                    },
+                    "bandwidth": {
+                      "all": 213867451,
+                      "cached": 113205063,
+                      "uncached": 113205063,
+                      "content_type": {
+                        "css": 237421,
+                        "html": 1231290,
+                        "javascript": 123245,
+                        "gif": 1234242,
+                        "jpeg": 784278
+                      },
+                      "country": {
+                        "US": 123145433,
+                        "AG": 2342483,
+                        "GI": 984753
+                      },
+                      "ssl": {
+                        "encrypted": 37592942,
+                        "unencrypted": 237654192
+                      },
+                      "ssl_protocols": {
+                        "TLSv1": 398232,
+                        "TLSv1.1": 12532236,
+                        "TLSv1.2": 2447136,
+                        "TLSv1.3": 10483332,
+                        "none": 781263
+                      }
+                    },
+                    "threats": {
+                      "all": 23423873,
+                      "country": {
+                        "US": 123,
+                        "CN": 523423,
+                        "AU": 91
+                      },
+                      "type": {
+                        "user.ban.ip": 123,
+                        "hot.ban.unknown": 5324,
+                        "macro.chl.captchaErr": 1341,
+                        "macro.chl.jschlErr": 5323
+                      }
+                    },
+                    "pageviews": {
+                      "all": 5724723,
+                      "search_engine": {
+                        "googlebot": 35272,
+                        "pingdom": 13435,
+                        "bingbot": 5372,
+                        "baidubot": 1345
+                      }
+                    },
+                    "uniques": {
+                      "all": 12343
+                    }
+                  }
+                ]
+              },
+              "query": {
+                "since": "2015-01-01T12:23:00Z",
+                "until": "2015-01-02T12:23:00Z",
+                "time_delta": 60
+              }
+            }
+        """.data(using: .utf8)!
+        
+        let json: [String: Any]
+        do {
+            json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+        } catch {
+            return nil
+        }
+        
+        guard let results = json["result"] as? [String: Any],
+            let totals = results["totals"] as? [String: Any],
+            let requests = totals["requests"] as? [String: Any],
+            let requests_cached = requests["cached"] as? Int,
+            let requests_uncached = requests["uncached"] as? Int,
+            let top_countries = requests["country"] as? [String: Int],
+            let threats = totals["threats"] as? [String: Any],
+            let threats_all = threats["all"] as? Int,
+            let pageviews = totals["pageviews"] as? [String: Any],
+            let pageviews_all = pageviews["all"] as? Int
+        else {
+            return nil
+        }
+        
+        return [
+            "requests_cached": requests_cached,
+            "requests_uncached": requests_uncached,
+            "top_countries": top_countries,
+            "threats": threats_all,
+            "pageviews": pageviews_all
+        ]
+    }
+    
+    /**
+     Calls Clourflare's billing API endpoint and retrieves their subscription costs
+     
+     API documentation:
+     [GET user/subscriptions](https://api.cloudflare.com/#user-subscription-properties)
+     
+     - Returns: The cost per month of the user's subscription
+     */
+    public func getCosts() -> Float? {
+        let data: Data = """
+            {
+              "success": true,
+              "errors": [],
+              "messages": [],
+              "result": [
+                {
+                  "app": {
+                    "install_id": null
+                  },
+                  "id": "506e3185e9c882d175a2d0cb0093d9f2",
+                  "state": "Paid",
+                  "price": 20,
+                  "currency": "USD",
+                  "component_values": [
+                    {
+                      "name": "page_rules",
+                      "value": 20,
+                      "default": 5,
+                      "price": 5
+                    }
+                  ],
+                  "zone": {
+                    "id": "023e105f4ecef8ad9ca31a8372d0c353",
+                    "name": "example.com"
+                  },
+                  "frequency": "monthly",
+                  "rate_plan": {
+                    "id": "free",
+                    "public_name": "Business Plan",
+                    "currency": "USD",
+                    "scope": "zone",
+                    "sets": [
+                      {}
+                    ],
+                    "is_contract": false,
+                    "externally_managed": false
+                  },
+                  "current_period_end": "2014-03-31T12:20:00Z",
+                  "current_period_start": "2014-05-11T12:20:00Z"
+                }
+              ]
+            }
+        """.data(using: .utf8)!
+        
+        let json: [String: Any]
+        do {
+            json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+        } catch {
+            return nil
+        }
+        
+        guard let resultsArray = json["result"] as? [Any],
+            let results = resultsArray[0] as? [String: Any],
+            let price = results["price"] as? Float
+        else {
+                return nil
+        }
+        
+        print(price)
+        
+        return price
+    }
+}
