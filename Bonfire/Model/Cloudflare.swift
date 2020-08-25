@@ -12,7 +12,7 @@ struct Cloudflare {
     init(email: String, apiKey: String) {}
     
     /**
-     Calls Clourflares's get zones API endpoint and returns all of them
+     Calls Clourflares's get zones API endpoint and returns a list of all zones
      API documentation:
      [GET zones](https://api.cloudflare.com/#zone-list-zones)
      
@@ -270,5 +270,78 @@ struct Cloudflare {
             "threats": threats_all,
             "pageviews": pageviews_all
         ]
+    }
+    
+    /**
+     Calls Clourflare's billing API endpoint and retrieves their subscription costs
+     
+     API documentation:
+     [GET user/subscriptions](https://api.cloudflare.com/#user-subscription-properties)
+     
+     - Returns: The cost per month of the user's subscription
+     */
+    public func getCosts() -> Float? {
+        let data: Data = """
+            {
+              "success": true,
+              "errors": [],
+              "messages": [],
+              "result": [
+                {
+                  "app": {
+                    "install_id": null
+                  },
+                  "id": "506e3185e9c882d175a2d0cb0093d9f2",
+                  "state": "Paid",
+                  "price": 20,
+                  "currency": "USD",
+                  "component_values": [
+                    {
+                      "name": "page_rules",
+                      "value": 20,
+                      "default": 5,
+                      "price": 5
+                    }
+                  ],
+                  "zone": {
+                    "id": "023e105f4ecef8ad9ca31a8372d0c353",
+                    "name": "example.com"
+                  },
+                  "frequency": "monthly",
+                  "rate_plan": {
+                    "id": "free",
+                    "public_name": "Business Plan",
+                    "currency": "USD",
+                    "scope": "zone",
+                    "sets": [
+                      {}
+                    ],
+                    "is_contract": false,
+                    "externally_managed": false
+                  },
+                  "current_period_end": "2014-03-31T12:20:00Z",
+                  "current_period_start": "2014-05-11T12:20:00Z"
+                }
+              ]
+            }
+        """.data(using: .utf8)!
+        
+        let json: [String: Any]
+        do {
+            json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+        } catch {
+            return nil
+        }
+        
+        guard let resultsArray = json["result"] as? [Any],
+            let results = resultsArray[0] as? [String: Any],
+            let price = results["price"] as? Float
+        else {
+                return nil
+        }
+        
+        print(price)
+        
+        return price
     }
 }

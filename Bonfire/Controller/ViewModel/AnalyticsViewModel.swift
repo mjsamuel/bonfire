@@ -16,7 +16,6 @@ struct AnalyticsViewModel {
     private var uncached: Int = 0
     private var countries: [String: Int] = [:]
     private var costPerMonth: Float = 0
-    private var costPerRequest: Float = 0
     
     init() {
         updateData()
@@ -32,6 +31,10 @@ struct AnalyticsViewModel {
             self.cached = rawData["requests_cached"] as! Int
             self.uncached = rawData["requests_uncached"] as! Int
             self.countries = rawData["top_countries"] as! [String: Int]
+        }
+        
+        if let priceData = bonfire.cloudflare!.getCosts() {
+            self.costPerMonth = priceData
         }
     }
     
@@ -83,17 +86,19 @@ struct AnalyticsViewModel {
     }
     
     public func getCostPerRequest() -> String {
+        let allRequests: Int = self.cached + self.uncached
+        let costPerRequest: Float = self.costPerMonth / Float(allRequests)
+        
         return String(costPerRequest)
     }
     
     /**
-     Converts an ISO 3166 country code to a country name
+     Converts several ISO 3166 country codes to their country name
      
      - Parameters:
         - countryCode: A valid ISO 3166 country code
      - Returns: The country name if successful or the passed in code if unsuccessful
      */
-
     private func getCountry(countryCode: String) -> String {
         let countryName: String
         
