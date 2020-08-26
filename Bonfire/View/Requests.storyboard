@@ -26,23 +26,25 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IEv-MW-DMX">
-                                            <rect key="frame" x="16" y="11.5" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="16" y="12" width="224" height="19.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="din-8z-rvv">
-                                            <rect key="frame" x="262" y="11.5" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="din-8z-rvv">
+                                            <rect key="frame" x="240" y="13" width="64" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="IEv-MW-DMX" firstAttribute="centerY" secondItem="aYR-fd-xAs" secondAttribute="centerY" id="0bL-9y-X4m"/>
-                                        <constraint firstItem="din-8z-rvv" firstAttribute="centerY" secondItem="aYR-fd-xAs" secondAttribute="centerY" id="MzF-gF-eBX"/>
-                                        <constraint firstItem="IEv-MW-DMX" firstAttribute="leading" secondItem="aYR-fd-xAs" secondAttribute="leading" constant="16" id="iqf-VH-lYE"/>
-                                        <constraint firstAttribute="trailing" secondItem="din-8z-rvv" secondAttribute="trailing" constant="16" id="q1L-4H-vj9"/>
+                                        <constraint firstItem="din-8z-rvv" firstAttribute="leading" secondItem="IEv-MW-DMX" secondAttribute="trailing" id="0wa-oh-JNa"/>
+                                        <constraint firstItem="din-8z-rvv" firstAttribute="centerY" secondItem="aYR-fd-xAs" secondAttribute="centerY" id="RbW-NX-t1m"/>
+                                        <constraint firstItem="IEv-MW-DMX" firstAttribute="width" secondItem="aYR-fd-xAs" secondAttribute="width" multiplier="0.7" id="UCF-Ct-FhO"/>
+                                        <constraint firstItem="IEv-MW-DMX" firstAttribute="leading" secondItem="aYR-fd-xAs" secondAttribute="leading" constant="16" id="Unz-st-bVz"/>
+                                        <constraint firstItem="IEv-MW-DMX" firstAttribute="centerY" secondItem="aYR-fd-xAs" secondAttribute="centerY" id="VQS-8g-Ua6"/>
+                                        <constraint firstAttribute="trailing" secondItem="din-8z-rvv" secondAttribute="trailing" constant="16" id="vPo-Rs-D4z"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -57,7 +59,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UOK-Lw-ymx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1594" y="20"/>
+            <point key="canvasLocation" x="1593.75" y="19.014084507042252"/>
         </scene>
         <!--Requests-->
         <scene sceneID="9SB-Ig-ii9">

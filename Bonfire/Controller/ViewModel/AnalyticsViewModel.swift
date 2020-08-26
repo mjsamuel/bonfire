@@ -25,7 +25,7 @@ struct AnalyticsViewModel {
      Pulls data from the Cloudflare API
      */
     public mutating func updateData() {
-        if let rawData = bonfire.cloudflare!.getAnalytics(zoneId: "test") {
+        if let rawData = bonfire.cloudflare!.getAnalytics(zoneId: bonfire.currentZone!.getId()) {
             self.pageviews = rawData["pageviews"] as! Int
             self.threats = rawData["threats"] as! Int
             self.cached = rawData["requests_cached"] as! Int

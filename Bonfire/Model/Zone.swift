@@ -17,4 +17,8 @@ struct Zone {
         self.id = id
     }
     
+    public func getId() -> String {
+        return self.id
+    }
+    
 }
