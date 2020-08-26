@@ -14,6 +14,8 @@
 		C71E19D524EABE79001E83C1 /* DNS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71E19D424EABE79001E83C1 /* DNS.storyboard */; };
 		C71E19D724EABE88001E83C1 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71E19D624EABE88001E83C1 /* Settings.storyboard */; };
 		C73F9E9924EF5A5A0014B594 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73F9E9824EF5A5A0014B594 /* AnalyticsViewController.swift */; };
+		C7816C2224F54A50001DCF48 /* RequestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7816C2124F54A50001DCF48 /* RequestsViewModel.swift */; };
+		C7816C2424F54A69001DCF48 /* RequestsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7816C2324F54A69001DCF48 /* RequestsController.swift */; };
 		C7A5567424DE536E00C21123 /* Cloudflare.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A5567324DE536E00C21123 /* Cloudflare.swift */; };
 		C7A5567624DE55A900C21123 /* AnalyticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A5567524DE55A900C21123 /* AnalyticsViewModel.swift */; };
 		C7B95A2B24DE4C0B00459A5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B95A2A24DE4C0B00459A5C /* AppDelegate.swift */; };
@@ -51,6 +53,8 @@
 		C71E19D424EABE79001E83C1 /* DNS.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DNS.storyboard; sourceTree = "<group>"; };
 		C71E19D624EABE88001E83C1 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		C73F9E9824EF5A5A0014B594 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
+		C7816C2124F54A50001DCF48 /* RequestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsViewModel.swift; sourceTree = "<group>"; };
+		C7816C2324F54A69001DCF48 /* RequestsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsController.swift; sourceTree = "<group>"; };
 		C7A5567324DE536E00C21123 /* Cloudflare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloudflare.swift; sourceTree = "<group>"; };
 		C7A5567524DE55A900C21123 /* AnalyticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewModel.swift; sourceTree = "<group>"; };
 		C7B95A2724DE4C0B00459A5C /* Bonfire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bonfire.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,6 +125,7 @@
 			children = (
 				C7A5567224DE51CE00C21123 /* ViewModel */,
 				C73F9E9824EF5A5A0014B594 /* AnalyticsViewController.swift */,
+				C7816C2324F54A69001DCF48 /* RequestsController.swift */,
 				C7B95A2C24DE4C0B00459A5C /* ViewController.swift */,
 			);
 			path = Controller;
@@ -130,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				C7A5567524DE55A900C21123 /* AnalyticsViewModel.swift */,
+				C7816C2124F54A50001DCF48 /* RequestsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -331,6 +337,8 @@
 				C7B95A2B24DE4C0B00459A5C /* AppDelegate.swift in Sources */,
 				C7A5567624DE55A900C21123 /* AnalyticsViewModel.swift in Sources */,
 				C73F9E9924EF5A5A0014B594 /* AnalyticsViewController.swift in Sources */,
+				C7816C2224F54A50001DCF48 /* RequestsViewModel.swift in Sources */,
+				C7816C2424F54A69001DCF48 /* RequestsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -43,8 +43,4 @@ class Bonfire {
         currentZone = nil
     }
     
-    public func setCurrentZone() {
-        
-    }
-    
 }

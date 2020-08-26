@@ -340,8 +340,95 @@ struct Cloudflare {
                 return nil
         }
         
-        print(price)
-        
         return price
+    }
+    
+    /**
+     Calls Clourflare's GraphQL API to retrieve a list of incoming requests
+     
+     API documentation:
+     [GraphQL](https://developers.cloudflare.com/analytics/graphql-api/tutorials/querying-firewall-events)
+     - Parameters:
+        - zoneId: The id of the zone that you want the list of requests for
+     - Returns: The cost per month of the user's subscription
+     */
+    public func getRequests(zoneId: String) -> [[String: Any]]? {
+        let data: Data = """
+            {
+              "data": {
+                "viewer": {
+                  "zones": [
+                    {
+                      "firewallEventsAdaptive": [
+                        {
+                          "action": "get",
+                          "clientAsn": "5089",
+                          "clientCountryName": "AU",
+                          "clientIP": "220.253.122.100",
+                          "clientRequestPath": "/%3Cscript%3Ealert()%3C/script%3E",
+                          "clientRequestQuery": "",
+                          "datetime": "2020-08-26T06:34:20+0000",
+                          "source": "waf",
+                          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36"
+                        },
+                        {
+                          "action": "log",
+                          "clientAsn": "5089",
+                          "clientCountryName": "GB",
+                          "clientIP": "203.0.113.69",
+                          "clientRequestPath": "/%3Cscript%3Ealert()%3C/script%3E",
+                          "clientRequestQuery": "",
+                          "datetime": "2020-04-24T10:11:03Z",
+                          "source": "waf",
+                          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36"
+                        },
+                        {
+                          "action": "post",
+                          "clientAsn": "5089",
+                          "clientCountryName": "US",
+                          "clientIP": "203.0.113.233",
+                          "clientRequestPath": "/%3Cscript%3Ealert()%3C/script%3E",
+                          "clientRequestQuery": "",
+                          "datetime": "2020-04-24T09:12:49Z",
+                          "source": "waf",
+                          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36"
+                        },
+                        {
+                          "action": "get",
+                          "clientAsn": "5089",
+                          "clientCountryName": "US",
+                          "clientIP": "203.0.113.233",
+                          "clientRequestPath": "/%3Cscript%3Ealert()%3C/script%3E",
+                          "clientRequestQuery": "",
+                          "datetime": "2020-04-24T09:11:24Z",
+                          "source": "waf",
+                          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              },
+              "errors": null
+            }
+        """.data(using: .utf8)!
+        
+        let json: [String: Any]
+        do {
+            json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+        } catch {
+            return nil
+        }
+        
+        guard let dataArray = json["data"] as? [String: Any],
+            let viewer = dataArray["viewer"] as? [String: Any],
+            let zones = viewer["zones"] as? [Any],
+            let zone = zones[0] as? [String: Any],
+            let requests = zone["firewallEventsAdaptive"] as? [[String: Any]]
+        else {
+            return nil
+        }
+        
+        return requests
     }
 }
