@@ -403,6 +403,35 @@ struct Cloudflare {
                           "datetime": "2020-04-24T09:11:24Z",
                           "source": "waf",
                           "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36"
+                        },
+                        {
+                          "action": "allow",
+                          "clientASNDescription": "ASN-TELSTRA Telstra Corporation Ltd",
+                          "clientAsn": "1221",
+                          "clientCountryName": "AU",
+                          "clientIP": "2001:8003:d4c0:5f00:62a4:4cff:fe5c:b8e0",
+                          "clientRequestHTTPHost": "jwrc.me",
+                          "clientRequestHTTPMethodName": "GET",
+                          "clientRequestHTTPProtocol": "HTTP/2",
+                          "clientRequestPath": "/updatepackages",
+                          "clientRequestQuery": "?token=26760d07c7b06da3ac7d27946b4853e0665c50e0a8b705269b2cfd48f061de2b",
+                          "datetime": "2020-08-28T06:00:01Z",
+                          "rayName": "5c9bcf425b05fe80",
+                          "ruleId": "47520303b099459194235bdf4ebcd3a2",
+                          "source": "firewallrules",
+                          "userAgent": "curl/7.58.0",
+                          "matchIndex": 0,
+                          "metadata": [
+                            {
+                              "key": "filter",
+                              "value": "9ad6a60213524589bb74aed55d908dd0"
+                            },
+                            {
+                              "key": "type",
+                              "value": "customer"
+                            }
+                          ],
+                          "sampleInterval": 1
                         }
                       ]
                     }
