@@ -33,21 +33,30 @@ enum Action: String{
 
 
 struct HostAction{
-    private var actions: [String] = ["Ban", "Challange", "JS Challange"]
-    private var rateLimit: Int = 50     // Amount of requst to allow before being flaged for action
-    private var rateLimitTime: Int = 60 // Time span of requests to be grouped into.
-    private var ipAddress: Int
+    // The action the object is currently classed as. See the Action enum
+    private var action: Action
+    // The IP address of the object. Also known as the hostIP.
+    private var ipAddress: String
     
     // constructor
-    init(ipAddress: Int){
-        self.ipAddress = ipAddress
+    init(action: Action, hostIP: String){
+        self.ipAddress = hostIP
+        self.action = action
     }
     
-    // getter for the list of actions available
-    func getActions() -> [String]{
-        return actions
+    mutating func setAction(selectedAction: Action){
+        
+        // Since the action is changing for the object we can also make the API call to Cloudflare. Only call if the action is different to the current state.
+        if(selectedAction != self.action){
+            sendActionToCloudflare(selectedAction: selectedAction, hostIP: self.ipAddress)
+        }
+        // Update the action
+        self.action = selectedAction
+
     }
     
+    // Send API calls to Clourflare based on the action
+    // NOTE: can refactor this to only be called when the action is changed, however will be kept as a publicly callable method to provide a better and flexible API.
     func sendActionToCloudflare(selectedAction: Action, hostIP:String){
         
         if(selectedAction == Action.normal){

@@ -52,25 +52,31 @@ class RequestsController: UITableViewController {
         
         // Create a message based off the selected action
         var actionMessage:String = selectedAction.rawValue
+        
+        // Modify the message for CAPTCHA challange for readability.
         if selectedAction == Action.CAPTCHAchallange{
             actionMessage = "CAPTCHA Challenge"
         }
         
         // Create the confirm dialogue box
-        let refreshAlert = UIAlertController(title: "Confirm \(actionMessage) for \(hostIP)?", message: selectedAction.description, preferredStyle: UIAlertControllerStyle.alert)
-        // Add the OK option
-        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { (action: UIAlertAction!) in
-            host = HostAction()
-            host.sendActionToCloudflare(selectedAction:selectedAction, hostIP:hostIP)
+        let confirmationAlert = UIAlertController(title: "Confirm \(actionMessage) for \(hostIP)?", message: selectedAction.description, preferredStyle: UIAlertControllerStyle.alert)
+        
+        // Add the OK option, and and update up
+        confirmationAlert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { (action: UIAlertAction!) in
+            var host:HostAction = HostAction(action: selectedAction, hostIP: hostIP)
+            // update the action state
+            host.setAction(selectedAction: selectedAction)
+            // Send the action to Clourflare
+//            host.sendActionToCloudflare(selectedAction:selectedAction, hostIP:hostIP)
         }))
        
         // Add the cancle option
-        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+        confirmationAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
             // Do nothing
         }))
         
         // Display the confirmation dialogue box
-        present(refreshAlert, animated: true, completion: nil)
+        present(confirmationAlert, animated: true, completion: nil)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -136,3 +142,6 @@ class RequestsController: UITableViewController {
     }
     
 }
+
+// NOTE FOR JAMES:
+// need to decide what to do for the object when using the memeory database.
