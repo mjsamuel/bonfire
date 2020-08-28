@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4510CA0224F8F5B700CB32C9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CA0124F8F5B700CB32C9 /* LoginViewController.swift */; };
 		453FE08624F3698400DA3383 /* login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453FE08524F3698400DA3383 /* login.storyboard */; };
 		453FE08E24F3799500DA3383 /* TextFieldWithInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453FE08D24F3799500DA3383 /* TextFieldWithInsets.swift */; };
 		C71E19CC24EAB8C9001E83C1 /* Analytics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71E19CB24EAB8C9001E83C1 /* Analytics.storyboard */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4510CA0124F8F5B700CB32C9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		453FE08524F3698400DA3383 /* login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = login.storyboard; sourceTree = "<group>"; };
 		453FE08D24F3799500DA3383 /* TextFieldWithInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithInsets.swift; sourceTree = "<group>"; };
 		C71E19CB24EAB8C9001E83C1 /* Analytics.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Analytics.storyboard; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				C7A5567524DE55A900C21123 /* AnalyticsViewModel.swift */,
+				4510CA0124F8F5B700CB32C9 /* LoginViewController.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4510CA0224F8F5B700CB32C9 /* LoginViewController.swift in Sources */,
 				C7A5567424DE536E00C21123 /* Cloudflare.swift in Sources */,
 				C7B95A2D24DE4C0B00459A5C /* ViewController.swift in Sources */,
 				C7B95A3324DE4C0B00459A5C /* Bonfire.xcdatamodeld in Sources */,
