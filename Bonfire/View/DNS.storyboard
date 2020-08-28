@@ -53,6 +53,9 @@
                                         <constraint firstItem="EZo-bv-uwq" firstAttribute="centerY" secondItem="aX7-Xy-wfy" secondAttribute="centerY" id="ovk-DQ-vrV"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="iU2-Y7-NK8" kind="show" id="qBu-0D-Mam"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
@@ -69,7 +72,7 @@
             </objects>
             <point key="canvasLocation" x="939.375" y="-17.95774647887324"/>
         </scene>
-        <!--New DNS-->
+        <!--View Controller-->
         <scene sceneID="lq3-oV-0YL">
             <objects>
                 <viewController id="iU2-Y7-NK8" sceneMemberID="viewController">
@@ -78,25 +81,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SSL-We-VPP" userLabel="Name Text Field">
-                                <rect key="frame" x="86" y="127" width="218" height="30"/>
+                                <rect key="frame" x="86" y="80" width="218" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2DB-bR-vQq" userLabel="Content Text Field">
-                                <rect key="frame" x="86" y="177" width="218" height="30"/>
+                                <rect key="frame" x="86" y="130" width="218" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4j-sW-HQu" userLabel="Name Label">
-                                <rect key="frame" x="12" y="132" width="45" height="21"/>
+                                <rect key="frame" x="12" y="85" width="45" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IoJ-Od-qLO" userLabel="Content Label">
-                                <rect key="frame" x="12" y="182" width="62" height="21"/>
+                                <rect key="frame" x="12" y="135" width="62" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -117,7 +120,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wCA-rk-TIb"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New DNS" id="PVA-L1-Bou">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="PVA-L1-Bou">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="fHn-Bx-6pj"/>
                     </navigationItem>
                 </viewController>
@@ -145,4 +148,7 @@
             <point key="canvasLocation" x="-58.125" y="-17.95774647887324"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="w6v-Ea-y4E"/>
+    </inferredMetricsTieBreakers>
 </document>
