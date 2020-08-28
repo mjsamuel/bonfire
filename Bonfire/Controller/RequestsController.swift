@@ -43,4 +43,14 @@ class RequestsController: UITableViewController {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Get the selected request object from the selected row index.
+        let request: Request = requests[indexPath.row]
+        let hostIP: String = request.origin
+        
+        print("DEBUG: host IP addres selected: \(hostIP)")
+        // Ready to handle action sheet
+    }
+
 }
