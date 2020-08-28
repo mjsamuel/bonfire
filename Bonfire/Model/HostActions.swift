@@ -13,8 +13,9 @@ enum Action: String{
     case JSchallange = "JS challenge" // wait 5 seconds to determine if the host is a legit user.
     case CAPTCHAchallange = "CAPTCHA challenge" // shows the host a CAPTCHA before being allowed to the site
     case ban = "Ban" // bans the host
+    case normal = "Default"
     
-    static let allValues = [allow, JSchallange, CAPTCHAchallange, ban]
+    static let allValues = [allow, JSchallange, CAPTCHAchallange, ban, normal]
     
     // Describes what each action will do.
     var description:String {
@@ -24,14 +25,9 @@ enum Action: String{
         case .JSchallange:return "The JavaScript challenge page requires the visitor to wait 5 seconds while Cloudflare determines if the visitor is coming from a real browser. The challenge requires the visitor's browser to answer a math problem which takes a bit of time to compute. Once successfully answered, the browser will be remembered and won't be challenged again."
         case .CAPTCHAchallange:return "Specified IP addresses will be shown a CAPTCHA before being allowed to access your website"
         case .ban:return "Ensures that an IP address will never be allowed to access your website"
+        case .normal:return "Removes any action previously set. The IP can access your site as normal."
         }
     }
-    
-    
-    var toString:[String]{
-        return ["a", "b", "c"]
-    }
-    
     
 }
 
@@ -52,6 +48,14 @@ struct HostAction{
         return actions
     }
     
+    func sendActionToCloudflare(selectedAction: Action, hostIP:String){
+        
+        if(selectedAction == Action.normal){
+            print("DEBUG: Sending API call to Cloudflare to remove any firewall rule (action)")
+        }else{
+            print("DEBUG: Sending API call to Cloudflare to: \(selectedAction) the IP: \(hostIP)")
+        }
+    }
     
     
 }

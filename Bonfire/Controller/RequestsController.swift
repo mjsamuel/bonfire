@@ -48,18 +48,25 @@ class RequestsController: UITableViewController {
     }
     
     // Promts user to confirm banning the selected IP address
-    func confirmBanAction(hostIP :String){
+    func confirmAction(selectedAction :Action ,hostIP :String){
+        
+        // Create a message based off the selected action
+        var actionMessage:String = selectedAction.rawValue
+        if selectedAction == Action.CAPTCHAchallange{
+            actionMessage = "CAPTCHA Challenge"
+        }
         
         // Create the confirm dialogue box
-        let refreshAlert = UIAlertController(title: "Confirm banning \(hostIP)?", message: "This IP will never be allowed to access the site again!", preferredStyle: UIAlertControllerStyle.alert)
+        let refreshAlert = UIAlertController(title: "Confirm \(actionMessage) for \(hostIP)?", message: selectedAction.description, preferredStyle: UIAlertControllerStyle.alert)
         // Add the OK option
         refreshAlert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { (action: UIAlertAction!) in
-            print("Handle Ok logic here")
+            host = HostAction()
+            host.sendActionToCloudflare(selectedAction:selectedAction, hostIP:hostIP)
         }))
-        
+       
         // Add the cancle option
         refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
-            print("Handle Cancel Logic here")
+            // Do nothing
         }))
         
         // Display the confirmation dialogue box
@@ -74,30 +81,46 @@ class RequestsController: UITableViewController {
         print("DEBUG: host IP addres selected: \(hostIP)")
         
         // -- Handle action sheet --
-    
+        
         // Define the Action Sheet
         let actionSheet = UIAlertController(title: "Chose action for \(hostIP)", message:nil, preferredStyle: .actionSheet)
         
         // Define the Ban Action
-        let ban = UIAlertAction(title: "Ban", style: .destructive){ action in
-            self.confirmBanAction(hostIP:hostIP)
+        let ban = UIAlertAction(title: Action.ban.rawValue, style: .destructive){ action in
+            
+            // Send off the action to the confirmation handler
+            let selectedAction:Action = Action.ban
+            self.confirmAction(selectedAction: selectedAction, hostIP:hostIP)
         }
+        
         
         // Define the JS Challenge Action
         let jsChallenge = UIAlertAction(title: "JS Challenge", style: .default){ action in
             
+            // Send off the action to the confirmation handler
+            let selectedAction:Action = Action.JSchallange
+            self.confirmAction(selectedAction: selectedAction, hostIP:hostIP)
         }
-        
+
+
         // Define the CAPTCHA Challenge Action
         let captchaChallenge = UIAlertAction(title: "CAPTCHA Challenge", style: .default){ action in
+            
+            // Send off the action to the confirmation handler
+            let selectedAction:Action = Action.CAPTCHAchallange
+            self.confirmAction(selectedAction: selectedAction, hostIP:hostIP)
         }
         
         // Define the Allow action
         let allow = UIAlertAction(title: "Allow", style: .default){ action in
+            
+            // Send off the action to the confirmation handler
+            let selectedAction:Action = Action.allow
+            self.confirmAction(selectedAction: selectedAction, hostIP:hostIP)
         }
         
         // Define an option to Cancel
-        let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         // Add actions to the action sheet.
         actionSheet.addAction(jsChallenge)
