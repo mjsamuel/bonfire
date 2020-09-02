@@ -9,9 +9,6 @@
 import UIKit
 
 class SelectZoneController: UITableViewController {
-    
-    // Constants for static content before accessing the API
-    let zones = ["google.com", "facebook.com", "github.com", "rmit.edu.au", "kurrt.com", "а.site"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,23 +23,22 @@ class SelectZoneController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return zones.count
+        return Bonfire.sharedInstance.zones?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "zoneListCell", for: indexPath)
-        cell.textLabel?.text = zones[indexPath.row] // Set the text
+        cell.textLabel?.text = Bonfire.sharedInstance.zones![indexPath.row].name // Set the text
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Here we will store the currently selected zone information
+        // Here we store the currently selected zone information
+        Bonfire.sharedInstance.currentZone = Bonfire.sharedInstance.zones![indexPath.row]
         self.dismiss(animated: true, completion: nil)
     }
 

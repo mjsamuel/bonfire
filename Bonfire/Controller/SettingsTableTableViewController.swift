@@ -79,10 +79,14 @@ class SettingsTableTableViewController: UITableViewController {
     }
     
     func logout(deselectIndex indexPath: IndexPath?) {
-        // Here we will later remove the stored credentials
-        // Send the user to the login screen
         if (indexPath != nil) {
             self.tableView.deselectRow(at: indexPath!, animated: true)
+        }
+        // Logout
+        Bonfire.sharedInstance.logout()
+        // Send the user to the login screen
+        if let tbc : MainTabBarController = (self.tabBarController as? MainTabBarController) {
+            tbc.presentLoginView()
         }
     }
 

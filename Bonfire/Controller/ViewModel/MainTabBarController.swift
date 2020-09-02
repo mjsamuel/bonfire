@@ -26,8 +26,12 @@ class MainTabBarController: UITabBarController {
         
         // As of now, because we are not using any storage, this will always be true
         if (bf.cloudflare != nil && !bf.cloudflare!.isLoggedIn) {
-            performSegue(withIdentifier: "PresentLoginSegue", sender: nil)
+            presentLoginView()
         }
+    }
+    
+    public func presentLoginView() {
+        performSegue(withIdentifier: "PresentLoginSegue", sender: nil)
     }
     
 
