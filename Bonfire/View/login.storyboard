@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OYw-Mi-UBY">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -34,13 +34,16 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="next" textContentType="email"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="23"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="emailTextChanged:" destination="OYw-Mi-UBY" eventType="editingChanged" id="bIs-gM-ttm"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="API Key..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zGQ-bt-lNP" customClass="TextFieldWithInsets" customModule="Bonfire" customModuleProvider="target">
                                                 <rect key="frame" x="46" y="426.5" width="322" height="46"/>
@@ -52,15 +55,18 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="go"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="23"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="keyTextChanged:" destination="OYw-Mi-UBY" eventType="editingChanged" id="bkv-3T-QPz"/>
+                                                </connections>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G35-9Y-xvW">
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G35-9Y-xvW">
                                                 <rect key="frame" x="118.5" y="498.5" width="177" height="46"/>
                                                 <color key="backgroundColor" red="0.98431372549019602" green="0.27843137254901962" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -70,12 +76,20 @@
                                                 <state key="normal" title="Login">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <state key="disabled">
+                                                    <color key="titleColor" red="1" green="0.68627450980000004" blue="0.51372549020000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="23"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="touchDownLogin:" destination="OYw-Mi-UBY" eventType="touchDown" id="r1d-7X-OvF"/>
+                                                    <action selector="touchUpLogin:" destination="OYw-Mi-UBY" eventType="touchUpOutside" id="0pe-ce-Evx"/>
+                                                    <action selector="tryLogin:" destination="OYw-Mi-UBY" eventType="touchUpInside" id="1iz-Xg-bG3"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="main_logo" translatesAutoresizingMaskIntoConstraints="NO" id="2Cl-Ob-vam">
                                                 <rect key="frame" x="83" y="90" width="248" height="248.5"/>
@@ -146,6 +160,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xSh-qJ-QMJ"/>
                     </view>
+                    <connections>
+                        <outlet property="emailField" destination="Vy9-FO-h50" id="1In-lb-9YS"/>
+                        <outlet property="keyField" destination="zGQ-bt-lNP" id="JlW-OV-nyy"/>
+                        <outlet property="loginButton" destination="G35-9Y-xvW" id="jk7-M9-uQk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nrG-MJ-jb0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

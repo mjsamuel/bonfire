@@ -10,6 +10,10 @@
 		4510CA0224F8F5B700CB32C9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CA0124F8F5B700CB32C9 /* LoginViewController.swift */; };
 		453FE08624F3698400DA3383 /* login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453FE08524F3698400DA3383 /* login.storyboard */; };
 		453FE08E24F3799500DA3383 /* TextFieldWithInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453FE08D24F3799500DA3383 /* TextFieldWithInsets.swift */; };
+		455241F524FF7073001051C9 /* Bonfire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455241F424FF7073001051C9 /* Bonfire.swift */; };
+		455241F724FF70B4001051C9 /* HostActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455241F624FF70B4001051C9 /* HostActions.swift */; };
+		455241F924FF70C8001051C9 /* Zone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455241F824FF70C8001051C9 /* Zone.swift */; };
+		455241FB24FF88D3001051C9 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455241FA24FF88D3001051C9 /* MainTabBarController.swift */; };
 		C71E19CC24EAB8C9001E83C1 /* Analytics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71E19CB24EAB8C9001E83C1 /* Analytics.storyboard */; };
 		C71E19D324EABE65001E83C1 /* Requests.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71E19D224EABE65001E83C1 /* Requests.storyboard */; };
 		C71E19D524EABE79001E83C1 /* DNS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71E19D424EABE79001E83C1 /* DNS.storyboard */; };
@@ -47,6 +51,10 @@
 		4510CA0124F8F5B700CB32C9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		453FE08524F3698400DA3383 /* login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = login.storyboard; sourceTree = "<group>"; };
 		453FE08D24F3799500DA3383 /* TextFieldWithInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithInsets.swift; sourceTree = "<group>"; };
+		455241F424FF7073001051C9 /* Bonfire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bonfire.swift; sourceTree = "<group>"; };
+		455241F624FF70B4001051C9 /* HostActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostActions.swift; sourceTree = "<group>"; };
+		455241F824FF70C8001051C9 /* Zone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zone.swift; sourceTree = "<group>"; };
+		455241FA24FF88D3001051C9 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		C71E19CB24EAB8C9001E83C1 /* Analytics.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Analytics.storyboard; sourceTree = "<group>"; };
 		C71E19D224EABE65001E83C1 /* Requests.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Requests.storyboard; sourceTree = "<group>"; };
 		C71E19D424EABE79001E83C1 /* DNS.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DNS.storyboard; sourceTree = "<group>"; };
@@ -106,6 +114,9 @@
 			isa = PBXGroup;
 			children = (
 				C7A5567324DE536E00C21123 /* Cloudflare.swift */,
+				455241F424FF7073001051C9 /* Bonfire.swift */,
+				455241F624FF70B4001051C9 /* HostActions.swift */,
+				455241F824FF70C8001051C9 /* Zone.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -138,6 +149,7 @@
 			children = (
 				C7A5567524DE55A900C21123 /* AnalyticsViewModel.swift */,
 				4510CA0124F8F5B700CB32C9 /* LoginViewController.swift */,
+				455241FA24FF88D3001051C9 /* MainTabBarController.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -333,9 +345,13 @@
 			files = (
 				4510CA0224F8F5B700CB32C9 /* LoginViewController.swift in Sources */,
 				C7A5567424DE536E00C21123 /* Cloudflare.swift in Sources */,
+				455241FB24FF88D3001051C9 /* MainTabBarController.swift in Sources */,
 				C7B95A2D24DE4C0B00459A5C /* ViewController.swift in Sources */,
 				C7B95A3324DE4C0B00459A5C /* Bonfire.xcdatamodeld in Sources */,
 				C7B95A2B24DE4C0B00459A5C /* AppDelegate.swift in Sources */,
+				455241F724FF70B4001051C9 /* HostActions.swift in Sources */,
+				455241F524FF7073001051C9 /* Bonfire.swift in Sources */,
+				455241F924FF70C8001051C9 /* Zone.swift in Sources */,
 				C7A5567624DE55A900C21123 /* AnalyticsViewModel.swift in Sources */,
 				453FE08E24F3799500DA3383 /* TextFieldWithInsets.swift in Sources */,
 			);
