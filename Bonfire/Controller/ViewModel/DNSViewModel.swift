@@ -10,7 +10,7 @@ import Foundation
 
 struct DNSViewModel {
     private let bonfire: Bonfire = Bonfire.sharedInstance
-    private var DNSdata: [[String: Any]] = []
+    private var dnsRecords: [[String: Any]] = []
     
     init() {
         updateData()
@@ -22,8 +22,27 @@ struct DNSViewModel {
     public mutating func updateData() {
         let zoneId = bonfire.currentZone!.getId()
         if let rawDNS = bonfire.cloudflare!.getRequests(zoneId: zoneId) {
-            self.DNSdata = rawDNS
+            self.dnsRecords = rawDNS
         }
+    }
+    
+    public func getDNS() -> [DNS] {
+        var dnsListings: [DNS] = []
+        for dnsListing in dnsRecords {
+            if let name = dnsListing["name"] as? String,
+                let content = dnsListing["content"] as? String,
+                let type = dnsListing["type"] as? String
+            {
+                let dnsRecord: DNS = DNS(
+                name: name,
+                content: content,
+                type: type)
+
+                dnsListings.append(dnsRecord)
+            }
+            
+        }
+        return dnsListings
     }
 }
 
