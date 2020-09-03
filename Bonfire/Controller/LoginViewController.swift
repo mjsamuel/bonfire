@@ -56,7 +56,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func apiKeyHelpButtonPressed(_ sender: UIButton) {
         // Send to cloudflare website for help
-        UIApplication.shared.open(URL(string: "https://developers.cloudflare.com/api/keys")!, options: [:], completionHandler: nil)
+        UIApplication.shared.open(URL(string: "https://support.cloudflare.com/hc/en-us/articles/200167836-Managing-API-Tokens-and-Keys#12345682")!, options: [:], completionHandler: nil)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
