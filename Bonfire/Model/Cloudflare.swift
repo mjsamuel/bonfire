@@ -460,4 +460,54 @@ struct Cloudflare {
         
         return requests
     }
+    
+    public func getDNS(zoneId: String) -> [String: Any]? {
+        let data: Data = """
+            {
+                "success": true,
+                "errors": [],
+            "messages": [],
+            "result": [
+            {
+                "id": "372e67954025e0ba6aaa6d586b9e0b59",
+                "type": "A",
+                "name": "example.com",
+                "content": "198.51.100.4",
+                "proxiable": true,
+                "proxied": false,
+                "ttl": 120,
+                "locked": false,
+                "zone_id": "023e105f4ecef8ad9ca31a8372d0c353",
+                "zone_name": "example.com",
+                "created_on": "2014-01-01T05:20:00.12345Z",
+                "modified_on": "2014-01-01T05:20:00.12345Z",
+                "data": {},
+                "meta": {
+                    "auto_added": true,
+                    "source": "primary"
+                    }
+                }
+            ]
+        }
+        """.data(using: .utf8)!
+        
+        let json: [String: Any]
+        do {
+            json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+        } catch {
+            return nil
+        }
+        
+        guard let results = json["result"] as? [String: Any],
+            let name = results["name"] as? [String: Any],
+            let type = results["type"] as? [String: Any]
+            else {
+                return nil
+        }
+        
+        return [
+            "name": name,
+            "type": type
+        ]
+    }
 }
