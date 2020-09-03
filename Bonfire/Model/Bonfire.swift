@@ -4,7 +4,6 @@
 //
 //  Copyright © 2020 ipse. All rights reserved.
 //
-
 import Foundation
 
 class Bonfire {
@@ -13,7 +12,6 @@ class Bonfire {
     public var cloudflare: Cloudflare?
     public var zones: [Zone]?
     public var currentZone: Zone?
-
     private init() {
         cloudflare = Cloudflare(email: "...", apiKey: "...")
         zones = cloudflare?.getZones()
@@ -31,6 +29,10 @@ class Bonfire {
         cloudflare = Cloudflare(email: email, apiKey: apiKey)
         zones = cloudflare?.getZones()
         currentZone = zones?[0]
+      
+        if (cloudflare != nil) {
+            cloudflare!.isLoggedIn = true
+        }
     }
     
     
