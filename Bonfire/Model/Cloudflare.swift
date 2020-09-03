@@ -8,8 +8,8 @@ import Foundation
 
 struct Cloudflare {
     
+
     public var isLoggedIn = false
-    
     init(email: String, apiKey: String) {}
     
     /**
@@ -37,6 +37,7 @@ struct Cloudflare {
      
      - Parameters:
      - zoneId: The id of the zone that you want analytics for
+
      - Returns: A dictionary containing relevant data points
      */
     public func getAnalytics(zoneId: String) -> [String: Any]? {
@@ -260,6 +261,7 @@ struct Cloudflare {
             let threats_all = threats["all"] as? Int,
             let pageviews = totals["pageviews"] as? [String: Any],
             let pageviews_all = pageviews["all"] as? Int
+
             else {
                 return nil
         }
@@ -455,6 +457,7 @@ struct Cloudflare {
             let zones = viewer["zones"] as? [Any],
             let zone = zones[0] as? [String: Any],
             let requests = zone["firewallEventsAdaptive"] as? [[String: Any]]
+
             else {
                 return nil
         }

@@ -5,6 +5,7 @@
 //  Created by James on 22/8/20.
 //  Copyright © 2020 ipse. All rights reserved.
 //
+
 import Foundation
 
 enum Action: String{
@@ -51,7 +52,7 @@ struct HostAction{
         }
         // Update the action
         self.action = selectedAction
-        
+
     }
     
     // Send API calls to Clourflare based on the action

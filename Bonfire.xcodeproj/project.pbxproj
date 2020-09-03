@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+
 		4510CA0224F8F5B700CB32C9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CA0124F8F5B700CB32C9 /* LoginViewController.swift */; };
 		453FE08024F347F500DA3383 /* SettingsTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453FE07F24F347F500DA3383 /* SettingsTableTableViewController.swift */; };
 		453FE08224F3593600DA3383 /* SelectZone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453FE08124F3593600DA3383 /* SelectZone.storyboard */; };
@@ -21,6 +22,9 @@
 		C71E19D324EABE65001E83C1 /* Requests.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71E19D224EABE65001E83C1 /* Requests.storyboard */; };
 		C71E19D524EABE79001E83C1 /* DNS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71E19D424EABE79001E83C1 /* DNS.storyboard */; };
 		C71E19D724EABE88001E83C1 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71E19D624EABE88001E83C1 /* Settings.storyboard */; };
+		C73F9E9924EF5A5A0014B594 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73F9E9824EF5A5A0014B594 /* AnalyticsViewController.swift */; };
+		C7816C2224F54A50001DCF48 /* RequestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7816C2124F54A50001DCF48 /* RequestsViewModel.swift */; };
+		C7816C2424F54A69001DCF48 /* RequestsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7816C2324F54A69001DCF48 /* RequestsController.swift */; };
 		C7A5567424DE536E00C21123 /* Cloudflare.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A5567324DE536E00C21123 /* Cloudflare.swift */; };
 		C7A5567624DE55A900C21123 /* AnalyticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A5567524DE55A900C21123 /* AnalyticsViewModel.swift */; };
 		C7B95A2B24DE4C0B00459A5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B95A2A24DE4C0B00459A5C /* AppDelegate.swift */; };
@@ -51,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+
 		4510CA0124F8F5B700CB32C9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		453FE07F24F347F500DA3383 /* SettingsTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableTableViewController.swift; sourceTree = "<group>"; };
 		453FE08124F3593600DA3383 /* SelectZone.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectZone.storyboard; sourceTree = "<group>"; };
@@ -65,6 +70,9 @@
 		C71E19D224EABE65001E83C1 /* Requests.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Requests.storyboard; sourceTree = "<group>"; };
 		C71E19D424EABE79001E83C1 /* DNS.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DNS.storyboard; sourceTree = "<group>"; };
 		C71E19D624EABE88001E83C1 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		C73F9E9824EF5A5A0014B594 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
+		C7816C2124F54A50001DCF48 /* RequestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsViewModel.swift; sourceTree = "<group>"; };
+		C7816C2324F54A69001DCF48 /* RequestsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsController.swift; sourceTree = "<group>"; };
 		C7A5567324DE536E00C21123 /* Cloudflare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloudflare.swift; sourceTree = "<group>"; };
 		C7A5567524DE55A900C21123 /* AnalyticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewModel.swift; sourceTree = "<group>"; };
 		C7B95A2724DE4C0B00459A5C /* Bonfire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bonfire.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +127,7 @@
 		C7A5566F24DE518900C21123 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C70132BD24EE98A1003C9B05 /* Bonfire.swift */,
 				C7A5567324DE536E00C21123 /* Cloudflare.swift */,
 				455241F424FF7073001051C9 /* Bonfire.swift */,
 				455241F624FF70B4001051C9 /* HostActions.swift */,
@@ -146,6 +155,8 @@
 			isa = PBXGroup;
 			children = (
 				C7A5567224DE51CE00C21123 /* ViewModel */,
+				C73F9E9824EF5A5A0014B594 /* AnalyticsViewController.swift */,
+				C7816C2324F54A69001DCF48 /* RequestsController.swift */,
 				C7B95A2C24DE4C0B00459A5C /* ViewController.swift */,
 				455241FA24FF88D3001051C9 /* MainTabBarController.swift */,
 				4510CA0124F8F5B700CB32C9 /* LoginViewController.swift */,
@@ -159,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				C7A5567524DE55A900C21123 /* AnalyticsViewModel.swift */,
+				C7816C2124F54A50001DCF48 /* RequestsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -284,6 +296,7 @@
 				TargetAttributes = {
 					C7B95A2624DE4C0B00459A5C = {
 						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1030;
 					};
 					C7B95A3D24DE4C0E00459A5C = {
 						CreatedOnToolsVersion = 10.3;
@@ -356,6 +369,8 @@
 				4510CA0224F8F5B700CB32C9 /* LoginViewController.swift in Sources */,
 				C7A5567424DE536E00C21123 /* Cloudflare.swift in Sources */,
 				455241FB24FF88D3001051C9 /* MainTabBarController.swift in Sources */,
+				C70132BE24EE98A1003C9B05 /* Bonfire.swift in Sources */,
+				C70132C024EEA14A003C9B05 /* Zone.swift in Sources */,
 				C7B95A2D24DE4C0B00459A5C /* ViewController.swift in Sources */,
 				C7B95A3324DE4C0B00459A5C /* Bonfire.xcdatamodeld in Sources */,
 				453FE08024F347F500DA3383 /* SettingsTableTableViewController.swift in Sources */,
@@ -366,6 +381,10 @@
 				455241F924FF70C8001051C9 /* Zone.swift in Sources */,
 				C7A5567624DE55A900C21123 /* AnalyticsViewModel.swift in Sources */,
 				453FE08E24F3799500DA3383 /* TextFieldWithInsets.swift in Sources */,
+				C73F9E9924EF5A5A0014B594 /* AnalyticsViewController.swift in Sources */,
+				C7816C2224F54A50001DCF48 /* RequestsViewModel.swift in Sources */,
+				1AA886BC24F8EA71007432CB /* HostActions.swift in Sources */,
+				C7816C2424F54A69001DCF48 /* RequestsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
