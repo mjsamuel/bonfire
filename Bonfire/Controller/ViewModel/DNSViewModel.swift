@@ -16,9 +16,6 @@ struct DNSViewModel {
         updateData()
     }
     
-    /**
-     Pulls data from the Cloudflare API
-     */
     public mutating func updateData() {
         let zoneId = bonfire.currentZone!.getId()
         if let rawDNS = bonfire.cloudflare!.getRequests(zoneId: zoneId) {
@@ -30,12 +27,10 @@ struct DNSViewModel {
         var dnsListings: [DNS] = []
         for dnsListing in dnsRecords {
             if let name = dnsListing["name"] as? String,
-                let content = dnsListing["content"] as? String,
                 let type = dnsListing["type"] as? String
             {
                 let dnsRecord: DNS = DNS(
                 name: name,
-                content: content,
                 type: type)
 
                 dnsListings.append(dnsRecord)
@@ -48,6 +43,7 @@ struct DNSViewModel {
 
 struct DNS {
     let name: String
-    let content: String
     let type: String
 }
+
+// TOP PRIORITY: CLEAN UP CODE NAMING CONVENTIONS FOR DNSLISTING and DNSRECORDS variables and those like it.

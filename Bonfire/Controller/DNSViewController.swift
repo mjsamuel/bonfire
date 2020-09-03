@@ -24,21 +24,20 @@ class DNSViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
 //        return dnsRecords.count()
+//         NOTE: DOES NOT WORK??
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dnsIdentifier", for: indexPath)
         
         let test: DNS = dnsRecords[indexPath.row]
+        //        Fatal error: Index out of range?
         
-        let nameLabel = cell.viewWithTag(1000) as? UILabel
-        let typeLabel = cell.viewWithTag(1001) as? UILabel
+        let nameLabel = cell.viewWithTag(1000) as! UILabel
+        let typeLabel = cell.viewWithTag(1001) as! UILabel
         
-        let nameText: String = test.name
-        let typeText: String = test.type
-        
-//        nameLabel.text = nameText
-//        typeLabel.text = typeText
+        nameLabel.text = String(test.name)
+        typeLabel.text = String(test.type)
         
         return cell
     }
