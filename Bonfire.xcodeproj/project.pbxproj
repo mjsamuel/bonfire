@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4510CA0224F8F5B700CB32C9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CA0124F8F5B700CB32C9 /* LoginViewController.swift */; };
 		453FE08024F347F500DA3383 /* SettingsTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453FE07F24F347F500DA3383 /* SettingsTableTableViewController.swift */; };
 		453FE08224F3593600DA3383 /* SelectZone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453FE08124F3593600DA3383 /* SelectZone.storyboard */; };
 		453FE08424F3627B00DA3383 /* SelectZoneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453FE08324F3627B00DA3383 /* SelectZoneController.swift */; };
-		4510CA0224F8F5B700CB32C9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CA0124F8F5B700CB32C9 /* LoginViewController.swift */; };
 		453FE08624F3698400DA3383 /* login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453FE08524F3698400DA3383 /* login.storyboard */; };
 		453FE08E24F3799500DA3383 /* TextFieldWithInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453FE08D24F3799500DA3383 /* TextFieldWithInsets.swift */; };
 		455241F524FF7073001051C9 /* Bonfire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455241F424FF7073001051C9 /* Bonfire.swift */; };
@@ -51,10 +51,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4510CA0124F8F5B700CB32C9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		453FE07F24F347F500DA3383 /* SettingsTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableTableViewController.swift; sourceTree = "<group>"; };
 		453FE08124F3593600DA3383 /* SelectZone.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectZone.storyboard; sourceTree = "<group>"; };
 		453FE08324F3627B00DA3383 /* SelectZoneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectZoneController.swift; sourceTree = "<group>"; };
-		4510CA0124F8F5B700CB32C9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		453FE08524F3698400DA3383 /* login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = login.storyboard; sourceTree = "<group>"; };
 		453FE08D24F3799500DA3383 /* TextFieldWithInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithInsets.swift; sourceTree = "<group>"; };
 		455241F424FF7073001051C9 /* Bonfire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bonfire.swift; sourceTree = "<group>"; };
@@ -147,6 +147,8 @@
 			children = (
 				C7A5567224DE51CE00C21123 /* ViewModel */,
 				C7B95A2C24DE4C0B00459A5C /* ViewController.swift */,
+				455241FA24FF88D3001051C9 /* MainTabBarController.swift */,
+				4510CA0124F8F5B700CB32C9 /* LoginViewController.swift */,
 				453FE07F24F347F500DA3383 /* SettingsTableTableViewController.swift */,
 				453FE08324F3627B00DA3383 /* SelectZoneController.swift */,
 			);
@@ -157,8 +159,6 @@
 			isa = PBXGroup;
 			children = (
 				C7A5567524DE55A900C21123 /* AnalyticsViewModel.swift */,
-				4510CA0124F8F5B700CB32C9 /* LoginViewController.swift */,
-				455241FA24FF88D3001051C9 /* MainTabBarController.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
