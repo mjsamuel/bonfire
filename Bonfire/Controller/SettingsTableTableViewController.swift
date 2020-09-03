@@ -65,7 +65,7 @@ class SettingsTableTableViewController: UITableViewController {
             case 2:
                 logout(deselectIndex: indexPath)
             default:
-                return // We need a default but dont care
+                return // We need a default because Swift, but dont care
             }
         }
     }

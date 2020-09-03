@@ -27,10 +27,12 @@ class SelectZoneController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // Return the count of zones from the singleton
         return Bonfire.sharedInstance.zones?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Set the cell label text to the relevant zone
         let cell = tableView.dequeueReusableCell(withIdentifier: "zoneListCell", for: indexPath)
         cell.textLabel?.text = Bonfire.sharedInstance.zones![indexPath.row].name // Set the text
         return cell
