@@ -113,6 +113,9 @@
                                                         </fragment>
                                                     </attributedString>
                                                 </state>
+                                                <connections>
+                                                    <action selector="apiKeyHelpButtonPressed:" destination="OYw-Mi-UBY" eventType="touchUpInside" id="ORI-zw-g5b"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>

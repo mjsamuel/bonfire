@@ -54,6 +54,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         sender.alpha = 1.0
     }
     
+    @IBAction func apiKeyHelpButtonPressed(_ sender: UIButton) {
+        // Send to cloudflare website for help
+        UIApplication.shared.open(URL(string: "https://developers.cloudflare.com/api/keys")!, options: [:], completionHandler: nil)
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Handle return key presses and act accordingly:
         // If we are in the email field, change to the key field
