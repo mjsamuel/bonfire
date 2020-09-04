@@ -461,7 +461,7 @@ struct Cloudflare {
         return requests
     }
     
-    public func getDNS(zoneId: String) -> [String: Any]? {
+    public func getDNS(zoneId: String) -> [[String: Any]]? {
         let data: Data = """
             {
                 "success": true,
@@ -498,16 +498,11 @@ struct Cloudflare {
             return nil
         }
         
-        guard let results = json["result"] as? [String: Any],
-            let name = results["name"] as? [String: Any],
-            let type = results["type"] as? [String: Any]
+        guard let results = json["result"] as? [[String: Any]]
             else {
                 return nil
         }
         
-        return [
-            "name": name,
-            "type": type
-        ]
+        return results
     }
 }

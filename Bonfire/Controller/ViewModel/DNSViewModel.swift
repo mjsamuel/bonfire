@@ -10,34 +10,36 @@ import Foundation
 
 struct DNSViewModel {
     private let bonfire: Bonfire = Bonfire.sharedInstance
-    private var dnsRecords: [[String: Any]] = []
+    private var dnsData: [[String: Any]] = []
     
     init() {
         updateData()
     }
     
+    // Pulls data from Cloudflare API
     public mutating func updateData() {
         let zoneId = bonfire.currentZone!.getId()
-        if let rawDNS = bonfire.cloudflare!.getRequests(zoneId: zoneId) {
-            self.dnsRecords = rawDNS
+        if let rawDNS = bonfire.cloudflare!.getDNS(zoneId: zoneId) {
+            self.dnsData = rawDNS
         }
     }
     
-    public func getDNS() -> [DNS] {
-        var dnsListings: [DNS] = []
-        for dnsListing in dnsRecords {
-            if let name = dnsListing["name"] as? String,
-                let type = dnsListing["type"] as? String
+    public func getDNSData() -> [DNS] {
+        var dnsRecords: [DNS] = []
+        
+        //  Converting retrieved requests into to an array of requests
+        for dnsRecord in dnsData {
+            if let name = dnsRecord["name"] as? String,
+                let type = dnsRecord["type"] as? String
             {
-                let dnsRecord: DNS = DNS(
-                name: name,
-                type: type)
-
-                dnsListings.append(dnsRecord)
+                let dns: DNS = DNS(
+                    name: name,
+                    type: type)
+                dnsRecords.append(dns)
             }
-            
         }
-        return dnsListings
+        
+        return dnsRecords
     }
 }
 
@@ -45,5 +47,3 @@ struct DNS {
     let name: String
     let type: String
 }
-
-// TOP PRIORITY: CLEAN UP CODE NAMING CONVENTIONS FOR DNSLISTING and DNSRECORDS variables and those like it.

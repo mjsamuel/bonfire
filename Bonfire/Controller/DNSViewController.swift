@@ -10,7 +10,7 @@ import UIKit
 
 class DNSViewController: UITableViewController {
     private let viewModel = DNSViewModel()
-    private var dnsRecords: [DNS] = []
+    private var dnsData: [DNS] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,32 +18,27 @@ class DNSViewController: UITableViewController {
     }
     
     func updateTable() {
-        self.dnsRecords = viewModel.getDNS()
+        self.dnsData = viewModel.getDNSData()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-//        return dnsRecords.count()
-//         NOTE: DOES NOT WORK??
+        return dnsData.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dnsIdentifier", for: indexPath)
         
-        let test: DNS = dnsRecords[indexPath.row]
-        //        Fatal error: Index out of range?
+        let dnsRecord: DNS = dnsData[indexPath.row]
         
         let nameLabel = cell.viewWithTag(1000) as! UILabel
-        let typeLabel = cell.viewWithTag(1001) as! UILabel
+        let nameText: String = dnsRecord.name
+        nameLabel.text = nameText
         
-        nameLabel.text = String(test.name)
-        typeLabel.text = String(test.type)
+        let typeLabel = cell.viewWithTag(1001) as! UILabel
+        let typeText: String = dnsRecord.type
+        typeLabel.text = typeText
         
         return cell
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
     }
 }
 
