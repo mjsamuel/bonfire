@@ -40,5 +40,15 @@ class DNSViewController: UITableViewController {
         
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let selectedRow = self.tableView.indexPathForSelectedRow
+            else {return}
+        
+        let destination = segue.destination as? DNSEditDetailViewController
+        let selectedDNS = viewModel.getDNSData(byIndex: selectedRow.row)
+        
+//        destination?.selectedDNS = selectedDNS
+    
+    }
 }
-

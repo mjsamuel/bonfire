@@ -24,6 +24,7 @@ struct DNSViewModel {
         }
     }
     
+//    public func getDNSData(byIndex index: Int) -> [DNS] {
     public func getDNSData() -> [DNS] {
         var dnsRecords: [DNS] = []
         
