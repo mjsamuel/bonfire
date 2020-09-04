@@ -32,11 +32,16 @@ class DNSViewController: UITableViewController {
         
         let nameLabel = cell.viewWithTag(1000) as! UILabel
         let nameText: String = dnsRecord.name
+        nameLabel.font = UIFont.boldSystemFont(ofSize: 16)
         nameLabel.text = nameText
         
         let typeLabel = cell.viewWithTag(1001) as! UILabel
         let typeText: String = dnsRecord.type
         typeLabel.text = typeText
+        
+        let contentLabel = cell.viewWithTag(1002) as! UILabel
+        let contentText: String = dnsRecord.content
+        contentLabel.text = contentText
         
         return cell
     }
@@ -46,7 +51,7 @@ class DNSViewController: UITableViewController {
             else {return}
         
         let destination = segue.destination as? DNSEditDetailViewController
-//        let selectedDNS = viewModel.getDNSData(byIndex: selectedRow.row)
+        let selectedDNS = viewModel.getDNSData()
         
 //        destination?.selectedDNS = selectedDNS
     

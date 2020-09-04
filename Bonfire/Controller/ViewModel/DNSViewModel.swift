@@ -31,11 +31,13 @@ struct DNSViewModel {
         //  Converting retrieved requests into to an array of requests
         for dnsRecord in dnsData {
             if let name = dnsRecord["name"] as? String,
-                let type = dnsRecord["type"] as? String
+                let type = dnsRecord["type"] as? String,
+                let content = dnsRecord["content"] as? String
             {
                 let dns: DNS = DNS(
                     name: name,
-                    type: type)
+                    type: type,
+                    content: content)
                 dnsRecords.append(dns)
             }
         }
@@ -47,4 +49,5 @@ struct DNSViewModel {
 struct DNS {
     let name: String
     let type: String
+    let content: String
 }
