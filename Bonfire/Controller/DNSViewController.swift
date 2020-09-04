@@ -46,7 +46,7 @@ class DNSViewController: UITableViewController {
             else {return}
         
         let destination = segue.destination as? DNSEditDetailViewController
-        let selectedDNS = viewModel.getDNSData(byIndex: selectedRow.row)
+//        let selectedDNS = viewModel.getDNSData(byIndex: selectedRow.row)
         
 //        destination?.selectedDNS = selectedDNS
     
