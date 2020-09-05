@@ -13,7 +13,7 @@
         <scene sceneID="BWq-Fk-dJB">
             <objects>
                 <navigationController id="24H-8j-US5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" id="2cw-Dg-7fg"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="Settings_Icon" landscapeImage="Settings_Icon_Lanscape" id="2cw-Dg-7fg"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="kMO-zI-wAi">
                         <rect key="frame" x="0.0" y="20" width="320" height="91"/>
@@ -260,5 +260,9 @@
             <point key="canvasLocation" x="1523" y="-100"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Settings_Icon" width="25" height="25"/>
+        <image name="Settings_Icon_Lanscape" width="18" height="18"/>
+    </resources>
     <color key="tintColor" red="0.97647058823529409" green="0.67843137254901964" blue="0.24705882352941178" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
 </document>
