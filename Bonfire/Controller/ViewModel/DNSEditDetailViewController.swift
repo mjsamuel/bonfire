@@ -10,17 +10,30 @@ import UIKit
 
 class DNSEditDetailViewController: UIViewController {
     
-    var selectedDNS:(name:String, type:String)?
+    var selectedDNS:(name:String, content:String)?
     
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var contentTextField: UITextField!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let selectedDNS = selectedDNS {
-            nameTextField.text = selectedDNS.name
-            contentTextField.text = selectedDNS.type
+            nameLabel.text = selectedDNS.name
+            contentTextField.text = selectedDNS.content
+            
         }
+    }
+    
+    func clickSave(src: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Error", message: "Insert error message here", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true)
     }
 }

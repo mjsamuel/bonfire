@@ -461,10 +461,10 @@ struct Cloudflare {
         return requests
     }
     
-    public func getDNS(zoneId: String) -> [[String: Any]]? {
+    public func getDNS() -> [[String: Any]]? {
         let data: Data = """
                 {
-                    "success": true,
+                "success": true,
                 "errors": [],
                 "messages": [],
                 "result": [
@@ -561,5 +561,13 @@ struct Cloudflare {
         }
         
         return results
+    }
+    
+    public func updateDNS(zoneId: String) {
+        
+    }
+    
+    public func newDNS (zoneId: String) {
+        
     }
 }

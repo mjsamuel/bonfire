@@ -90,19 +90,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SSL-We-VPP" userLabel="Name Text Field">
-                                <rect key="frame" x="86" y="127" width="218" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2DB-bR-vQq" userLabel="Content Text Field">
                                 <rect key="frame" x="86" y="177" width="218" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4j-sW-HQu" userLabel="Name Label">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4j-sW-HQu" userLabel="Name Label">
                                 <rect key="frame" x="12" y="132" width="45" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -114,17 +108,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UMC-Fk-F9L" userLabel="Name">
+                                <rect key="frame" x="86" y="132" width="218" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="2DB-bR-vQq" firstAttribute="leading" secondItem="IoJ-Od-qLO" secondAttribute="trailing" constant="12" id="2Ym-x7-Qt6"/>
-                            <constraint firstItem="SSL-We-VPP" firstAttribute="leading" secondItem="I4j-sW-HQu" secondAttribute="trailing" constant="29" id="7rV-es-HX5"/>
-                            <constraint firstItem="2DB-bR-vQq" firstAttribute="top" secondItem="SSL-We-VPP" secondAttribute="bottom" constant="20" id="9fG-HY-6YX"/>
-                            <constraint firstItem="SSL-We-VPP" firstAttribute="top" secondItem="wCA-rk-TIb" secondAttribute="top" constant="16" id="KYs-c9-wSc"/>
+                            <constraint firstItem="2DB-bR-vQq" firstAttribute="top" secondItem="UMC-Fk-F9L" secondAttribute="bottom" constant="24" id="92O-Su-gbp"/>
+                            <constraint firstItem="UMC-Fk-F9L" firstAttribute="leading" secondItem="I4j-sW-HQu" secondAttribute="trailing" constant="29" id="Gkq-Ey-sGn"/>
+                            <constraint firstItem="UMC-Fk-F9L" firstAttribute="top" secondItem="wCA-rk-TIb" secondAttribute="top" constant="21" id="KoC-VX-K22"/>
                             <constraint firstItem="wCA-rk-TIb" firstAttribute="trailing" secondItem="2DB-bR-vQq" secondAttribute="trailing" constant="16" id="Nug-b0-uOr"/>
+                            <constraint firstItem="wCA-rk-TIb" firstAttribute="trailing" secondItem="UMC-Fk-F9L" secondAttribute="trailing" constant="16" id="Xzv-fm-zTz"/>
                             <constraint firstItem="I4j-sW-HQu" firstAttribute="leading" secondItem="wCA-rk-TIb" secondAttribute="leading" constant="12" id="brl-kk-JCT"/>
                             <constraint firstItem="IoJ-Od-qLO" firstAttribute="top" secondItem="I4j-sW-HQu" secondAttribute="bottom" constant="29" id="ck1-9X-PPf"/>
-                            <constraint firstItem="wCA-rk-TIb" firstAttribute="trailing" secondItem="SSL-We-VPP" secondAttribute="trailing" constant="16" id="iyb-Mw-RGy"/>
                             <constraint firstItem="IoJ-Od-qLO" firstAttribute="leading" secondItem="wCA-rk-TIb" secondAttribute="leading" constant="12" id="qOJ-B4-E4N"/>
                             <constraint firstItem="I4j-sW-HQu" firstAttribute="top" secondItem="wCA-rk-TIb" secondAttribute="top" constant="21" id="rif-oU-eQH"/>
                         </constraints>
@@ -135,7 +135,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="contentTextField" destination="2DB-bR-vQq" id="xMY-9Q-nbl"/>
-                        <outlet property="nameTextField" destination="SSL-We-VPP" id="3No-BK-Ap1"/>
+                        <outlet property="nameLabel" destination="UMC-Fk-F9L" id="LeJ-s7-0Y0"/>
+                        <outlet property="saveButton" destination="fHn-Bx-6pj" id="hOi-Li-53a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="243-X9-OVT" userLabel="First Responder" sceneMemberID="firstResponder"/>
