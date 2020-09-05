@@ -563,30 +563,27 @@ struct Cloudflare {
         return results
     }
     
-    public func updateDNS(zoneId: String) {
-        let success: Bool = true
-        if(success == true) {
-            // find the value in the API that already exists with the current id
-            // send new updated listing info to API
-            // redirect user back to main DNS page
-        } else {
-            // call alert view
-            // if they tapped OK, close alert and stay on "New DNS" page
-            // if they tapped cancel, close alert and redirect user back to main DNS page
-        }
+    /* function checks whether the data is successfully sent to the API
+     and returns its success level accordingly */
+    public func updateDNS() -> Bool {
+        // var hardcoded to true for testing
+        let success: Bool = false
+        // pass data to API
+        // if pass is successful
+        // set success to true and return
+        // else set success to false and return
+        return success
     }
     
-    public func newDNS (zoneId: String) {
+    /* function checks whether the data is successfully sent to the API
+    and returns its success level accordingly */
+    public func newDNS () -> Bool {
         // var hardcoded to true for testing
-        let success: Bool = true
-        
-        if(success == true) {
-            // send data to API
-            // redirect user back to main DNS page
-        } else {
-            // call alert view
-            // if they tapped OK, close alert and stay on "New DNS" page
-            // if they tapped cancel, close alert and redirect user back to main DNS page
-        }
+        let success: Bool = false
+        // pass data to API
+        // if pass is successful
+        // set success to true and return
+        // else set success to false and return
+        return success
     }
 }

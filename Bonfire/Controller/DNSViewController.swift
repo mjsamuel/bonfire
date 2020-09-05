@@ -55,8 +55,5 @@ class DNSViewController: UITableViewController {
         let destination = segue.destination as? DNSEditViewController
 
         destination?.selectedDNS = (name.text!, content.text!)
-        
-//        destination?.selectedDNS = selectedDNS
-    
     }
 }
