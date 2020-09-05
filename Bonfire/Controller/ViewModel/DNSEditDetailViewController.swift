@@ -25,6 +25,7 @@ class DNSEditDetailViewController: UIViewController {
             nameLabel.text = selectedDNS.name
             contentTextField.text = selectedDNS.content
             
+            // saveButton.action = Cloudflare.updateDNS()
         }
     }
     
