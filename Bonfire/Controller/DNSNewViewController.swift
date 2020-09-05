@@ -1,5 +1,5 @@
 //
-//  DNSNewDetailViewController.swift
+//  DNSNewViewController.swift
 //  Bonfire
 //
 //  Created by Dylan Sbogar on 4/9/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DNSNewDetailViewController: UIViewController {
+class DNSNewViewController: UIViewController {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var contentTextField: UITextField!

@@ -1,5 +1,5 @@
 //
-//  DNSEditDetailViewController.swift
+//  DNSEditViewController.swift
 //  Bonfire
 //
 //  Created by Dylan Sbogar on 4/9/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DNSEditDetailViewController: UIViewController {
+class DNSEditViewController: UIViewController {
     
     var selectedDNS:(name:String, content:String)?
     

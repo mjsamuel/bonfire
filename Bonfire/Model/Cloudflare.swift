@@ -564,7 +564,7 @@ struct Cloudflare {
     }
     
     public func updateDNS(zoneId: String) {
-        var success: Bool = true
+        let success: Bool = true
         if(success == true) {
             // find the value in the API that already exists with the current id
             // send new updated listing info to API
@@ -578,7 +578,7 @@ struct Cloudflare {
     
     public func newDNS (zoneId: String) {
         // var hardcoded to true for testing
-        var success: Bool = true
+        let success: Bool = true
         
         if(success == true) {
             // send data to API

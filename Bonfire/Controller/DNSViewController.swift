@@ -52,7 +52,7 @@ class DNSViewController: UITableViewController {
         
         let name = self.tableView.cellForRow(at: selectedRow)?.viewWithTag(1000) as! UILabel
         let content = self.tableView.cellForRow(at: selectedRow)?.viewWithTag(1002) as! UILabel
-        let destination = segue.destination as? DNSEditDetailViewController
+        let destination = segue.destination as? DNSEditViewController
 
         destination?.selectedDNS = (name.text!, content.text!)
         

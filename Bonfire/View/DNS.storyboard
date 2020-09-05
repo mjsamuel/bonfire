@@ -85,7 +85,7 @@
         <!--DNS Detail View-->
         <scene sceneID="lq3-oV-0YL">
             <objects>
-                <viewController id="iU2-Y7-NK8" userLabel="DNS Detail View" customClass="DNSEditDetailViewController" customModule="Bonfire" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="iU2-Y7-NK8" userLabel="DNS Detail View" customClass="DNSEditViewController" customModule="Bonfire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ovn-4W-gnP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
