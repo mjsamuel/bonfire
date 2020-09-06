@@ -70,7 +70,7 @@
         <scene sceneID="9SB-Ig-ii9">
             <objects>
                 <navigationController id="1aW-4G-qqP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Requests" image="Requests_Icon" landscapeImage="Analytics_Icon_Landscape" id="CXa-hM-ugp"/>
+                    <tabBarItem key="tabBarItem" title="Requests" image="Requests_Icon" landscapeImage="Requests_Icon_Landscape" id="CXa-hM-ugp"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="UeW-Tm-LL5">
                         <rect key="frame" x="0.0" y="20" width="320" height="91"/>
@@ -87,8 +87,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Analytics_Icon_Landscape" width="18" height="13.5"/>
         <image name="Requests_Icon" width="25" height="25"/>
+        <image name="Requests_Icon_Landscape" width="18" height="18"/>
     </resources>
     <color key="tintColor" name="BonfireTint"/>
 </document>
