@@ -6,28 +6,40 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="Bo6-Au-dBb">
             <objects>
-                <tabBarController id="NE5-31-BFE" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Main" id="NE5-31-BFE" customClass="MainTabBarController" customModule="Bonfire" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="u3w-eY-Osu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" name="BonfireTint"/>
+                        <color key="selectedImageTintColor" name="BonfireTint"/>
                     </tabBar>
                     <connections>
                         <segue destination="HFZ-Ci-0bx" kind="relationship" relationship="viewControllers" id="GCd-l7-UuB"/>
                         <segue destination="PrU-bx-mbM" kind="relationship" relationship="viewControllers" id="aAb-Nc-Ha2"/>
                         <segue destination="Wv4-63-B5u" kind="relationship" relationship="viewControllers" id="2OK-Xo-Nem"/>
                         <segue destination="wq0-3k-d6h" kind="relationship" relationship="viewControllers" id="Hnt-c6-e7v"/>
+                        <segue destination="o3P-pK-MFX" kind="presentation" identifier="PresentLoginSegue" id="saw-7z-5z4"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3o2-g9-NfI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-240" y="-254"/>
+        </scene>
+        <!--login-->
+        <scene sceneID="Sqr-ui-OT8">
+            <objects>
+                <viewControllerPlaceholder storyboardName="login" id="o3P-pK-MFX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ISH-ZW-2hm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-239" y="229"/>
         </scene>
         <!--Analytics-->
         <scene sceneID="0Nl-5R-YjS">
@@ -70,4 +82,10 @@
             <point key="canvasLocation" x="610" y="-19"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="BonfireTint">
+            <color red="0.98431372549019602" green="0.27843137254901962" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+    <color key="tintColor" name="BonfireTint"/>
 </document>

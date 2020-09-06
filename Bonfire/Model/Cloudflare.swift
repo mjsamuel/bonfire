@@ -4,11 +4,12 @@
 //
 //  Copyright © 2020 ipse. All rights reserved.
 //
-
 import Foundation
 
 struct Cloudflare {
     
+
+    public var isLoggedIn = false
     init(email: String, apiKey: String) {}
     
     /**
@@ -35,7 +36,8 @@ struct Cloudflare {
      [GET zones/:zone_identifier/analytics/dashboard](https://api.cloudflare.com/#zone-analytics-dashboard)
      
      - Parameters:
-        - zoneId: The id of the zone that you want analytics for
+     - zoneId: The id of the zone that you want analytics for
+
      - Returns: A dictionary containing relevant data points
      */
     public func getAnalytics(zoneId: String) -> [String: Any]? {
@@ -259,8 +261,9 @@ struct Cloudflare {
             let threats_all = threats["all"] as? Int,
             let pageviews = totals["pageviews"] as? [String: Any],
             let pageviews_all = pageviews["all"] as? Int
-        else {
-            return nil
+
+            else {
+                return nil
         }
         
         return [
@@ -336,7 +339,7 @@ struct Cloudflare {
         guard let resultsArray = json["result"] as? [Any],
             let results = resultsArray[0] as? [String: Any],
             let price = results["price"] as? Float
-        else {
+            else {
                 return nil
         }
         
@@ -349,7 +352,7 @@ struct Cloudflare {
      API documentation:
      [GraphQL](https://developers.cloudflare.com/analytics/graphql-api/tutorials/querying-firewall-events)
      - Parameters:
-        - zoneId: The id of the zone that you want the list of requests for
+     - zoneId: The id of the zone that you want the list of requests for
      - Returns: The cost per month of the user's subscription
      */
     public func getRequests(zoneId: String) -> [[String: Any]]? {
@@ -454,8 +457,9 @@ struct Cloudflare {
             let zones = viewer["zones"] as? [Any],
             let zone = zones[0] as? [String: Any],
             let requests = zone["firewallEventsAdaptive"] as? [[String: Any]]
-        else {
-            return nil
+
+            else {
+                return nil
         }
         
         return requests

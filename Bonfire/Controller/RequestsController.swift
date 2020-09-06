@@ -135,6 +135,7 @@ class RequestsController: UITableViewController {
         actionSheet.addAction(cancel)
 
         present(actionSheet, animated: true, completion: nil)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
