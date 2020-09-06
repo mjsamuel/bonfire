@@ -567,7 +567,7 @@ struct Cloudflare {
      and returns its success level accordingly */
     public func updateDNS() -> Bool {
         // var hardcoded to true for testing
-        let success: Bool = false
+        let success: Bool = true
         // pass data to API
         // if pass is successful
         // set success to true and return
@@ -579,7 +579,7 @@ struct Cloudflare {
     and returns its success level accordingly */
     public func newDNS () -> Bool {
         // var hardcoded to true for testing
-        let success: Bool = false
+        let success: Bool = true
         // pass data to API
         // if pass is successful
         // set success to true and return

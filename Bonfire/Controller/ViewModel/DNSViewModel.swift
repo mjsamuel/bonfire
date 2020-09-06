@@ -47,7 +47,7 @@ struct DNSViewModel {
 }
 
 struct DNS {
-    let name: String
-    let type: String
-    let content: String
+    var name: String
+    var type: String
+    var content: String
 }

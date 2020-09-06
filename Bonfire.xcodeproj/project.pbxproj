@@ -135,12 +135,12 @@
 			isa = PBXGroup;
 			children = (
 				C7A5567224DE51CE00C21123 /* ViewModel */,
+				AACC225124F94C880016CBED /* DNSViewController.swift */,
 				AAA04D3C2501F39900CA216B /* DNSEditViewController.swift */,
 				AA6A6A72250268E400760433 /* DNSNewViewController.swift */,
 				C73F9E9824EF5A5A0014B594 /* AnalyticsViewController.swift */,
 				C7816C2324F54A69001DCF48 /* RequestsController.swift */,
 				C7B95A2C24DE4C0B00459A5C /* ViewController.swift */,
-				AACC225124F94C880016CBED /* DNSViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

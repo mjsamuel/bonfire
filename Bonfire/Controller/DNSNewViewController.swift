@@ -11,12 +11,12 @@ import UIKit
 class DNSNewViewController: UIViewController {
     
     private let bonfire: Bonfire = Bonfire.sharedInstance
-    
+    weak var delegate: DNSDataDelegate? = nil
+
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var contentTextField: UITextField!
     @IBOutlet weak var ttlTextField: UITextField!
-    @IBOutlet weak var saveButton: UIBarButtonItem!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         ttlTextField.keyboardType = .numberPad
@@ -26,7 +26,11 @@ class DNSNewViewController: UIViewController {
     @IBAction func newDNS(_ sender: Any) {
         let success = bonfire.cloudflare?.newDNS()
         if success == true {
-            performSegue(withIdentifier: "returnToDNS", sender: nil)
+            let name: String = nameTextField.text!
+            let content: String = contentTextField.text!
+            let ttl: String = ttlTextField.text!
+            delegate?.userDidEnterInformation(name: name, content: content, ttl: ttl)
+            self.navigationController?.popViewController(animated: true)
         } else {
             let alert = UIAlertController(title: "Error", message: "Insert error message here", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))

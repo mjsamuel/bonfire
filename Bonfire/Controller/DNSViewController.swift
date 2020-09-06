@@ -8,10 +8,17 @@
 
 import UIKit
 
-class DNSViewController: UITableViewController {
+// protocol used to send DNS data back
+public protocol DNSDataDelegate: class {
+    func userDidEnterInformation(name: String, content: String, ttl: String?)
+}
+
+class DNSViewController: UITableViewController, DNSDataDelegate {
+
+
     private let viewModel = DNSViewModel()
     private var dnsData: [DNS] = []
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         self.updateTable()
@@ -47,15 +54,36 @@ class DNSViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "editDNSSegue" {
             guard let selectedRow = self.tableView.indexPathForSelectedRow
                 else {return}
             
+            let destination = segue.destination as? DNSEditViewController
             let name = self.tableView.cellForRow(at: selectedRow)?.viewWithTag(1000) as! UILabel
             let content = self.tableView.cellForRow(at: selectedRow)?.viewWithTag(1002) as! UILabel
-            let destination = segue.destination as? DNSEditViewController
 
             destination?.selectedDNS = (name.text!, content.text!)
+            destination?.delegate = self
+        } else if segue.identifier == "newDNSSegue" {
+            let destination = segue.destination as? DNSNewViewController
+            destination?.delegate = self
         }
+    }
+    
+    func userDidEnterInformation(name: String, content: String, ttl: String?) {
+        var data: DNS = DNS(name: name, type: "A", content: content)
+        
+        // Filtering the array to remove the item if editing
+        // If not editing this will return the same array
+        dnsData = dnsData.filter {
+            if ($0.name == name) {
+                data.type = $0.type
+            }
+            
+            return $0.name != name
+        }
+        dnsData.insert(data, at: 0)
+        tableView.reloadData()
     }
 }

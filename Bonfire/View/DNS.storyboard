@@ -91,25 +91,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2DB-bR-vQq" userLabel="Content Text Field">
-                                <rect key="frame" x="86" y="86" width="218" height="30"/>
+                                <rect key="frame" x="86" y="177" width="218" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IoJ-Od-qLO" userLabel="Content Label">
-                                <rect key="frame" x="12" y="91" width="62" height="21"/>
+                                <rect key="frame" x="12" y="182" width="62" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UMC-Fk-F9L" userLabel="Name">
-                                <rect key="frame" x="86" y="41" width="218" height="21"/>
+                                <rect key="frame" x="86" y="132" width="218" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4j-sW-HQu" userLabel="Name Label">
-                                <rect key="frame" x="12" y="41" width="45" height="21"/>
+                                <rect key="frame" x="12" y="132" width="45" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -141,7 +141,6 @@
                         <outlet property="contentTextField" destination="2DB-bR-vQq" id="xMY-9Q-nbl"/>
                         <outlet property="nameLabel" destination="UMC-Fk-F9L" id="LeJ-s7-0Y0"/>
                         <outlet property="saveButton" destination="fHn-Bx-6pj" id="hOi-Li-53a"/>
-                        <segue destination="9du-3a-JYD" kind="show" identifier="returnToDNS" id="lfy-Rx-Xpq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="243-X9-OVT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -157,37 +156,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hjZ-jo-hyJ" userLabel="Name Text Field">
-                                <rect key="frame" x="86" y="36" width="218" height="30"/>
+                                <rect key="frame" x="86" y="127" width="218" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="387-Qg-ebb" userLabel="Content Text Field">
-                                <rect key="frame" x="86" y="86" width="218" height="30"/>
+                                <rect key="frame" x="86" y="177" width="218" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1L-9P-vgd" userLabel="Name Label">
-                                <rect key="frame" x="12" y="41" width="45" height="21"/>
+                                <rect key="frame" x="12" y="132" width="45" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6z3-3N-VKD" userLabel="Content Label">
-                                <rect key="frame" x="12" y="91" width="62" height="21"/>
+                                <rect key="frame" x="12" y="182" width="62" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fuq-ex-u4y" userLabel="Content Text Field">
-                                <rect key="frame" x="113" y="138" width="191" height="30"/>
+                                <rect key="frame" x="113" y="229" width="191" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time to Live" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qYG-ck-OkQ" userLabel="Content Label">
-                                <rect key="frame" x="12" y="143" width="93" height="21"/>
+                                <rect key="frame" x="12" y="234" width="93" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -224,7 +223,6 @@
                         <outlet property="contentTextField" destination="387-Qg-ebb" id="3A4-PT-z0B"/>
                         <outlet property="nameTextField" destination="hjZ-jo-hyJ" id="zYx-fD-AkB"/>
                         <outlet property="ttlTextField" destination="Fuq-ex-u4y" id="noN-T5-rks"/>
-                        <segue destination="9du-3a-JYD" kind="show" identifier="returnToDNS" id="R3H-7C-Vyl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l0z-EC-Zw4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -251,8 +249,4 @@
             <point key="canvasLocation" x="-58.125" y="-17.95774647887324"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="vzp-aH-JC5"/>
-        <segue reference="R3H-7C-Vyl"/>
-    </inferredMetricsTieBreakers>
 </document>
