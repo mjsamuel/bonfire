@@ -464,4 +464,138 @@ struct Cloudflare {
         
         return requests
     }
+    
+    public func getDNS(zoneId: String) -> [[String: Any]]? {
+        let data: Data = """
+                {
+                "success": true,
+                "errors": [],
+                "messages": [],
+                "result": [
+                {
+                    "id": "372e67954025e0ba6aaa6d586b9e0b59",
+                    "type": "A",
+                    "name": "example.com",
+                    "content": "198.51.100.4",
+                    "proxiable": true,
+                    "proxied": false,
+                    "ttl": 120,
+                    "locked": false,
+                    "zone_id": "023e105f4ecef8ad9ca31a8372d0c353",
+                    "zone_name": "example.com",
+                    "created_on": "2014-01-01T05:20:00.12345Z",
+                    "modified_on": "2014-01-01T05:20:00.12345Z",
+                    "data": {},
+                    "meta": {
+                        "auto_added": true,
+                        "source": "primary"
+                    }
+                },
+                {
+                    "id": "372e67954025e0ba6aaa6d586b9e0b59",
+                    "type": "CNAME",
+                    "name": "google.com",
+                    "content": "216.58.200.110",
+                    "proxiable": true,
+                    "proxied": false,
+                    "ttl": 120,
+                    "locked": false,
+                    "zone_id": "023e105f4ecef8ad9ca31a8372d0c353",
+                    "zone_name": "example.com",
+                    "created_on": "2014-01-01T05:20:00.12345Z",
+                    "modified_on": "2014-01-01T05:20:00.12345Z",
+                    "data": {},
+                    "meta": {
+                        "auto_added": true,
+                        "source": "primary"
+                    }
+                },
+                {
+                    "id": "372e67954025e0ba6aaa6d586b9e0b59",
+                    "type": "CNAME",
+                    "name": "instagram.com",
+                    "content": "52.22.200.157",
+                    "proxiable": true,
+                    "proxied": false,
+                    "ttl": 120,
+                    "locked": false,
+                    "zone_id": "023e105f4ecef8ad9ca31a8372d0c353",
+                    "zone_name": "example.com",
+                    "created_on": "2014-01-01T05:20:00.12345Z",
+                    "modified_on": "2014-01-01T05:20:00.12345Z",
+                    "data": {},
+                    "meta": {
+                        "auto_added": true,
+                        "source": "primary"
+                    }
+                },
+                {
+                    "id": "372e67954025e0ba6aaa6d586b9e0b59",
+                    "type": "CNAME",
+                    "name": "rmit.edu.au",
+                    "content": "131.170.0.105",
+                    "proxiable": true,
+                    "proxied": false,
+                    "ttl": 120,
+                    "locked": false,
+                    "zone_id": "023e105f4ecef8ad9ca31a8372d0c353",
+                    "zone_name": "example.com",
+                    "created_on": "2014-01-01T05:20:00.12345Z",
+                    "modified_on": "2014-01-01T05:20:00.12345Z",
+                    "data": {},
+                    "meta": {
+                        "auto_added": true,
+                        "source": "primary"
+                    }
+                },
+            ]
+        }
+        """.data(using: .utf8)!
+        
+        let json: [String: Any]
+        do {
+            json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+        } catch {
+            return nil
+        }
+        
+        guard let results = json["result"] as? [[String: Any]]
+            else {
+                return nil
+        }
+        
+        return results
+    }
+    
+    /**
+     Updates an existing DNS listing by making a request to Cloudflares API
+     
+     - Returns: Returns true if successful and false if not
+     */
+    public func updateDNS() -> Bool {
+        // var hardcoded to true for testing
+        let success: Bool = true
+        
+        // pass data to API
+        // if pass is successful
+        // set success to true and return
+        // else set success to false and return
+        return success
+    }
+    
+    /**
+     Sends new DNS data to Cloudflare API
+     
+     - Returns: Returns true if successful and false if not
+     */
+    public func newDNS () -> Bool {
+        // var hardcoded to true for testing
+        let success: Bool = true
+        
+        // pass data to API
+        // if pass is successful
+        // set success to true and return
+        // else set success to false and return
+        return success
+    }
 }

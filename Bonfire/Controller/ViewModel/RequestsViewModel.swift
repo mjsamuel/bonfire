@@ -56,6 +56,15 @@ struct RequestsViewModel {
     }
 }
 
+/**
+ Helper struct to store and pass around requests
+ 
+ - Parameters
+ - action: The name of the country
+ - origin: IP address of where the request came from
+ - countryCode: The country that the request originated from
+ - time: Time that the request was made
+ */
 struct Request {
     let action: String
     let origin: String
