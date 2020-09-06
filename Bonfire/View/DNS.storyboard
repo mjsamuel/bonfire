@@ -64,7 +64,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="iU2-Y7-NK8" kind="show" id="qBu-0D-Mam"/>
+                                    <segue destination="iU2-Y7-NK8" kind="show" identifier="editDNSSegue" id="qBu-0D-Mam"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -72,7 +72,7 @@
                     <navigationItem key="navigationItem" title="DNS" id="aQm-PR-bdW">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="bZA-1a-fYK">
                             <connections>
-                                <segue destination="HS6-p2-3CX" kind="show" id="vzp-aH-JC5"/>
+                                <segue destination="HS6-p2-3CX" kind="show" identifier="newDNSSegue" id="vzp-aH-JC5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -252,6 +252,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="vzp-aH-JC5"/>
         <segue reference="R3H-7C-Vyl"/>
     </inferredMetricsTieBreakers>
 </document>

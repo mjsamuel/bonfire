@@ -47,13 +47,15 @@ class DNSViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let selectedRow = self.tableView.indexPathForSelectedRow
-            else {return}
-        
-        let name = self.tableView.cellForRow(at: selectedRow)?.viewWithTag(1000) as! UILabel
-        let content = self.tableView.cellForRow(at: selectedRow)?.viewWithTag(1002) as! UILabel
-        let destination = segue.destination as? DNSEditViewController
+        if segue.identifier == "editDNSSegue" {
+            guard let selectedRow = self.tableView.indexPathForSelectedRow
+                else {return}
+            
+            let name = self.tableView.cellForRow(at: selectedRow)?.viewWithTag(1000) as! UILabel
+            let content = self.tableView.cellForRow(at: selectedRow)?.viewWithTag(1002) as! UILabel
+            let destination = segue.destination as? DNSEditViewController
 
-        destination?.selectedDNS = (name.text!, content.text!)
+            destination?.selectedDNS = (name.text!, content.text!)
+        }
     }
 }
