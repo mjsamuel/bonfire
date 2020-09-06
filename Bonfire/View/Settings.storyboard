@@ -264,5 +264,5 @@
         <image name="Settings_Icon" width="25" height="25"/>
         <image name="Settings_Icon_Lanscape" width="18" height="18"/>
     </resources>
-    <color key="tintColor" red="0.97647058823529409" green="0.67843137254901964" blue="0.24705882352941178" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+    <color key="tintColor" name="BonfireTint"/>
 </document>

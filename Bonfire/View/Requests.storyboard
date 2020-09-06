@@ -90,4 +90,5 @@
         <image name="Analytics_Icon_Landscape" width="18" height="13.5"/>
         <image name="Requests_Icon" width="25" height="25"/>
     </resources>
+    <color key="tintColor" name="BonfireTint"/>
 </document>
