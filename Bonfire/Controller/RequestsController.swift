@@ -67,10 +67,9 @@ class RequestsController: UITableViewController {
             // update the action state
             host.setAction(selectedAction: selectedAction)
             // Send the action to Clourflare
-//            host.sendActionToCloudflare(selectedAction:selectedAction, hostIP:hostIP)
         }))
        
-        // Add the cancle option
+        // Add the cancel option
         confirmationAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
             // Do nothing
         }))
@@ -135,13 +134,7 @@ class RequestsController: UITableViewController {
         actionSheet.addAction(ban)
         actionSheet.addAction(cancel)
 
-        
-    
-        
         present(actionSheet, animated: true, completion: nil)
     }
     
 }
-
-// NOTE FOR JAMES:
-// need to decide what to do for the object when using the memeory database.

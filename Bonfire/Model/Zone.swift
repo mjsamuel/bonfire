@@ -7,6 +7,9 @@
 
 import Foundation
 
+/**
+ Struct to represent a Zone
+ */
 struct Zone {
     
     private let id: String

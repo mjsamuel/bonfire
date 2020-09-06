@@ -56,7 +56,6 @@ struct HostAction{
     }
     
     // Send API calls to Clourflare based on the action
-    // NOTE: can refactor this to only be called when the action is changed, however will be kept as a publicly callable method to provide a better and flexible API.
     func sendActionToCloudflare(selectedAction: Action, hostIP:String){
         
         if(selectedAction == Action.normal){

@@ -113,8 +113,8 @@
 			children = (
 				C70132BD24EE98A1003C9B05 /* Bonfire.swift */,
 				C7A5567324DE536E00C21123 /* Cloudflare.swift */,
-				C70132BF24EEA14A003C9B05 /* Zone.swift */,
 				1AA886BB24F8EA71007432CB /* HostActions.swift */,
+				C70132BF24EEA14A003C9B05 /* Zone.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -135,10 +135,10 @@
 			isa = PBXGroup;
 			children = (
 				C7A5567224DE51CE00C21123 /* ViewModel */,
+				C73F9E9824EF5A5A0014B594 /* AnalyticsViewController.swift */,
 				AACC225124F94C880016CBED /* DNSViewController.swift */,
 				AAA04D3C2501F39900CA216B /* DNSEditViewController.swift */,
 				AA6A6A72250268E400760433 /* DNSNewViewController.swift */,
-				C73F9E9824EF5A5A0014B594 /* AnalyticsViewController.swift */,
 				C7816C2324F54A69001DCF48 /* RequestsController.swift */,
 				C7B95A2C24DE4C0B00459A5C /* ViewController.swift */,
 			);
@@ -149,8 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				C7A5567524DE55A900C21123 /* AnalyticsViewModel.swift */,
-				C7816C2124F54A50001DCF48 /* RequestsViewModel.swift */,
 				AACC224F24F94C770016CBED /* DNSViewModel.swift */,
+				C7816C2124F54A50001DCF48 /* RequestsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";

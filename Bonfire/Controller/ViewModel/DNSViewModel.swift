@@ -16,7 +16,9 @@ struct DNSViewModel {
         updateData()
     }
     
-    // Pulls data from Cloudflare API
+    /**
+     Pulls data from the Cloudflare API
+     */
     public mutating func updateData() {
         let zoneId = bonfire.currentZone!.getId()
         if let rawDNS = bonfire.cloudflare!.getDNS(zoneId: zoneId) {
@@ -24,7 +26,6 @@ struct DNSViewModel {
         }
     }
     
-//    public func getDNSData(byIndex index: Int) -> [DNS] {
     public func getDNSData() -> [DNS] {
         var dnsRecords: [DNS] = []
         
@@ -46,6 +47,14 @@ struct DNSViewModel {
     }
 }
 
+/**
+ Helper struct to store and pass around DNS records
+ 
+ - Parameters
+ - name: The name of the request
+ - type: The type of request
+ - content: The content of the request
+ */
 struct DNS {
     var name: String
     var type: String

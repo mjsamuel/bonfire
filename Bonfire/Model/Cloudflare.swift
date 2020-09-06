@@ -563,11 +563,15 @@ struct Cloudflare {
         return results
     }
     
-    /* function checks whether the data is successfully sent to the API
-     and returns its success level accordingly */
+    /**
+     Updates an existing DNS listing by making a request to Cloudflares API
+     
+     - Returns: Returns true if successful and false if not
+     */
     public func updateDNS() -> Bool {
         // var hardcoded to true for testing
         let success: Bool = true
+        
         // pass data to API
         // if pass is successful
         // set success to true and return
@@ -575,11 +579,15 @@ struct Cloudflare {
         return success
     }
     
-    /* function checks whether the data is successfully sent to the API
-    and returns its success level accordingly */
+    /**
+     Sends new DNS data to Cloudflare API
+     
+     - Returns: Returns true if successful and false if not
+     */
     public func newDNS () -> Bool {
         // var hardcoded to true for testing
         let success: Bool = true
+        
         // pass data to API
         // if pass is successful
         // set success to true and return
