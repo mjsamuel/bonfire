@@ -15,6 +15,7 @@ class DNSNewViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var contentTextField: UITextField!
     @IBOutlet weak var ttlTextField: UITextField!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
