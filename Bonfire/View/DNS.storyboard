@@ -228,8 +228,9 @@
         <scene sceneID="fL2-Oj-hYL">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0tJ-5R-GyN" userLabel="Navigation Controller" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="DNS" id="s6g-mu-bwa"/>
+                    <tabBarItem key="tabBarItem" title="DNS" image="DNS_Icon" landscapeImage="DNS_Icon_Landscape" id="i51-ab-kVm"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="56b-ci-4ND">
                         <rect key="frame" x="0.0" y="20" width="320" height="91"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -245,8 +246,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Analytics_Icon_Landscape" width="18" height="13.5"/>
         <image name="DNS_Icon" width="25" height="19.5"/>
+        <image name="DNS_Icon_Landscape" width="18" height="14"/>
     </resources>
     <color key="tintColor" name="BonfireTint"/>
 </document>
