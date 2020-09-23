@@ -79,7 +79,7 @@ You will need to add some firewall settings on your zone.
 
 1. Create a new firewall rule in your zone.
 2. Give the rule any name. For example you can name it 'Activity Logging'
-3. Click 'Edit expression' and past the code bellow into the text field. (This simply just logs any and all requests to your site.)
+3. Click 'Edit expression' and paste the code bellow into the text field. (This simply just logs any and all requests to your site.)
 ```(http.request.method eq "GET") or (http.request.method eq "POST") or (http.request.method eq "PURGE") or (http.request.method eq "PUT") or (http.request.method eq "HEAD") or (http.request.method eq "OPTIONS") or (http.request.method eq "DELETE") or (http.request.method eq "PATCH")```
 3. Finally chose the action, set this to 'Allow'.
 4. Click 'Deploy'
