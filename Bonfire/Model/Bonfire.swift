@@ -7,11 +7,13 @@
 import Foundation
 
 class Bonfire {
+
     static let sharedInstance = Bonfire()
     
     public var cloudflare: Cloudflare?
     public var zones: [Zone]?
     public var currentZone: Zone?
+
     private init() {
         cloudflare = Cloudflare(email: "...", apiKey: "...")
         zones = cloudflare?.getZones()
@@ -34,7 +36,6 @@ class Bonfire {
             cloudflare!.isLoggedIn = true
         }
     }
-    
     
     /**
      Logs out a user and discards their credentials
