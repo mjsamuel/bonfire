@@ -21,6 +21,7 @@
 		AAA04D3D2501F39900CA216B /* DNSEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA04D3C2501F39900CA216B /* DNSEditViewController.swift */; };
 		AACC225024F94C770016CBED /* DNSViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACC224F24F94C770016CBED /* DNSViewModel.swift */; };
 		AACC225224F94C880016CBED /* DNSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACC225124F94C880016CBED /* DNSViewController.swift */; };
+		C44CB2AA854591A0D9DA3857 /* Pods_Bonfire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8E7840238382CDFCA86491A /* Pods_Bonfire.framework */; };
 		C70132BE24EE98A1003C9B05 /* Bonfire.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70132BD24EE98A1003C9B05 /* Bonfire.swift */; };
 		C70132C024EEA14A003C9B05 /* Zone.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70132BF24EEA14A003C9B05 /* Zone.swift */; };
 		C71E19CC24EAB8C9001E83C1 /* Analytics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71E19CB24EAB8C9001E83C1 /* Analytics.storyboard */; };
@@ -39,6 +40,8 @@
 		C7B95A3824DE4C0D00459A5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7B95A3624DE4C0D00459A5C /* LaunchScreen.storyboard */; };
 		C7B95A4324DE4C0E00459A5C /* BonfireTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B95A4224DE4C0E00459A5C /* BonfireTests.swift */; };
 		C7B95A4E24DE4C0E00459A5C /* BonfireUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B95A4D24DE4C0E00459A5C /* BonfireUITests.swift */; };
+		E60DEDD69A593A0606A0E53F /* Pods_Bonfire_BonfireUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 077A1DC25E5E6FFD08E4041D /* Pods_Bonfire_BonfireUITests.framework */; };
+		EEA123B1C8C98C229F167F16 /* Pods_BonfireTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7783E0503FFB0B302BEC7807 /* Pods_BonfireTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,9 +62,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+
+		077A1DC25E5E6FFD08E4041D /* Pods_Bonfire_BonfireUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bonfire_BonfireUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AA886BB24F8EA71007432CB /* HostActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostActions.swift; sourceTree = "<group>"; };
+		22EAB1AF34F10E6882195098 /* Pods-BonfireTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BonfireTests.debug.xcconfig"; path = "Target Support Files/Pods-BonfireTests/Pods-BonfireTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2D02AD0ABC8AA0CB7E4A4A88 /* Pods-Bonfire.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bonfire.debug.xcconfig"; path = "Target Support Files/Pods-Bonfire/Pods-Bonfire.debug.xcconfig"; sourceTree = "<group>"; };
+		39DCC81FED7D7FDB462C59E7 /* Pods-Bonfire.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bonfire.release.xcconfig"; path = "Target Support Files/Pods-Bonfire/Pods-Bonfire.release.xcconfig"; sourceTree = "<group>"; };
+
 		1A5EA54325284978008675C1 /* Account.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Account.xcdatamodel; sourceTree = "<group>"; };
 		1A5EA54A25284BFC008675C1 /* Account+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataClass.swift"; sourceTree = "<group>"; };
 		1AA886BB24F8EA71007432CB /* HostActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostActions.swift; sourceTree = "<group>"; };
+
 		4510CA0124F8F5B700CB32C9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		453FE07F24F347F500DA3383 /* SettingsTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableTableViewController.swift; sourceTree = "<group>"; };
 		453FE08124F3593600DA3383 /* SelectZone.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectZone.storyboard; sourceTree = "<group>"; };
@@ -69,6 +80,11 @@
 		453FE08524F3698400DA3383 /* login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = login.storyboard; sourceTree = "<group>"; };
 		453FE08D24F3799500DA3383 /* TextFieldWithInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithInsets.swift; sourceTree = "<group>"; };
 		455241FA24FF88D3001051C9 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+
+		5DA14898FB7EF8E577F82D47 /* Pods-BonfireTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BonfireTests.release.xcconfig"; path = "Target Support Files/Pods-BonfireTests/Pods-BonfireTests.release.xcconfig"; sourceTree = "<group>"; };
+		7783E0503FFB0B302BEC7807 /* Pods_BonfireTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BonfireTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0DF508AD04887F58ABFD6E9 /* Pods-Bonfire-BonfireUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bonfire-BonfireUITests.debug.xcconfig"; path = "Target Support Files/Pods-Bonfire-BonfireUITests/Pods-Bonfire-BonfireUITests.debug.xcconfig"; sourceTree = "<group>"; };
+
 		AA6A6A72250268E400760433 /* DNSNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSNewViewController.swift; sourceTree = "<group>"; };
 		AAA04D3C2501F39900CA216B /* DNSEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSEditViewController.swift; sourceTree = "<group>"; };
 		AACC224F24F94C770016CBED /* DNSViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSViewModel.swift; sourceTree = "<group>"; };
@@ -97,6 +113,8 @@
 		C7B95A4924DE4C0E00459A5C /* BonfireUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BonfireUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7B95A4D24DE4C0E00459A5C /* BonfireUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonfireUITests.swift; sourceTree = "<group>"; };
 		C7B95A4F24DE4C0E00459A5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D30C457D64B8EF4F7972F73F /* Pods-Bonfire-BonfireUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bonfire-BonfireUITests.release.xcconfig"; path = "Target Support Files/Pods-Bonfire-BonfireUITests/Pods-Bonfire-BonfireUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F8E7840238382CDFCA86491A /* Pods_Bonfire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bonfire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C44CB2AA854591A0D9DA3857 /* Pods_Bonfire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEA123B1C8C98C229F167F16 /* Pods_BonfireTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,18 +138,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E60DEDD69A593A0606A0E53F /* Pods_Bonfire_BonfireUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+
+		2B359713AF33F77E591110D7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F8E7840238382CDFCA86491A /* Pods_Bonfire.framework */,
+				077A1DC25E5E6FFD08E4041D /* Pods_Bonfire_BonfireUITests.framework */,
+				7783E0503FFB0B302BEC7807 /* Pods_BonfireTests.framework */,
+			);
+			name = Frameworks;
+
 		1A5EA54925284B71008675C1 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
 				1A5EA54A25284BFC008675C1 /* Account+CoreDataClass.swift */,
 			);
 			path = CoreData;
+
 			sourceTree = "<group>";
 		};
 		453FE08C24F3796A00DA3383 /* Components */ = {
@@ -138,6 +170,20 @@
 				453FE08D24F3799500DA3383 /* TextFieldWithInsets.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		7D315536A57EE06C819A68C5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2D02AD0ABC8AA0CB7E4A4A88 /* Pods-Bonfire.debug.xcconfig */,
+				39DCC81FED7D7FDB462C59E7 /* Pods-Bonfire.release.xcconfig */,
+				A0DF508AD04887F58ABFD6E9 /* Pods-Bonfire-BonfireUITests.debug.xcconfig */,
+				D30C457D64B8EF4F7972F73F /* Pods-Bonfire-BonfireUITests.release.xcconfig */,
+				22EAB1AF34F10E6882195098 /* Pods-BonfireTests.debug.xcconfig */,
+				5DA14898FB7EF8E577F82D47 /* Pods-BonfireTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		C7A5566F24DE518900C21123 /* Model */ = {
@@ -202,6 +248,8 @@
 				C7B95A4124DE4C0E00459A5C /* BonfireTests */,
 				C7B95A4C24DE4C0E00459A5C /* BonfireUITests */,
 				C7B95A2824DE4C0B00459A5C /* Products */,
+				7D315536A57EE06C819A68C5 /* Pods */,
+				2B359713AF33F77E591110D7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -255,9 +303,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C7B95A5224DE4C0E00459A5C /* Build configuration list for PBXNativeTarget "Bonfire" */;
 			buildPhases = (
+				7BDCD819277CEF4E6FEFE2AA /* [CP] Check Pods Manifest.lock */,
 				C7B95A2324DE4C0B00459A5C /* Sources */,
 				C7B95A2424DE4C0B00459A5C /* Frameworks */,
 				C7B95A2524DE4C0B00459A5C /* Resources */,
+				744A7FA5D57A89C451D8E602 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -272,6 +322,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C7B95A5524DE4C0E00459A5C /* Build configuration list for PBXNativeTarget "BonfireTests" */;
 			buildPhases = (
+				AD4BEE13E228BBCAB50AB2C8 /* [CP] Check Pods Manifest.lock */,
 				C7B95A3A24DE4C0E00459A5C /* Sources */,
 				C7B95A3B24DE4C0E00459A5C /* Frameworks */,
 				C7B95A3C24DE4C0E00459A5C /* Resources */,
@@ -290,9 +341,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C7B95A5824DE4C0E00459A5C /* Build configuration list for PBXNativeTarget "BonfireUITests" */;
 			buildPhases = (
+				2E9CE940B8F011B7186494DF /* [CP] Check Pods Manifest.lock */,
 				C7B95A4524DE4C0E00459A5C /* Sources */,
 				C7B95A4624DE4C0E00459A5C /* Frameworks */,
 				C7B95A4724DE4C0E00459A5C /* Resources */,
+				A874D350221571640A60035D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -380,6 +433,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2E9CE940B8F011B7186494DF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bonfire-BonfireUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		744A7FA5D57A89C451D8E602 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bonfire/Pods-Bonfire-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bonfire/Pods-Bonfire-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bonfire/Pods-Bonfire-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7BDCD819277CEF4E6FEFE2AA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bonfire-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A874D350221571640A60035D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bonfire-BonfireUITests/Pods-Bonfire-BonfireUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bonfire-BonfireUITests/Pods-Bonfire-BonfireUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bonfire-BonfireUITests/Pods-Bonfire-BonfireUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AD4BEE13E228BBCAB50AB2C8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BonfireTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C7B95A2324DE4C0B00459A5C /* Sources */ = {
@@ -579,6 +735,7 @@
 		};
 		C7B95A5324DE4C0E00459A5C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D02AD0ABC8AA0CB7E4A4A88 /* Pods-Bonfire.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -597,6 +754,7 @@
 		};
 		C7B95A5424DE4C0E00459A5C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39DCC81FED7D7FDB462C59E7 /* Pods-Bonfire.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -615,6 +773,7 @@
 		};
 		C7B95A5624DE4C0E00459A5C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22EAB1AF34F10E6882195098 /* Pods-BonfireTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -635,6 +794,7 @@
 		};
 		C7B95A5724DE4C0E00459A5C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DA14898FB7EF8E577F82D47 /* Pods-BonfireTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -655,6 +815,7 @@
 		};
 		C7B95A5924DE4C0E00459A5C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0DF508AD04887F58ABFD6E9 /* Pods-Bonfire-BonfireUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -674,6 +835,7 @@
 		};
 		C7B95A5A24DE4C0E00459A5C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D30C457D64B8EF4F7972F73F /* Pods-Bonfire-BonfireUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
