@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A5EA54425284978008675C1 /* Account.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1A5EA54225284978008675C1 /* Account.xcdatamodeld */; };
+		1A5EA54C25284BFC008675C1 /* Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5EA54A25284BFC008675C1 /* Account+CoreDataClass.swift */; };
 		1AA886BC24F8EA71007432CB /* HostActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA886BB24F8EA71007432CB /* HostActions.swift */; };
 		4510CA0224F8F5B700CB32C9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CA0124F8F5B700CB32C9 /* LoginViewController.swift */; };
 		453FE08024F347F500DA3383 /* SettingsTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453FE07F24F347F500DA3383 /* SettingsTableTableViewController.swift */; };
@@ -34,7 +36,6 @@
 		C7B95A2B24DE4C0B00459A5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B95A2A24DE4C0B00459A5C /* AppDelegate.swift */; };
 		C7B95A2D24DE4C0B00459A5C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B95A2C24DE4C0B00459A5C /* ViewController.swift */; };
 		C7B95A3024DE4C0B00459A5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7B95A2E24DE4C0B00459A5C /* Main.storyboard */; };
-		C7B95A3324DE4C0B00459A5C /* Bonfire.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C7B95A3124DE4C0B00459A5C /* Bonfire.xcdatamodeld */; };
 		C7B95A3524DE4C0D00459A5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7B95A3424DE4C0D00459A5C /* Assets.xcassets */; };
 		C7B95A3824DE4C0D00459A5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7B95A3624DE4C0D00459A5C /* LaunchScreen.storyboard */; };
 		C7B95A4324DE4C0E00459A5C /* BonfireTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B95A4224DE4C0E00459A5C /* BonfireTests.swift */; };
@@ -61,11 +62,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+
 		077A1DC25E5E6FFD08E4041D /* Pods_Bonfire_BonfireUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bonfire_BonfireUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AA886BB24F8EA71007432CB /* HostActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostActions.swift; sourceTree = "<group>"; };
 		22EAB1AF34F10E6882195098 /* Pods-BonfireTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BonfireTests.debug.xcconfig"; path = "Target Support Files/Pods-BonfireTests/Pods-BonfireTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2D02AD0ABC8AA0CB7E4A4A88 /* Pods-Bonfire.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bonfire.debug.xcconfig"; path = "Target Support Files/Pods-Bonfire/Pods-Bonfire.debug.xcconfig"; sourceTree = "<group>"; };
 		39DCC81FED7D7FDB462C59E7 /* Pods-Bonfire.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bonfire.release.xcconfig"; path = "Target Support Files/Pods-Bonfire/Pods-Bonfire.release.xcconfig"; sourceTree = "<group>"; };
+
+		1A5EA54325284978008675C1 /* Account.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Account.xcdatamodel; sourceTree = "<group>"; };
+		1A5EA54A25284BFC008675C1 /* Account+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataClass.swift"; sourceTree = "<group>"; };
+		1AA886BB24F8EA71007432CB /* HostActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostActions.swift; sourceTree = "<group>"; };
+
 		4510CA0124F8F5B700CB32C9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		453FE07F24F347F500DA3383 /* SettingsTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableTableViewController.swift; sourceTree = "<group>"; };
 		453FE08124F3593600DA3383 /* SelectZone.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectZone.storyboard; sourceTree = "<group>"; };
@@ -73,9 +80,11 @@
 		453FE08524F3698400DA3383 /* login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = login.storyboard; sourceTree = "<group>"; };
 		453FE08D24F3799500DA3383 /* TextFieldWithInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithInsets.swift; sourceTree = "<group>"; };
 		455241FA24FF88D3001051C9 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+
 		5DA14898FB7EF8E577F82D47 /* Pods-BonfireTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BonfireTests.release.xcconfig"; path = "Target Support Files/Pods-BonfireTests/Pods-BonfireTests.release.xcconfig"; sourceTree = "<group>"; };
 		7783E0503FFB0B302BEC7807 /* Pods_BonfireTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BonfireTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0DF508AD04887F58ABFD6E9 /* Pods-Bonfire-BonfireUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bonfire-BonfireUITests.debug.xcconfig"; path = "Target Support Files/Pods-Bonfire-BonfireUITests/Pods-Bonfire-BonfireUITests.debug.xcconfig"; sourceTree = "<group>"; };
+
 		AA6A6A72250268E400760433 /* DNSNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSNewViewController.swift; sourceTree = "<group>"; };
 		AAA04D3C2501F39900CA216B /* DNSEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSEditViewController.swift; sourceTree = "<group>"; };
 		AACC224F24F94C770016CBED /* DNSViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSViewModel.swift; sourceTree = "<group>"; };
@@ -95,7 +104,6 @@
 		C7B95A2A24DE4C0B00459A5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7B95A2C24DE4C0B00459A5C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C7B95A2F24DE4C0B00459A5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C7B95A3224DE4C0B00459A5C /* Bonfire.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bonfire.xcdatamodel; sourceTree = "<group>"; };
 		C7B95A3424DE4C0D00459A5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7B95A3724DE4C0D00459A5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7B95A3924DE4C0D00459A5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -137,6 +145,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+
 		2B359713AF33F77E591110D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +154,14 @@
 				7783E0503FFB0B302BEC7807 /* Pods_BonfireTests.framework */,
 			);
 			name = Frameworks;
+
+		1A5EA54925284B71008675C1 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				1A5EA54A25284BFC008675C1 /* Account+CoreDataClass.swift */,
+			);
+			path = CoreData;
+
 			sourceTree = "<group>";
 		};
 		453FE08C24F3796A00DA3383 /* Components */ = {
@@ -176,6 +193,7 @@
 				C7A5567324DE536E00C21123 /* Cloudflare.swift */,
 				1AA886BB24F8EA71007432CB /* HostActions.swift */,
 				C70132BF24EEA14A003C9B05 /* Zone.swift */,
+				1A5EA54225284978008675C1 /* Account.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -248,6 +266,7 @@
 		C7B95A2924DE4C0B00459A5C /* Bonfire */ = {
 			isa = PBXGroup;
 			children = (
+				1A5EA54925284B71008675C1 /* CoreData */,
 				C7A5566F24DE518900C21123 /* Model */,
 				C7A5567024DE519000C21123 /* View */,
 				C7A5567124DE51A900C21123 /* Controller */,
@@ -255,7 +274,6 @@
 				C7B95A3624DE4C0D00459A5C /* LaunchScreen.storyboard */,
 				C7B95A3424DE4C0D00459A5C /* Assets.xcassets */,
 				C7B95A3924DE4C0D00459A5C /* Info.plist */,
-				C7B95A3124DE4C0B00459A5C /* Bonfire.xcdatamodeld */,
 			);
 			path = Bonfire;
 			sourceTree = "<group>";
@@ -532,7 +550,7 @@
 				AACC225024F94C770016CBED /* DNSViewModel.swift in Sources */,
 				C70132C024EEA14A003C9B05 /* Zone.swift in Sources */,
 				C7B95A2D24DE4C0B00459A5C /* ViewController.swift in Sources */,
-				C7B95A3324DE4C0B00459A5C /* Bonfire.xcdatamodeld in Sources */,
+				1A5EA54425284978008675C1 /* Account.xcdatamodeld in Sources */,
 				453FE08024F347F500DA3383 /* SettingsTableTableViewController.swift in Sources */,
 				C7B95A2B24DE4C0B00459A5C /* AppDelegate.swift in Sources */,
 				453FE08424F3627B00DA3383 /* SelectZoneController.swift in Sources */,
@@ -540,6 +558,7 @@
 				453FE08E24F3799500DA3383 /* TextFieldWithInsets.swift in Sources */,
 				C73F9E9924EF5A5A0014B594 /* AnalyticsViewController.swift in Sources */,
 				C7816C2224F54A50001DCF48 /* RequestsViewModel.swift in Sources */,
+				1A5EA54C25284BFC008675C1 /* Account+CoreDataClass.swift in Sources */,
 				1AA886BC24F8EA71007432CB /* HostActions.swift in Sources */,
 				AA6A6A73250268E400760433 /* DNSNewViewController.swift in Sources */,
 				C7816C2424F54A69001DCF48 /* RequestsController.swift in Sources */,
@@ -876,13 +895,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		C7B95A3124DE4C0B00459A5C /* Bonfire.xcdatamodeld */ = {
+		1A5EA54225284978008675C1 /* Account.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				C7B95A3224DE4C0B00459A5C /* Bonfire.xcdatamodel */,
+				1A5EA54325284978008675C1 /* Account.xcdatamodel */,
 			);
-			currentVersion = C7B95A3224DE4C0B00459A5C /* Bonfire.xcdatamodel */;
-			path = Bonfire.xcdatamodeld;
+			currentVersion = 1A5EA54325284978008675C1 /* Account.xcdatamodel */;
+			path = Account.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
