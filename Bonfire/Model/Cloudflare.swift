@@ -8,7 +8,6 @@ import Foundation
 
 struct Cloudflare {
     
-
     public var isLoggedIn = false
     init(email: String, apiKey: String) {}
     
@@ -17,7 +16,7 @@ struct Cloudflare {
      API documentation:
      [GET zones](https://api.cloudflare.com/#zone-list-zones)
      
-     - Returns: A dictionary containing relevant data points
+     - Returns: A list of zones
      */
     public func getZones() -> [Zone] {
         let retVal: [Zone] = [
