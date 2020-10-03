@@ -10,6 +10,7 @@ import XCTest
 @testable import Bonfire
 
 class ZoneTests: XCTestCase {
+
     let ZONE_NAME: String = "example.com"
     let ZONE_ID: String = "023e105f4ecef8ad9ca31a8372d0c353"
     
@@ -29,10 +30,13 @@ class ZoneTests: XCTestCase {
         
         XCTAssertNotNil(zone?.name)
         XCTAssertNotNil(zone?.getId())
-        XCTAssertEqual(zone, expectedZone)
+        
+        XCTAssertEqual(zone?.name, expectedZone.name)
+        XCTAssertEqual(zone?.getId(), expectedZone.getId())
     }
     
     func testGetId() {
         XCTAssertEqual(zone?.getId(), ZONE_ID)
     }
+    
 }
