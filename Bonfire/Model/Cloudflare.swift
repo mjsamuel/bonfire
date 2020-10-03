@@ -11,10 +11,11 @@ struct Cloudflare {
     
     private let cfBaseURL = "https://api.cloudflare.com/client/v4/"
     public var isLoggedIn = false
-    private var apiKey = "060c7f06d9e5c0f0fb09872547ec0cfcae0bb"
-    private var apiEmail = "s3656070@student.rmit.edu.au"
+    private var apiKey = ""
+    private var apiEmail = ""
     init(email: String, apiKey: String) {
-//        self.apiKey = apiKey
+        self.apiKey = apiKey
+        self.apiEmail = email
     }
     
     
