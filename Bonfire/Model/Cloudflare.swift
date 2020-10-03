@@ -5,12 +5,38 @@
 //  Copyright © 2020 ipse. All rights reserved.
 //
 import Foundation
+import Alamofire
 
 struct Cloudflare {
     
-
+    private let cfBaseURL = "https://api.cloudflare.com/client/v4/"
     public var isLoggedIn = false
-    init(email: String, apiKey: String) {}
+    private var apiKey = "060c7f06d9e5c0f0fb09872547ec0cfcae0bb"
+    private var apiEmail = "s3656070@student.rmit.edu.au"
+    init(email: String, apiKey: String) {
+//        self.apiKey = apiKey
+    }
+    
+    
+    public func makeRequest(endpoint: String, method: HTTPMethod, completion: @escaping (_ response: Dictionary<String, Any>)->()) {
+        let headers = [
+            "X-Auth-Key": self.apiKey,
+            "X-Auth-Email": self.apiEmail,
+            "Accept": "application/json",
+            "Content-Type": "application/json"]
+        Alamofire.request(URL(string: cfBaseURL + endpoint)!, method: method, parameters: nil,encoding: URLEncoding.default, headers: headers).responseJSON { response in
+            switch response.result {
+                case .success(_):
+                    if let resultDict = response.result.value as? Dictionary<String, Any> {
+                        completion(resultDict)
+                    } else {
+                        completion(["Error":"Unknown"])
+                    }
+                case .failure(_):
+                    completion(["Error":"Unknown"])
+            }
+        }
+    }
     
     /**
      Calls Clourflares's get zones API endpoint and returns a list of all zones
@@ -20,6 +46,10 @@ struct Cloudflare {
      - Returns: A dictionary containing relevant data points
      */
     public func getZones() -> [Zone] {
+        self.makeRequest(endpoint: "zones", method: .get, completion: { response in
+            print(response)
+        })
+        
         let retVal: [Zone] = [
             Zone(name: "example.com", id: "023e105f4ecef8ad9ca31a8372d0c353"),
             Zone(name: "test.com", id: "353c0d2738a13ac9da8fece4f501e320"),
