@@ -73,8 +73,6 @@ class AnalyticsUITests: XCTestCase {
         let apiKeyField = app?.textFields["apiKeyField"]
         apiKeyField?.tap()
         apiKeyField?.typeText("test\n")
-        
-        sleep(2)
     }
 
 }

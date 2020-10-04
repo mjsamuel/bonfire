@@ -26,6 +26,8 @@
 		C71E19D524EABE79001E83C1 /* DNS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71E19D424EABE79001E83C1 /* DNS.storyboard */; };
 		C71E19D724EABE88001E83C1 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71E19D624EABE88001E83C1 /* Settings.storyboard */; };
 		C73F9E9924EF5A5A0014B594 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73F9E9824EF5A5A0014B594 /* AnalyticsViewController.swift */; };
+		C746E901252A1DB400AF3B8C /* RequestsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C746E900252A1DB400AF3B8C /* RequestsUITests.swift */; };
+		C746E903252A2FEF00AF3B8C /* LoginUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C746E902252A2FEF00AF3B8C /* LoginUITests.swift */; };
 		C76E625925284B2200C47F11 /* ActionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76E625825284B2200C47F11 /* ActionTests.swift */; };
 		C76E625B2528630B00C47F11 /* ClourflareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76E625A2528630B00C47F11 /* ClourflareTests.swift */; };
 		C77158842528A4BF00F7392D /* AnalyticsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77158832528A4BF00F7392D /* AnalyticsUITests.swift */; };
@@ -82,6 +84,8 @@
 		C71E19D424EABE79001E83C1 /* DNS.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DNS.storyboard; sourceTree = "<group>"; };
 		C71E19D624EABE88001E83C1 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		C73F9E9824EF5A5A0014B594 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
+		C746E900252A1DB400AF3B8C /* RequestsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsUITests.swift; sourceTree = "<group>"; };
+		C746E902252A2FEF00AF3B8C /* LoginUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUITests.swift; sourceTree = "<group>"; };
 		C76E625825284B2200C47F11 /* ActionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionTests.swift; sourceTree = "<group>"; };
 		C76E625A2528630B00C47F11 /* ClourflareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClourflareTests.swift; sourceTree = "<group>"; };
 		C77158832528A4BF00F7392D /* AnalyticsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsUITests.swift; sourceTree = "<group>"; };
@@ -245,8 +249,10 @@
 		C7B95A4C24DE4C0E00459A5C /* BonfireUITests */ = {
 			isa = PBXGroup;
 			children = (
-				C7B95A4D24DE4C0E00459A5C /* BonfireUITests.swift */,
 				C77158832528A4BF00F7392D /* AnalyticsUITests.swift */,
+				C7B95A4D24DE4C0E00459A5C /* BonfireUITests.swift */,
+				C746E900252A1DB400AF3B8C /* RequestsUITests.swift */,
+				C746E902252A2FEF00AF3B8C /* LoginUITests.swift */,
 				C7B95A4F24DE4C0E00459A5C /* Info.plist */,
 			);
 			path = BonfireUITests;
@@ -429,8 +435,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C746E901252A1DB400AF3B8C /* RequestsUITests.swift in Sources */,
 				C77158842528A4BF00F7392D /* AnalyticsUITests.swift in Sources */,
 				C7B95A4E24DE4C0E00459A5C /* BonfireUITests.swift in Sources */,
+				C746E903252A2FEF00AF3B8C /* LoginUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
