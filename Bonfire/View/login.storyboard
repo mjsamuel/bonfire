@@ -28,6 +28,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vy9-FO-h50" customClass="TextFieldWithInsets" customModule="Bonfire" customModuleProvider="target">
                                                 <rect key="frame" x="46" y="354.5" width="322" height="46"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="emailField"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="46" id="Lqr-Pb-eby"/>
                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="nJI-N3-ecM"/>
@@ -49,6 +50,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="API Key..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zGQ-bt-lNP" customClass="TextFieldWithInsets" customModule="Bonfire" customModuleProvider="target">
                                                 <rect key="frame" x="46" y="426.5" width="322" height="46"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="apiKeyField"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="46" id="6iy-8a-fSa"/>
                                                     <constraint firstAttribute="height" constant="46" id="Ow2-TQ-Qc5"/>

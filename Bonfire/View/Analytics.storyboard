@@ -32,6 +32,7 @@
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="400" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ggr-Se-5v5">
                                                                 <rect key="frame" x="8" y="21.5" width="128" height="43"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="pageviewsLabel"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -44,6 +45,9 @@
                                                             </label>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="tile">
+                                                            <bool key="isElement" value="NO"/>
+                                                        </accessibility>
                                                         <constraints>
                                                             <constraint firstItem="OlH-xW-cZv" firstAttribute="centerX" secondItem="tSU-bR-GsW" secondAttribute="centerX" id="bZ1-NW-gJA"/>
                                                             <constraint firstAttribute="trailing" secondItem="Ggr-Se-5v5" secondAttribute="trailing" constant="8" id="c4V-Yp-QzT"/>
@@ -62,6 +66,7 @@
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0GE-oC-s8P">
                                                                 <rect key="frame" x="8" y="21.5" width="128" height="43"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="threatsLabel"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -74,6 +79,9 @@
                                                             </label>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="tile">
+                                                            <bool key="isElement" value="NO"/>
+                                                        </accessibility>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="0GE-oC-s8P" secondAttribute="trailing" constant="8" id="8ed-w1-0oe"/>
                                                             <constraint firstItem="Yc8-IA-StK" firstAttribute="top" secondItem="0GE-oC-s8P" secondAttribute="bottom" id="F80-Rg-ASj"/>
@@ -101,6 +109,7 @@
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lwR-AH-LqO">
                                                                         <rect key="frame" x="8" y="26" width="84" height="38.5"/>
+                                                                        <accessibility key="accessibilityConfiguration" identifier="cachedLabel"/>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -126,6 +135,7 @@
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="321" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBl-oL-uZ7">
                                                                         <rect key="frame" x="8" y="26" width="84" height="38.5"/>
+                                                                        <accessibility key="accessibilityConfiguration" identifier="uncachedLabel"/>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -151,6 +161,7 @@
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="38%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Is4-U4-kUh">
                                                                         <rect key="frame" x="8" y="26" width="84" height="38.5"/>
+                                                                        <accessibility key="accessibilityConfiguration" identifier="percentCachedLabel"/>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -175,6 +186,9 @@
                                                     </stackView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="tile">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <constraints>
                                                     <constraint firstItem="qxo-G5-1wu" firstAttribute="leading" secondItem="gl8-WL-eNo" secondAttribute="leading" id="52i-5q-EVY"/>
                                                     <constraint firstItem="qxo-G5-1wu" firstAttribute="top" secondItem="gl8-WL-eNo" secondAttribute="top" id="HlF-PZ-upq"/>
@@ -236,6 +250,9 @@
                                                     </label>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="tile">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="LYu-zr-4xp" secondAttribute="trailing" constant="2" id="5pC-oI-05c"/>
                                                     <constraint firstItem="LYu-zr-4xp" firstAttribute="leading" secondItem="nAw-VA-RWj" secondAttribute="leading" constant="2" id="9hc-JV-JEn"/>
@@ -261,6 +278,7 @@
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$29" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ys-zO-40g">
                                                                         <rect key="frame" x="8" y="21.5" width="134" height="43"/>
+                                                                        <accessibility key="accessibilityConfiguration" identifier="cpmLabel"/>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -286,6 +304,7 @@
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.005" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rh1-q1-8q5">
                                                                         <rect key="frame" x="8" y="21.5" width="134" height="43"/>
+                                                                        <accessibility key="accessibilityConfiguration" identifier="cprLabel"/>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -310,6 +329,9 @@
                                                     </stackView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="tile">
+                                                    <bool key="isElement" value="NO"/>
+                                                </accessibility>
                                                 <constraints>
                                                     <constraint firstItem="8gC-eW-Iwv" firstAttribute="leading" secondItem="KFl-7T-5pe" secondAttribute="leading" id="Qx0-0Y-89F"/>
                                                     <constraint firstAttribute="trailing" secondItem="8gC-eW-Iwv" secondAttribute="trailing" id="fYw-YA-TuM"/>
