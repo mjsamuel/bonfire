@@ -38,6 +38,7 @@ class Bonfire {
             self.cloudflare!.isLoggedIn = (zones.count > 0)
             if self.cloudflare!.isLoggedIn {
                 self.currentZone = zones[0]
+                self.zones = zones
             } else {
                 // Show error alert no zones found or not valid creds
                 self.showErrorAlert(title: "Login Failed", message: "Please confirm your email and API key. You must have atleast 1 zone configured in CloudFlare.")
@@ -55,6 +56,9 @@ class Bonfire {
         currentZone = nil
     }
     
+    /**
+     Shows an alert view ontop of any view controller by creating a new window and presenting inside that window.
+    **/
     public func showErrorAlert(title:String, message:String, buttonTitle:String = "OK") {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: buttonTitle, style: .default, handler: nil))
