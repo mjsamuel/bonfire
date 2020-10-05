@@ -39,10 +39,7 @@ struct Cloudflare {
             "Accept": "application/json",
             "Content-Type": "application/json"]
         Alamofire.request(URL(string: cfBaseURL + endpoint)!, method: method, parameters: nil,encoding: URLEncoding.default, headers: headers).responseJSON { response in
-            let deadlineTime = DispatchTime.now() + .seconds(5)
-            DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
-                appDel.toggleActInd(on: false)
-            }
+            appDel.toggleActInd(on: false)
             switch response.result {
             case .success(_):
                 if let resultDict = response.result.value as? Dictionary<String, Any> {
@@ -63,18 +60,24 @@ struct Cloudflare {
      
      - Returns: A dictionary containing relevant data points
      */
-    public func getZones() -> [Zone] {
+    public func getZones(completion: @escaping (_ zones: [Zone])->()) {
+        var retVal: [Zone] = []
         self.makeRequest(endpoint: "zones", method: .get, showActInd: true, completion: { response in
-            print(response)
+            if let result: Array<Dictionary<String, Any>> = response["result"] as? Array<Dictionary<String, Any>> {
+                for zone in result {
+                    if let zname:String = zone["name"] as? String, let zid:String = zone["id"] as? String {
+                        retVal.append(Zone(name: zname, id: zid))
+                    }
+                }
+            }
+            completion(retVal)
         })
         
-        let retVal: [Zone] = [
-            Zone(name: "example.com", id: "023e105f4ecef8ad9ca31a8372d0c353"),
-            Zone(name: "test.com", id: "353c0d2738a13ac9da8fece4f501e320"),
-            Zone(name: "a.site", id: "853e105f4ecef8ad9ca31a8372d0c432")
-        ]
-        
-        return retVal
+//        let retVal: [Zone] = [
+//            Zone(name: "example.com", id: "023e105f4ecef8ad9ca31a8372d0c353"),
+//            Zone(name: "test.com", id: "353c0d2738a13ac9da8fece4f501e320"),
+//            Zone(name: "a.site", id: "853e105f4ecef8ad9ca31a8372d0c432")
+//        ]
     }
     
     /**

@@ -38,9 +38,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             // Reset any modified button alpha
             sender.alpha = 1.0
             // Update the Bonfire singleton
-            Bonfire.sharedInstance.login(email: emailField.text!, apiKey: keyField.text!)
-            // Dismiss the login view
-            dismiss(animated: true, completion: nil)
+            Bonfire.sharedInstance.login(email: emailField.text!, apiKey: keyField.text!, completion: {success in
+                if success {
+                    // Dismiss the login view
+                    self.dismiss(animated: true, completion: nil)
+                }
+            })
         }
     }
     

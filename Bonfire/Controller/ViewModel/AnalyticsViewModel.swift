@@ -25,16 +25,18 @@ struct AnalyticsViewModel {
      Pulls data from the Cloudflare API
      */
     public mutating func updateData() {
-        if let rawData = bonfire.cloudflare!.getAnalytics(zoneId: bonfire.currentZone!.getId()) {
-            self.pageviews = rawData["pageviews"] as! Int
-            self.threats = rawData["threats"] as! Int
-            self.cached = rawData["requests_cached"] as! Int
-            self.uncached = rawData["requests_uncached"] as! Int
-            self.countries = rawData["top_countries"] as! [String: Int]
-        }
-        
-        if let priceData = bonfire.cloudflare!.getCosts() {
-            self.costPerMonth = priceData
+        if (bonfire.currentZone != nil) {
+            if let rawData = bonfire.cloudflare!.getAnalytics(zoneId: bonfire.currentZone!.getId()) {
+                self.pageviews = rawData["pageviews"] as! Int
+                self.threats = rawData["threats"] as! Int
+                self.cached = rawData["requests_cached"] as! Int
+                self.uncached = rawData["requests_uncached"] as! Int
+                self.countries = rawData["top_countries"] as! [String: Int]
+            }
+            
+            if let priceData = bonfire.cloudflare!.getCosts() {
+                self.costPerMonth = priceData
+            }
         }
     }
     

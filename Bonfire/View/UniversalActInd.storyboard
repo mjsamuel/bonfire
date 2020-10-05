@@ -32,7 +32,6 @@
                                     </visualEffectView>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="zo2-RC-tGP">
                                         <rect key="frame" x="19" y="19" width="37" height="37"/>
-                                        <color key="color" name="BonfireTint"/>
                                     </activityIndicatorView>
                                 </subviews>
                                 <constraints>
