@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Universal Act Ind-->
+        <scene sceneID="E8K-8k-cxM">
+            <objects>
+                <viewController storyboardIdentifier="UniversalActInd" id="Aqw-xA-78B" customClass="UniversalActInd" customModule="Bonfire" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PlE-gF-YK7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RJV-gs-IUW">
+                                <rect key="frame" x="169.5" y="410.5" width="75" height="75"/>
+                                <subviews>
+                                    <visualEffectView opaque="NO" alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jvZ-BN-U3P">
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3Rs-Re-1gl">
+                                            <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                        <blurEffect style="dark"/>
+                                    </visualEffectView>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="zo2-RC-tGP">
+                                        <rect key="frame" x="19" y="19" width="37" height="37"/>
+                                        <color key="color" name="BonfireTint"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="BLE-eE-z6M"/>
+                                    <constraint firstItem="jvZ-BN-U3P" firstAttribute="leading" secondItem="RJV-gs-IUW" secondAttribute="leading" id="CNi-f5-Ywj"/>
+                                    <constraint firstAttribute="height" constant="75" id="Ox9-RK-EK0"/>
+                                    <constraint firstAttribute="bottom" secondItem="jvZ-BN-U3P" secondAttribute="bottom" id="fQJ-Q3-TIN"/>
+                                    <constraint firstItem="zo2-RC-tGP" firstAttribute="centerY" secondItem="RJV-gs-IUW" secondAttribute="centerY" id="kMg-NL-NuY"/>
+                                    <constraint firstAttribute="trailing" secondItem="jvZ-BN-U3P" secondAttribute="trailing" id="m22-GP-PcW"/>
+                                    <constraint firstItem="jvZ-BN-U3P" firstAttribute="top" secondItem="RJV-gs-IUW" secondAttribute="top" id="my9-5s-jhJ"/>
+                                    <constraint firstItem="zo2-RC-tGP" firstAttribute="centerX" secondItem="RJV-gs-IUW" secondAttribute="centerX" id="qzo-Hf-bIS"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="17"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="tintColor" name="BonfireTint"/>
+                        <constraints>
+                            <constraint firstItem="RJV-gs-IUW" firstAttribute="centerY" secondItem="PlE-gF-YK7" secondAttribute="centerY" id="4Uz-CZ-Xsf"/>
+                            <constraint firstItem="RJV-gs-IUW" firstAttribute="centerX" secondItem="PlE-gF-YK7" secondAttribute="centerX" id="4dn-hK-jt4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OmI-Ck-5EN"/>
+                    </view>
+                    <connections>
+                        <outlet property="actInd" destination="zo2-RC-tGP" id="4l1-uR-zi2"/>
+                        <outlet property="containerView" destination="RJV-gs-IUW" id="A1V-EN-0M2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tDr-S3-bj5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="215.94202898550725" y="141.96428571428569"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="BonfireTint">
+            <color red="0.98431372549019602" green="0.27843137254901962" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

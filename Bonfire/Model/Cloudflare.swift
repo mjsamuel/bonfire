@@ -5,20 +5,61 @@
 //  Copyright © 2020 ipse. All rights reserved.
 //
 import Foundation
+import Alamofire
 
 struct Cloudflare {
     
+    private let cfBaseURL = "https://api.cloudflare.com/client/v4/"
     public var isLoggedIn = false
-    init(email: String, apiKey: String) {}
+    private var apiKey = ""
+    private var apiEmail = ""
+    init(email: String, apiKey: String) {
+        self.apiKey = apiKey
+        self.apiEmail = email
+    }
+    
+    
+    public func makeRequest(endpoint: String, method: HTTPMethod, showActInd: Bool, completion: @escaping (_ response: Dictionary<String, Any>)->()) {
+        // Show Activity Indicator
+        let appDel = UIApplication.shared.delegate as! AppDelegate
+        if showActInd {
+            appDel.toggleActInd(on: true)
+        }
+        let headers = [
+            "X-Auth-Key": self.apiKey,
+            "X-Auth-Email": self.apiEmail,
+            "Accept": "application/json",
+            "Content-Type": "application/json"]
+        Alamofire.request(URL(string: cfBaseURL + endpoint)!, method: method, parameters: nil,encoding: URLEncoding.default, headers: headers).responseJSON { response in
+            let deadlineTime = DispatchTime.now() + .seconds(5)
+            DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+                appDel.toggleActInd(on: false)
+            }
+            switch response.result {
+            case .success(_):
+                if let resultDict = response.result.value as? Dictionary<String, Any> {
+                    completion(resultDict)
+                } else {
+                    completion(["Error":"Unknown"])
+                }
+            case .failure(_):
+                completion(["Error":"Unknown"])
+            }
+        }
+    }
     
     /**
      Calls Clourflares's get zones API endpoint and returns a list of all zones
      API documentation:
      [GET zones](https://api.cloudflare.com/#zone-list-zones)
      
-     - Returns: A list of zones
+     - Returns: A dictionary containing relevant data points
      */
     public func getZones() -> [Zone] {
+        self.makeRequest(endpoint: "zones", method: .get, showActInd: true, completion: { response in
+            print(response)
+        })
+        
         let retVal: [Zone] = [
             Zone(name: "example.com", id: "023e105f4ecef8ad9ca31a8372d0c353"),
             Zone(name: "test.com", id: "353c0d2738a13ac9da8fece4f501e320"),

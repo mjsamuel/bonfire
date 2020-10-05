@@ -12,12 +12,33 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    var universalActInd : UniversalActInd?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         return true
+    }
+    
+//    Universal Activity indicator
+    func toggleActInd(on: Bool) {
+        if on {
+            // Hide if already exists
+            if (universalActInd != nil) {
+                universalActInd?.view.removeFromSuperview()
+                universalActInd = nil
+            }
+            universalActInd = UniversalActInd.viewController()
+            self.window?.addSubview((universalActInd?.view)!)
+        } else {
+            if universalActInd != nil {
+                universalActInd?.fadeAway(completion: {
+                    self.universalActInd?.view.removeFromSuperview()
+                })
+            }
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
