@@ -18,7 +18,15 @@ struct Cloudflare {
         self.apiEmail = email
     }
     
-    
+    /**
+     Make An API Request
+     This method makes a request to the Cloudflare REST API.
+     Parameters:
+     - endpoint: The desired API endpoint (e.g. zones)
+     - method: The HTTP method to use, generally .get or .post
+     - showActInd: Boolean of if a spinner should be shown
+     - completion: The code block to run once a response has been recieved (Recieves the parameter "response" as a Dictionary)
+    **/
     public func makeRequest(endpoint: String, method: HTTPMethod, showActInd: Bool, completion: @escaping (_ response: Dictionary<String, Any>)->()) {
         // Show Activity Indicator
         let appDel = UIApplication.shared.delegate as! AppDelegate
