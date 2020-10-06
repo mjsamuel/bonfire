@@ -15,8 +15,8 @@ class AboutUsViewController: UITableViewController {
     private var viewModel: AboutUsViewModel = AboutUsViewModel()
     
     var avPlayerViewController: AVPlayerViewController!
-    var image: UIImage?
     var lastChosenMediaType: String?
+    var lastChosenRow: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,14 +47,8 @@ class AboutUsViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        lastChosenRow = indexPath.row
         pickMediaFromSource(UIImagePickerControllerSourceType.camera)
-        
-        // Updating view model and refreshing table data
-        if let capturedImage = self.image {
-            viewModel.team[indexPath.row].image = capturedImage
-            tableView.reloadData()
-        }
-        
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -86,7 +80,8 @@ extension AboutUsViewController: UIImagePickerControllerDelegate, UINavigationCo
         
         if let mediaType = lastChosenMediaType {
             if mediaType == (kUTTypeImage as NSString) as String {
-                image = info[UIImagePickerControllerEditedImage] as? UIImage
+                 viewModel.team[lastChosenRow].image = info[UIImagePickerControllerEditedImage] as? UIImage
+                tableView.reloadData()
             }
         }
         
