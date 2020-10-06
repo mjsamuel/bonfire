@@ -8,8 +8,9 @@
 import UIKit
 
 class AnalyticsViewController: UIViewController, UITableViewDataSource {
-    private let viewModel: AnalyticsViewModel = AnalyticsViewModel()
+    private var viewModel: AnalyticsViewModel = AnalyticsViewModel()
     private var countries: [Country] = []
+    private let bonfire: Bonfire = Bonfire.sharedInstance
     
     @IBOutlet weak var pageviewsLabel: UILabel!
     @IBOutlet weak var threatsLabel: UILabel!
@@ -30,6 +31,26 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource {
         
         setFontSize()
         updateLabels()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("viewWillAppear")
+        if (bonfire.currentZone != nil) {
+            bonfire.cloudflare!.getAnalytics(zoneId: bonfire.currentZone!.getId(), completion: { data in
+                if data != nil {
+                    self.viewModel.updateData(data!)
+                    self.updateLabels()
+                    self.countriesTable.reloadData()
+                }
+            })
+            bonfire.cloudflare!.getCosts(completion: { data in
+                if let price = data!["price"] as? Float {
+                    self.viewModel.updatePriceData(price)
+                    self.updateLabels()
+                }
+            })
+        }
     }
     
     /**
