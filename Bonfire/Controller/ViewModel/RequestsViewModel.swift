@@ -19,9 +19,11 @@ struct RequestsViewModel {
      Pulls data from the Cloudflare API
      */
     public mutating func updateData() {
-        let zoneId = bonfire.currentZone!.getId()
-        if let rawRequests = bonfire.cloudflare!.getRequests(zoneId: zoneId) {
-            self.requestsData = rawRequests
+        if (bonfire.currentZone != nil) {
+            let zoneId = bonfire.currentZone!.getId()
+            if let rawRequests = bonfire.cloudflare!.getRequests(zoneId: zoneId) {
+                self.requestsData = rawRequests
+            }
         }
     }
     

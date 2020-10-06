@@ -29,11 +29,13 @@ class UniversalActInd: UIViewController {
     }
     
     public func fadeAway(completion: @escaping ()->()) {
-        UIView.animate(withDuration: 0.3, animations: {
-            self.containerView.alpha = 0.0
-        }) { finished in
-            self.actInd.stopAnimating()
-            completion()
+        if (containerView != nil && actInd != nil) {
+            UIView.animate(withDuration: 0.3, animations: {
+                self.containerView.alpha = 0.0
+            }) { finished in
+                self.actInd.stopAnimating()
+                completion()
+            }
         }
     }
     
