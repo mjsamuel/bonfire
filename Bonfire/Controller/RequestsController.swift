@@ -8,16 +8,30 @@
 import UIKit
 
 class RequestsController: UITableViewController {
-    private let viewModel: RequestsViewModel = RequestsViewModel()
+    private var viewModel: RequestsViewModel = RequestsViewModel()
     private var requests: [Request] = []
+    private let bonfire: Bonfire = Bonfire.sharedInstance
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.updateTable()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.updateTable()
     }
     
     func updateTable() {
-        self.requests = viewModel.getRequests()
+        if (bonfire.currentZone != nil) {
+            bonfire.cloudflare!.getRequests(zoneId: bonfire.currentZone!.getId(), completion: { data in
+                if data != nil {
+                    self.viewModel.updateData(data!)
+                    self.requests = self.viewModel.getRequests()
+                    self.tableView.reloadData()
+                }
+            })
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
