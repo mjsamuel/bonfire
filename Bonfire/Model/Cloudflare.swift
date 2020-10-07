@@ -27,7 +27,7 @@ struct Cloudflare {
      - showActInd: Boolean of if a spinner should be shown
      - completion: The code block to run once a response has been recieved (Recieves the parameter "response" as a Dictionary)
     **/
-    public func makeRequest(endpoint: String, method: HTTPMethod, showActInd: Bool, completion: @escaping (_ response: Dictionary<String, Any>)->()) {
+    public func makeRequest(endpoint: String, method: HTTPMethod, data: Parameters?, showActInd: Bool, completion: @escaping (_ response: Dictionary<String, Any>)->()) {
         // Show Activity Indicator
         let appDel = UIApplication.shared.delegate as! AppDelegate
         if showActInd {
@@ -36,9 +36,8 @@ struct Cloudflare {
         let headers = [
             "X-Auth-Key": self.apiKey,
             "X-Auth-Email": self.apiEmail,
-            "Accept": "application/json",
             "Content-Type": "application/json"]
-        Alamofire.request(URL(string: cfBaseURL + endpoint)!, method: method, parameters: nil,encoding: URLEncoding.default, headers: headers).responseJSON { response in
+        Alamofire.request(URL(string: cfBaseURL + endpoint)!, method: method, parameters: data,encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             appDel.toggleActInd(on: false)
             switch response.result {
             case .success(_):
@@ -51,6 +50,10 @@ struct Cloudflare {
                 completion(["Error":"Unknown"])
             }
         }
+    }
+    
+    public func makeRequest(endpoint: String, method: HTTPMethod, showActInd: Bool, completion: @escaping (_ response: Dictionary<String, Any>)->()) {
+        self.makeRequest(endpoint: endpoint, method: method, data: nil, showActInd: showActInd, completion: completion)
     }
     
     /**
@@ -414,114 +417,140 @@ struct Cloudflare {
      - zoneId: The id of the zone that you want the list of requests for
      - Returns: The cost per month of the user's subscription
      */
-    public func getRequests(zoneId: String) -> [[String: Any]]? {
-        let data: Data = """
-            {
-              "data": {
-                "viewer": {
-                  "zones": [
-                    {
-                      "firewallEventsAdaptive": [
-                        {
-                          "action": "get",
-                          "clientAsn": "5089",
-                          "clientCountryName": "AU",
-                          "clientIP": "220.253.122.100",
-                          "clientRequestPath": "/%3Cscript%3Ealert()%3C/script%3E",
-                          "clientRequestQuery": "",
-                          "datetime": "2020-08-26T06:34:20+0000",
-                          "source": "waf",
-                          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36"
-                        },
-                        {
-                          "action": "log",
-                          "clientAsn": "5089",
-                          "clientCountryName": "GB",
-                          "clientIP": "203.0.113.69",
-                          "clientRequestPath": "/%3Cscript%3Ealert()%3C/script%3E",
-                          "clientRequestQuery": "",
-                          "datetime": "2020-04-24T10:11:03Z",
-                          "source": "waf",
-                          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36"
-                        },
-                        {
-                          "action": "post",
-                          "clientAsn": "5089",
-                          "clientCountryName": "US",
-                          "clientIP": "203.0.113.233",
-                          "clientRequestPath": "/%3Cscript%3Ealert()%3C/script%3E",
-                          "clientRequestQuery": "",
-                          "datetime": "2020-04-24T09:12:49Z",
-                          "source": "waf",
-                          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36"
-                        },
-                        {
-                          "action": "get",
-                          "clientAsn": "5089",
-                          "clientCountryName": "US",
-                          "clientIP": "203.0.113.233",
-                          "clientRequestPath": "/%3Cscript%3Ealert()%3C/script%3E",
-                          "clientRequestQuery": "",
-                          "datetime": "2020-04-24T09:11:24Z",
-                          "source": "waf",
-                          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36"
-                        },
-                        {
-                          "action": "allow",
-                          "clientASNDescription": "ASN-TELSTRA Telstra Corporation Ltd",
-                          "clientAsn": "1221",
-                          "clientCountryName": "AU",
-                          "clientIP": "2001:8003:d4c0:5f00:62a4:4cff:fe5c:b8e0",
-                          "clientRequestHTTPHost": "jwrc.me",
-                          "clientRequestHTTPMethodName": "GET",
-                          "clientRequestHTTPProtocol": "HTTP/2",
-                          "clientRequestPath": "/updatepackages",
-                          "clientRequestQuery": "?token=26760d07c7b06da3ac7d27946b4853e0665c50e0a8b705269b2cfd48f061de2b",
-                          "datetime": "2020-08-28T06:00:01Z",
-                          "rayName": "5c9bcf425b05fe80",
-                          "ruleId": "47520303b099459194235bdf4ebcd3a2",
-                          "source": "firewallrules",
-                          "userAgent": "curl/7.58.0",
-                          "matchIndex": 0,
-                          "metadata": [
-                            {
-                              "key": "filter",
-                              "value": "9ad6a60213524589bb74aed55d908dd0"
-                            },
-                            {
-                              "key": "type",
-                              "value": "customer"
-                            }
-                          ],
-                          "sampleInterval": 1
-                        }
-                      ]
-                    }
-                  ]
-                }
-              },
-              "errors": null
+    public func getRequests(zoneId: String, completion: @escaping (_ data:[[String: Any]]?)->()) {
+//        let data: Data = """
+//            {
+//              "data": {
+//                "viewer": {
+//                  "zones": [
+//                    {
+//                      "firewallEventsAdaptive": [
+//                        {
+//                          "action": "get",
+//                          "clientAsn": "5089",
+//                          "clientCountryName": "AU",
+//                          "clientIP": "220.253.122.100",
+//                          "clientRequestPath": "/%3Cscript%3Ealert()%3C/script%3E",
+//                          "clientRequestQuery": "",
+//                          "datetime": "2020-08-26T06:34:20+0000",
+//                          "source": "waf",
+//                          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36"
+//                        },
+//                        {
+//                          "action": "log",
+//                          "clientAsn": "5089",
+//                          "clientCountryName": "GB",
+//                          "clientIP": "203.0.113.69",
+//                          "clientRequestPath": "/%3Cscript%3Ealert()%3C/script%3E",
+//                          "clientRequestQuery": "",
+//                          "datetime": "2020-04-24T10:11:03Z",
+//                          "source": "waf",
+//                          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36"
+//                        },
+//                        {
+//                          "action": "post",
+//                          "clientAsn": "5089",
+//                          "clientCountryName": "US",
+//                          "clientIP": "203.0.113.233",
+//                          "clientRequestPath": "/%3Cscript%3Ealert()%3C/script%3E",
+//                          "clientRequestQuery": "",
+//                          "datetime": "2020-04-24T09:12:49Z",
+//                          "source": "waf",
+//                          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36"
+//                        },
+//                        {
+//                          "action": "get",
+//                          "clientAsn": "5089",
+//                          "clientCountryName": "US",
+//                          "clientIP": "203.0.113.233",
+//                          "clientRequestPath": "/%3Cscript%3Ealert()%3C/script%3E",
+//                          "clientRequestQuery": "",
+//                          "datetime": "2020-04-24T09:11:24Z",
+//                          "source": "waf",
+//                          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36"
+//                        },
+//                        {
+//                          "action": "allow",
+//                          "clientASNDescription": "ASN-TELSTRA Telstra Corporation Ltd",
+//                          "clientAsn": "1221",
+//                          "clientCountryName": "AU",
+//                          "clientIP": "2001:8003:d4c0:5f00:62a4:4cff:fe5c:b8e0",
+//                          "clientRequestHTTPHost": "jwrc.me",
+//                          "clientRequestHTTPMethodName": "GET",
+//                          "clientRequestHTTPProtocol": "HTTP/2",
+//                          "clientRequestPath": "/updatepackages",
+//                          "clientRequestQuery": "?token=26760d07c7b06da3ac7d27946b4853e0665c50e0a8b705269b2cfd48f061de2b",
+//                          "datetime": "2020-08-28T06:00:01Z",
+//                          "rayName": "5c9bcf425b05fe80",
+//                          "ruleId": "47520303b099459194235bdf4ebcd3a2",
+//                          "source": "firewallrules",
+//                          "userAgent": "curl/7.58.0",
+//                          "matchIndex": 0,
+//                          "metadata": [
+//                            {
+//                              "key": "filter",
+//                              "value": "9ad6a60213524589bb74aed55d908dd0"
+//                            },
+//                            {
+//                              "key": "type",
+//                              "value": "customer"
+//                            }
+//                          ],
+//                          "sampleInterval": 1
+//                        }
+//                      ]
+//                    }
+//                  ]
+//                }
+//              },
+//              "errors": null
+//            }
+//        """.data(using: .utf8)!
+//
+//        let json: [String: Any]
+//        do {
+//            json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+//        } catch {
+//            return nil
+//        }
+        let date = Calendar.current.date(byAdding: .second, value: 400, to: Calendar.current.date(byAdding: .day, value: -1, to: Date())!)
+        let formatter = ISO8601DateFormatter()
+        formatter.formatOptions.insert(.withFractionalSeconds)
+        
+        let graphQLData = [
+                "query": "query ListFirewallEvents($zoneTag: string, $filter: FirewallEventsAdaptiveFilter_InputObject) {viewer {zones(filter: { zoneTag: $zoneTag }) {firewallEventsAdaptive(filter: $filter limit: 10 orderBy: [datetime_DESC]) {action clientAsn clientCountryName clientIP clientRequestPath clientRequestQuery datetime source userAgent}}}}",
+                "variables": [
+                    "zoneTag": zoneId,
+                    "filter": [
+                        "datetime_geq": formatter.string(from: date!)
+                    ]
+                ]
+            ] as Parameters
+        print(graphQLData)
+        self.makeRequest(endpoint: "graphql", method: .post, data: graphQLData, showActInd: false, completion: { response in
+//            print(response)
+            if let dataArray = response["data"] as? [String: Any],
+                let viewer = dataArray["viewer"] as? [String: Any],
+                let zones = viewer["zones"] as? [Any],
+                let zone = zones[0] as? [String: Any],
+                let requests = zone["firewallEventsAdaptive"] as? [[String: Any]] {
+                completion(requests)
+            } else {
+                completion(nil)
             }
-        """.data(using: .utf8)!
+        })
         
-        let json: [String: Any]
-        do {
-            json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-        } catch {
-            return nil
-        }
-        
-        guard let dataArray = json["data"] as? [String: Any],
-            let viewer = dataArray["viewer"] as? [String: Any],
-            let zones = viewer["zones"] as? [Any],
-            let zone = zones[0] as? [String: Any],
-            let requests = zone["firewallEventsAdaptive"] as? [[String: Any]]
-
-            else {
-                return nil
-        }
-        
-        return requests
+//        guard let dataArray = json["data"] as? [String: Any],
+//            let viewer = dataArray["viewer"] as? [String: Any],
+//            let zones = viewer["zones"] as? [Any],
+//            let zone = zones[0] as? [String: Any],
+//            let requests = zone["firewallEventsAdaptive"] as? [[String: Any]]
+//
+//            else {
+//                return nil
+//        }
+//
+//        return requests
     }
     
     public func getDNS(zoneId: String) -> [[String: Any]]? {
