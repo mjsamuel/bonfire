@@ -79,7 +79,9 @@ class RequestsController: UITableViewController {
         confirmationAlert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { (action: UIAlertAction!) in
             var host:HostAction = HostAction(action: selectedAction, hostIP: hostIP)
             // update the action state
-            host.setAction(selectedAction: selectedAction)
+            host.setAction(selectedAction: selectedAction, completion: { _ in
+                self.updateTable()
+            })
             // Send the action to Clourflare
         }))
        

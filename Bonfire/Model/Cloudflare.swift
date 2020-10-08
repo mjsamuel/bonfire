@@ -44,10 +44,10 @@ struct Cloudflare {
                 if let resultDict = response.result.value as? Dictionary<String, Any> {
                     completion(resultDict)
                 } else {
-                    completion(["Error":"Unknown"])
+                    completion(["BF_Error":"Unknown"])
                 }
             case .failure(_):
-                completion(["Error":"Unknown"])
+                completion(["BF_Error":"Unknown"])
             }
         }
     }

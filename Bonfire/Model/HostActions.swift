@@ -44,16 +44,20 @@ struct HostAction {
     // The IP address of the object. Also known as the hostIP.
     private var ipAddress: String
     
+    // We need to know if this is ipv4 or ipv6 for use in the API request.
+    private var isIPV6: Bool
+    
     // constructor
     init(action: Action, hostIP: String) {
         self.ipAddress = hostIP
         self.action = action
+        self.isIPV6 = hostIP.contains(":")
     }
     
-    mutating func setAction(selectedAction: Action) {
+    mutating func setAction(selectedAction: Action, completion: @escaping (_ success:Bool)->()) {
         // Since the action is changing for the object we can also make the API call to Cloudflare. Only call if the action is different to the current state.
         if(selectedAction != self.action){
-            sendActionToCloudflare(selectedAction: selectedAction, hostIP: self.ipAddress)
+            sendActionToCloudflare(selectedAction: selectedAction, hostIP: self.ipAddress, completion: completion)
         }
         
         // Update the action
@@ -61,12 +65,14 @@ struct HostAction {
     }
     
     // Send API calls to Clourflare based on the action
-    func sendActionToCloudflare(selectedAction: Action, hostIP:String){
+    func sendActionToCloudflare(selectedAction: Action, hostIP:String, completion: @escaping (_ success:Bool)->()) {
         
         if (selectedAction == Action.normal) {
             print("DEBUG: Sending API call to Cloudflare to remove any firewall rule (action)")
+            self.sendRemoveRuleRequest(hostIP: hostIP, completion: completion)
         } else {
             print("DEBUG: Sending API call to Cloudflare to: \(selectedAction) the IP: \(hostIP)")
+            self.sendAddRuleRequest(hostIP: hostIP, action: action, completion: completion)
         }
     }
     
@@ -76,6 +82,32 @@ struct HostAction {
     
     func getIpAddress() -> String {
         return self.ipAddress
+    }
+    
+    private func sendRemoveRuleRequest(hostIP:String, completion: @escaping (_ success:Bool)->()) {
+        // Could not build request for this as we do not know the rule identifier to remove...
+    }
+    
+    private func sendAddRuleRequest(hostIP:String, action:Action, completion: @escaping (_ success:Bool)->()) {
+        let bonfire = Bonfire.sharedInstance
+        let currentZone = bonfire.currentZone
+        let endpoint = (currentZone?.getId())!+"/firewall/access_rules/rules"
+        let params = [
+            "mode": action,
+            "configuration": [
+                "target": self.isIPV6 ? "ip6" : "ip",
+                "value": hostIP
+            ],
+            "notes": "Created in Bonfire"
+        ] as [String : Any]
+        bonfire.cloudflare?.makeRequest(endpoint: endpoint, method: .post, data: params, showActInd: true, completion: { response in
+            if let _ = response["BF_Error"] {
+                bonfire.showErrorAlert(title: "Error", message: "An unknown error occured when attempting to update firewall rule.")
+                completion(false)
+            } else {
+                completion(true)
+            }
+        })
     }
     
 }
