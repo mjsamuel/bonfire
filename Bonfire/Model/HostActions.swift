@@ -67,9 +67,12 @@ struct HostAction {
     // Send API calls to Clourflare based on the action
     func sendActionToCloudflare(selectedAction: Action, hostIP:String, completion: @escaping (_ success:Bool)->()) {
         
+//        DELETE ME WHEN JAMES HAS ADDED RULE ID STUFF
+        let ruleID = "NONE"
+        
         if (selectedAction == Action.normal) {
             print("DEBUG: Sending API call to Cloudflare to remove any firewall rule (action)")
-            self.sendRemoveRuleRequest(hostIP: hostIP, completion: completion)
+            self.sendRemoveRuleRequest(ruleID: ruleID, completion: completion)
         } else {
             print("DEBUG: Sending API call to Cloudflare to: \(selectedAction) the IP: \(hostIP)")
             self.sendAddRuleRequest(hostIP: hostIP, action: action, completion: completion)
@@ -84,8 +87,18 @@ struct HostAction {
         return self.ipAddress
     }
     
-    private func sendRemoveRuleRequest(hostIP:String, completion: @escaping (_ success:Bool)->()) {
-        // Could not build request for this as we do not know the rule identifier to remove...
+    private func sendRemoveRuleRequest(ruleID:String, completion: @escaping (_ success:Bool)->()) {
+        let bonfire = Bonfire.sharedInstance
+        let currentZone = bonfire.currentZone
+        let endpoint = (currentZone?.getId())!+"/firewall/access_rules/rules/"+ruleID
+        bonfire.cloudflare?.makeRequest(endpoint: endpoint, method: .delete, showActInd: true, completion: { response in
+            if let _ = response["BF_Error"] {
+                bonfire.showErrorAlert(title: "Error", message: "An unknown error occured when attempting to remove firewall rule.")
+                completion(false)
+            } else {
+                completion(true)
+            }
+        })
     }
     
     private func sendAddRuleRequest(hostIP:String, action:Action, completion: @escaping (_ success:Bool)->()) {
@@ -102,7 +115,7 @@ struct HostAction {
         ] as [String : Any]
         bonfire.cloudflare?.makeRequest(endpoint: endpoint, method: .post, data: params, showActInd: true, completion: { response in
             if let _ = response["BF_Error"] {
-                bonfire.showErrorAlert(title: "Error", message: "An unknown error occured when attempting to update firewall rule.")
+                bonfire.showErrorAlert(title: "Error", message: "An unknown error occured when attempting to add firewall rule.")
                 completion(false)
             } else {
                 completion(true)
