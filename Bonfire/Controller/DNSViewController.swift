@@ -15,8 +15,8 @@ public protocol DNSDataDelegate: class {
 
 class DNSViewController: UITableViewController, DNSDataDelegate {
 
-
-    private let viewModel = DNSViewModel()
+    private let bonfire = Bonfire.sharedInstance
+    private var viewModel = DNSViewModel()
     private var dnsData: [DNS] = []
         
     override func viewDidLoad() {
@@ -25,7 +25,17 @@ class DNSViewController: UITableViewController, DNSDataDelegate {
     }
     
     func updateTable() {
-        self.dnsData = viewModel.getDNSData()
+//        self.dnsData = viewModel.getDNSData()
+        
+        if (bonfire.currentZone != nil) {
+            bonfire.cloudflare!.getDNS(zoneId: bonfire.currentZone!.getId(), completion: { data in
+                if data != nil {
+                    self.viewModel.updateData(data!)
+                    self.dnsData = self.viewModel.getDNSData()
+                    self.tableView.reloadData()
+                }
+            })
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

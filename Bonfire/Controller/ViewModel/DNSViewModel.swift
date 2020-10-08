@@ -13,19 +13,20 @@ struct DNSViewModel {
     private var dnsData: [[String: Any]] = []
     
     init() {
-        updateData()
+//        updateData()
     }
     
     /**
      Pulls data from the Cloudflare API
      */
-    public mutating func updateData() {
-        if (bonfire.currentZone != nil) {
-            let zoneId = bonfire.currentZone!.getId()
-            if let rawDNS = bonfire.cloudflare!.getDNS(zoneId: zoneId) {
-                self.dnsData = rawDNS
-            }
-        }
+    public mutating func updateData(_ data:[[String: Any]]) {
+//        if (bonfire.currentZone != nil) {
+//            let zoneId = bonfire.currentZone!.getId()
+//            if let rawDNS = bonfire.cloudflare!.getDNS(zoneId: zoneId) {
+//                self.dnsData = rawDNS
+//            }
+//        }
+        self.dnsData = data
     }
     
     public func getDNSData() -> [DNS] {
