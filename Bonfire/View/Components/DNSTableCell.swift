@@ -10,17 +10,8 @@ import UIKit
 
 class DNSTableCell: UITableViewCell {
     
+    // Hold the DNS record for this cell to be passed through segues.
     public var dnsRecord:DNS?
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 
 }

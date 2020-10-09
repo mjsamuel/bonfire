@@ -13,6 +13,8 @@ struct Cloudflare {
     public var isLoggedIn = false
     private var apiKey = ""
     private var apiEmail = ""
+    
+    
     init(email: String, apiKey: String) {
         self.apiKey = apiKey
         self.apiEmail = email
@@ -52,16 +54,21 @@ struct Cloudflare {
         }
     }
     
+    /**
+     Overloaded version of above to remove the data parameter for calls that do not need it.
+    **/
     public func makeRequest(endpoint: String, method: HTTPMethod, showActInd: Bool, completion: @escaping (_ response: Dictionary<String, Any>)->()) {
         self.makeRequest(endpoint: endpoint, method: method, data: nil, showActInd: showActInd, completion: completion)
     }
+    
     
     /**
      Calls Clourflares's get zones API endpoint and returns a list of all zones
      API documentation:
      [GET zones](https://api.cloudflare.com/#zone-list-zones)
      
-     - Returns: A dictionary containing relevant data points
+     Parameters:
+     - completion: The code block to run once a response has been recieved (Recieves the parameter "zones" as an Array)
      */
     public func getZones(completion: @escaping (_ zones: [Zone])->()) {
         var retVal: [Zone] = []
@@ -85,8 +92,7 @@ struct Cloudflare {
      
      - Parameters:
      - zoneId: The id of the zone that you want analytics for
-
-     - Returns: A dictionary containing relevant data points
+     - completion: The code block to run once a response has been recieved (Recieves the parameter "data" as a Dictionary)
      */
     public func getAnalytics(zoneId: String, completion: @escaping (_ data: [String: Any]?)->()) {
         self.makeRequest(endpoint: "zones/"+zoneId+"/analytics/dashboard", method: .get, showActInd: false, completion: { response in
@@ -120,7 +126,8 @@ struct Cloudflare {
      API documentation:
      [GET user/subscriptions](https://api.cloudflare.com/#user-subscription-properties)
      
-     - Returns: The cost per month of the user's subscription
+     - Parameters:
+     - completion: The code block to run once a response has been recieved (Recieves the parameter "data" as a Dictionary)
      */
     public func getCosts(completion: @escaping (_ data: [String: Any]?)->()) {
         self.makeRequest(endpoint: "user/subscriptions", method: .get, showActInd: false, completion: { response in
@@ -144,9 +151,10 @@ struct Cloudflare {
      
      API documentation:
      [GraphQL](https://developers.cloudflare.com/analytics/graphql-api/tutorials/querying-firewall-events)
+     
      - Parameters:
      - zoneId: The id of the zone that you want the list of requests for
-     - Returns: The cost per month of the user's subscription
+     - completion: The code block to run once a response has been recieved (Recieves the parameter "data" as an Array wrapped Dictionary)
      */
     public func getRequests(zoneId: String, completion: @escaping (_ data:[[String: Any]]?)->()) {
         let date = Calendar.current.date(byAdding: .second, value: 400, to: Calendar.current.date(byAdding: .day, value: -1, to: Date())!)
@@ -182,7 +190,9 @@ struct Cloudflare {
      API documentation:
      [GET zones/:zone_identifier/dns_records](https://api.cloudflare.com/#dns-records-for-a-zone-list-dns-records)
      
-     - Returns: A list of all current DNS records
+     - Parameters:
+     - zoneId: The id of the zone that you want the list of requests for
+     - completion: The code block to run once a response has been recieved (Recieves the parameter "data" as an Array wrapped Dictionary)
      */
     public func getDNS(zoneId: String, completion: @escaping (_ data:[[String: Any]]?)->()) {
         self.makeRequest(endpoint: "zones/"+zoneId+"/dns_records", method: .get, showActInd: false, completion: { response in
@@ -197,7 +207,12 @@ struct Cloudflare {
     /**
      Updates an existing DNS listing by making a request to Cloudflares API
      
-     - Returns: Returns true if successful and false if not
+     API documentation:
+     [PUT zones/:zone_identifier/dns_records/:identifier](https://api.cloudflare.com/#dns-records-for-a-zone-update-dns-record)
+     
+     - Parameters:
+     - dnsRecord: A DNS object with the new data
+     - completion: The code block to run once a response has been recieved (Recieves the parameter "success" as a Bool)
      */
     public func updateDNS(dnsRecord: DNS, completion: @escaping (_ success:Bool)->()) {
         let endpoint = "zones/"+dnsRecord.zoneID+"/dns_records/"+dnsRecord.id!
@@ -214,22 +229,17 @@ struct Cloudflare {
                 completion(true)
             }
         })
-        
-        
-        // var hardcoded to true for testing
-//        let success: Bool = true
-        
-        // pass data to API
-        // if pass is successful
-        // set success to true and return
-        // else set success to false and return
-//        return success
     }
     
     /**
      Sends new DNS data to Cloudflare API
      
-     - Returns: Returns true if successful and false if not
+     API documentation:
+     [POST zones/:zone_identifier/dns_records](https://api.cloudflare.com/#dns-records-for-a-zone-create-dns-record)
+     
+     - Parameters:
+     - dnsRecord: A DNS object with the new data
+     - completion: The code block to run once a response has been recieved (Recieves the parameter "success" as a Bool and "newRecord" as a DNS object of the new data)
      */
     public func newDNS (newRecord: DNS, completion: @escaping (_ success:Bool, _ newRecord:DNS?)->()) {
         let endpoint = "zones/"+newRecord.zoneID+"/dns_records/"
@@ -253,16 +263,5 @@ struct Cloudflare {
                 completion(false, nil)
             }
         })
-        
-        
-        
-//        // var hardcoded to true for testing
-//        let success: Bool = true
-//
-//        // pass data to API
-//        // if pass is successful
-//        // set success to true and return
-//        // else set success to false and return
-//        return success
     }
 }

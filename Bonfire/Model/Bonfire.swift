@@ -31,6 +31,7 @@ class Bonfire {
      - Parameters:
         - email: The email of the user
         - apiKey: The api key corresponding to that account
+        - completion: The code block to run once a response has been recieved (Recieves the parameter "success" as a Bool)
      */
     public func login(email: String, apiKey: String, completion: @escaping (_ success: Bool)->()) {
         cloudflare = Cloudflare(email: email, apiKey: apiKey)

@@ -25,10 +25,10 @@ class DNSViewController: UITableViewController, DNSDataDelegate {
     }
     
     func updateTable() {
-//        self.dnsData = viewModel.getDNSData()
-        
         if (bonfire.currentZone != nil) {
+            // Request the current DNS records from CloudFlare
             bonfire.cloudflare!.getDNS(zoneId: bonfire.currentZone!.getId(), completion: { data in
+                // If data recieved successfully, update our stored data and reload table.
                 if data != nil {
                     self.viewModel.updateData(data!)
                     self.dnsData = self.viewModel.getDNSData()
@@ -72,9 +72,6 @@ class DNSViewController: UITableViewController, DNSDataDelegate {
                 else {return}
             let cell = self.tableView.cellForRow(at: selectedRow) as! DNSTableCell
             let destination = segue.destination as? DNSEditViewController
-//            let name = cell.viewWithTag(1000) as! UILabel
-//            let content = cell.viewWithTag(1002) as! UILabel
-
             destination?.selectedDNS = cell.dnsRecord!
             destination?.delegate = self
         } else if segue.identifier == "newDNSSegue" {
@@ -84,7 +81,6 @@ class DNSViewController: UITableViewController, DNSDataDelegate {
     }
     
     func userDidEnterInformation(dns: DNS) {
-//        var data: DNS = DNS(name: name, type: "A", content: content, id: id, ttl: ttl, zoneID: )
         var data = dns
         
         // Filtering the array to remove the item if editing

@@ -22,7 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-//    Universal Activity indicator
+    /**
+     Show or hide the activity indicator.
+     This places the indicator above any current view(s) by creating a new window above the current one.
+    **/
     func toggleActInd(on: Bool) {
         if on {
             // Hide if already exists

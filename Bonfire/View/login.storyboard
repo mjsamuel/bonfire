@@ -25,7 +25,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1kf-iN-Ua7">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="s3656070@student.rmit.edu.au" placeholder="Email..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vy9-FO-h50" customClass="TextFieldWithInsets" customModule="Bonfire" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vy9-FO-h50" customClass="TextFieldWithInsets" customModule="Bonfire" customModuleProvider="target">
                                                 <rect key="frame" x="46" y="354.5" width="322" height="46"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="emailField"/>
@@ -47,7 +47,7 @@
                                                     <action selector="emailTextChanged:" destination="OYw-Mi-UBY" eventType="editingChanged" id="bIs-gM-ttm"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="060c7f06d9e5c0f0fb09872547ec0cfcae0bb" placeholder="API Key..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zGQ-bt-lNP" customClass="TextFieldWithInsets" customModule="Bonfire" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="API Key..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zGQ-bt-lNP" customClass="TextFieldWithInsets" customModule="Bonfire" customModuleProvider="target">
                                                 <rect key="frame" x="46" y="426.5" width="322" height="46"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="apiKeyField"/>

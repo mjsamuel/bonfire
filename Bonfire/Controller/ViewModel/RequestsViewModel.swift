@@ -11,21 +11,12 @@ struct RequestsViewModel {
     private let bonfire: Bonfire = Bonfire.sharedInstance
     private var requestsData: [[String: Any]] = []
 
-    init() {
-//        updateData()
-    }
     
     /**
      Pulls data from the Cloudflare API
      */
     public mutating func updateData(_ data:[[String:Any]]) {
-//        if (bonfire.currentZone != nil) {
-//            let zoneId = bonfire.currentZone!.getId()
-//            if let rawRequests = bonfire.cloudflare!.getRequests(zoneId: zoneId) {
-//
-//            }
-            self.requestsData = data
-//        }
+        self.requestsData = data
     }
     
     public func getRequests() -> [Request] {
