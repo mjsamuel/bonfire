@@ -199,15 +199,31 @@ struct Cloudflare {
      
      - Returns: Returns true if successful and false if not
      */
-    public func updateDNS() -> Bool {
+    public func updateDNS(dnsRecord: DNS, completion: @escaping (_ success:Bool)->()) {
+        let endpoint = "zones/"+dnsRecord.zoneID+"/dns_records/"+dnsRecord.id!
+        let data = [
+            "type": dnsRecord.type,
+            "name": dnsRecord.name,
+            "content": dnsRecord.content,
+            "ttl": dnsRecord.ttl
+        ] as Parameters
+        self.makeRequest(endpoint: endpoint, method: .put, data: data, showActInd: true, completion: { response in
+            if let _ = response["BF_Error"] {
+                completion(false)
+            } else {
+                completion(true)
+            }
+        })
+        
+        
         // var hardcoded to true for testing
-        let success: Bool = true
+//        let success: Bool = true
         
         // pass data to API
         // if pass is successful
         // set success to true and return
         // else set success to false and return
-        return success
+//        return success
     }
     
     /**
@@ -215,14 +231,38 @@ struct Cloudflare {
      
      - Returns: Returns true if successful and false if not
      */
-    public func newDNS () -> Bool {
-        // var hardcoded to true for testing
-        let success: Bool = true
+    public func newDNS (newRecord: DNS, completion: @escaping (_ success:Bool, _ newRecord:DNS?)->()) {
+        let endpoint = "zones/"+newRecord.zoneID+"/dns_records/"
+        let data = [
+            "type": newRecord.type,
+            "name": newRecord.name,
+            "content": newRecord.content,
+            "ttl": newRecord.ttl
+        ] as Parameters
+        self.makeRequest(endpoint: endpoint, method: .post, data: data, showActInd: true, completion: { response in
+            if let result = response["result"] as? [String: Any],
+                let id = result["id"] as? String,
+                let name = result["name"] as? String,
+                let content = result["content"] as? String,
+                let ttl = result["ttl"] as? Int,
+                let type = result["type"] as? String,
+                let zone_id = result["zone_id"] as? String {
+                let createdDNS = DNS(name: name, type: type, content: content, id: id, ttl: ttl, zoneID: zone_id)
+                completion(true, createdDNS)
+            } else {
+                completion(false, nil)
+            }
+        })
         
-        // pass data to API
-        // if pass is successful
-        // set success to true and return
-        // else set success to false and return
-        return success
+        
+        
+//        // var hardcoded to true for testing
+//        let success: Bool = true
+//
+//        // pass data to API
+//        // if pass is successful
+//        // set success to true and return
+//        // else set success to false and return
+//        return success
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 
 // protocol used to send DNS data back
 public protocol DNSDataDelegate: class {
-    func userDidEnterInformation(name: String, content: String, ttl: String?)
+    func userDidEnterInformation(dns: DNS)
 }
 
 class DNSViewController: UITableViewController, DNSDataDelegate {
@@ -43,9 +43,11 @@ class DNSViewController: UITableViewController, DNSDataDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "dnsIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "dnsIdentifier", for: indexPath) as! DNSTableCell
         
         let dnsRecord: DNS = dnsData[indexPath.row]
+        
+        cell.dnsRecord = dnsRecord
         
         let nameLabel = cell.viewWithTag(1000) as! UILabel
         let nameText: String = dnsRecord.name
@@ -68,12 +70,12 @@ class DNSViewController: UITableViewController, DNSDataDelegate {
         if segue.identifier == "editDNSSegue" {
             guard let selectedRow = self.tableView.indexPathForSelectedRow
                 else {return}
-            
+            let cell = self.tableView.cellForRow(at: selectedRow) as! DNSTableCell
             let destination = segue.destination as? DNSEditViewController
-            let name = self.tableView.cellForRow(at: selectedRow)?.viewWithTag(1000) as! UILabel
-            let content = self.tableView.cellForRow(at: selectedRow)?.viewWithTag(1002) as! UILabel
+//            let name = cell.viewWithTag(1000) as! UILabel
+//            let content = cell.viewWithTag(1002) as! UILabel
 
-            destination?.selectedDNS = (name.text!, content.text!)
+            destination?.selectedDNS = cell.dnsRecord!
             destination?.delegate = self
         } else if segue.identifier == "newDNSSegue" {
             let destination = segue.destination as? DNSNewViewController
@@ -81,17 +83,18 @@ class DNSViewController: UITableViewController, DNSDataDelegate {
         }
     }
     
-    func userDidEnterInformation(name: String, content: String, ttl: String?) {
-        var data: DNS = DNS(name: name, type: "A", content: content)
+    func userDidEnterInformation(dns: DNS) {
+//        var data: DNS = DNS(name: name, type: "A", content: content, id: id, ttl: ttl, zoneID: )
+        var data = dns
         
         // Filtering the array to remove the item if editing
         // If not editing this will return the same array
         dnsData = dnsData.filter {
-            if ($0.name == name) {
+            if ($0.name == data.name) {
                 data.type = $0.type
             }
             
-            return $0.name != name
+            return $0.name != data.name
         }
         dnsData.insert(data, at: 0)
         tableView.reloadData()
