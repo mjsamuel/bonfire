@@ -67,7 +67,7 @@ struct AnalyticsViewModel {
         
         //  Converting retrieved countries to an array of countries
         for(countryCode, noRequests) in countries {
-            let name: String = self.getCountry(countryCode: countryCode)
+            let name: String = self.countryCodeToName(countryCode: countryCode)
             countriesArray.append(Country(name: name, noRequests: noRequests))
         }
         
@@ -90,44 +90,14 @@ struct AnalyticsViewModel {
         return String(costPerRequest)
     }
     
-    /**
-     Converts several ISO 3166 country codes to their country name
-     
-     - Parameters:
-        - countryCode: A valid ISO 3166 country code
-     - Returns: The country name if successful or the passed in code if unsuccessful
-     */
-    private func getCountry(countryCode: String) -> String {
-        let countryName: String
-        
-        switch countryCode {
-            case "AU":
-                countryName = "Australia"
-            case "US":
-                countryName = "United States"
-            case "GB":
-                countryName = "Great Britain"
-            case "CN":
-                countryName = "China"
-            case "RU":
-                countryName = "Russia"
-            case "JP":
-                countryName = "Japan"
-            case "DE":
-                countryName = "Germany"
-            case "FR":
-                countryName = "France"
-            case "IT":
-                countryName = "Italy"
-            case "IN":
-                countryName = "India"
-            case "ZA":
-                countryName = "South Africa"
-            default:
-                countryName = countryCode
+    private func countryCodeToName(countryCode: String) -> String {
+        if let name = (Locale.current as NSLocale).displayName(forKey: .countryCode, value: countryCode) {
+            // Country name was found
+            return name
+        } else {
+            // Country name cannot be found
+            return countryCode
         }
-        
-        return countryName
     }
 }
 

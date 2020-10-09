@@ -363,6 +363,11 @@ struct Cloudflare {
                 let threats_all = threats["all"] as? Int,
                 let pageviews = totals["pageviews"] as? [String: Any],
                 let pageviews_all = pageviews["all"] as? Int {
+                for a in top_countries{
+                    print("------")
+                    print(a.key)
+                    print(a.value)
+                }
                 completion([
                     "requests_cached": requests_cached,
                     "requests_uncached": requests_uncached,
@@ -376,6 +381,8 @@ struct Cloudflare {
         })
         
     }
+    
+    // Creat the analytics
     
     /**
      Calls Clourflare's billing API endpoint and retrieves their subscription costs
