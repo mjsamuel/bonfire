@@ -42,7 +42,7 @@ class Bonfire {
                 self.zones = zones
             } else {
                 // Show error alert no zones found or not valid creds
-                self.showErrorAlert(title: "Login Failed", message: "Please confirm your email and API key. You must have atleast 1 zone configured in CloudFlare.")
+                self.showErrorAlert(title: "Login Failed", message: "Please confirm your email and API key. You must have at least 1 zone configured in CloudFlare.")
             }
             completion(self.cloudflare!.isLoggedIn)
         })
