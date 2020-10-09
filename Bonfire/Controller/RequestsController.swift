@@ -8,16 +8,28 @@
 import UIKit
 
 class RequestsController: UITableViewController {
-    private let viewModel: RequestsViewModel = RequestsViewModel()
+    private var viewModel: RequestsViewModel = RequestsViewModel()
     private var requests: [Request] = []
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    private let bonfire: Bonfire = Bonfire.sharedInstance
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.updateTable()
     }
     
     func updateTable() {
-        self.requests = viewModel.getRequests()
+        if (bonfire.currentZone != nil) {
+            // Request a list of the requests to the current zone from CloudFlare.
+            bonfire.cloudflare!.getRequests(zoneId: bonfire.currentZone!.getId(), completion: { data in
+                // If successful, update our data and reload the table.
+                if data != nil {
+                    self.viewModel.updateData(data!)
+                    self.requests = self.viewModel.getRequests()
+                    self.tableView.reloadData()
+                }
+            })
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,7 +77,9 @@ class RequestsController: UITableViewController {
         confirmationAlert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { (action: UIAlertAction!) in
             var host:HostAction = HostAction(action: selectedAction, hostIP: hostIP)
             // update the action state
-            host.setAction(selectedAction: selectedAction)
+            host.setAction(selectedAction: selectedAction, completion: { _ in
+                self.updateTable()
+            })
             // Send the action to Clourflare
         }))
        
