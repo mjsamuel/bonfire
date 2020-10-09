@@ -6,6 +6,7 @@
 //
 import Foundation
 import Alamofire
+import CoreData
 
 struct Cloudflare {
     
@@ -14,9 +15,53 @@ struct Cloudflare {
     private var apiKey = ""
     private var apiEmail = ""
     init(email: String, apiKey: String) {
-        self.apiKey = apiKey
-        self.apiEmail = email
+        // Check if there us a valid 'session' (coredata has a record of a login)
+        // NOTE:
+        //      CoreData will only ever have ONE record in the Account table.
+        //      If a record exists, then a user has saved a 'session' thus us logged in.
+        //      A 'session' will save the users login containing:
+        //             - Their email address.
+        //             - Their API key.
+        //             - The selected Zone (selected at login or updated in settings)
+        
+        // Check if an account is already stored
+        let account:Account? = self.getRegistedAccountDetails()
+
+        self.apiKey = account!.apiKey ?? apiKey
+        self.apiEmail = account!.email ?? email
+
+
+        
     }
+    public func getRegistedAccountDetails() -> Account? {
+        
+        // Get a reference to your App Delegate
+        let appDelegate = AppDelegate.shared
+        
+        // Hold a reference to the managed context
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        do
+        {
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Account")
+            fetchRequest.fetchLimit = 1
+            
+            let results = try managedContext.fetch(fetchRequest)
+            let account = results as! [Account]
+            if account.count > 0{
+                return account[0]
+            }else{
+                return nil
+            }
+            
+        }
+        catch let error as NSError {
+            print ("Could not fetch \(error) , \(error.userInfo )")
+        }
+        return nil
+    }
+    
+
     
     /**
      Make An API Request
@@ -68,7 +113,9 @@ struct Cloudflare {
         self.makeRequest(endpoint: "zones", method: .get, showActInd: true, completion: { response in
             if let result: Array<Dictionary<String, Any>> = response["result"] as? Array<Dictionary<String, Any>> {
                 for zone in result {
+                    print("\(zone["name"])")
                     if let zname:String = zone["name"] as? String, let zid:String = zone["id"] as? String {
+                        print("got name")
                         retVal.append(Zone(name: zname, id: zid))
                     }
                 }

@@ -2,7 +2,7 @@
 //  Requests+CoreDataProperties.swift
 //  Bonfire
 //
-//  Created by James on 6/10/20.
+//  Created by James on 7/10/20.
 //  Copyright © 2020 ipse. All rights reserved.
 //
 //
@@ -17,9 +17,9 @@ extension Requests {
         return NSFetchRequest<Requests>(entityName: "Requests")
     }
 
-    @NSManaged public var method: String?
-    @NSManaged public var ipAddress: String?
-    @NSManaged public var time: String?
     @NSManaged public var action: String?
+    @NSManaged public var ipAddress: String?
+    @NSManaged public var method: String?
+    @NSManaged public var time: String?
 
 }

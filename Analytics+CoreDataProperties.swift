@@ -2,7 +2,7 @@
 //  Analytics+CoreDataProperties.swift
 //  Bonfire
 //
-//  Created by James on 6/10/20.
+//  Created by James on 7/10/20.
 //  Copyright © 2020 ipse. All rights reserved.
 //
 //
@@ -17,11 +17,11 @@ extension Analytics {
         return NSFetchRequest<Analytics>(entityName: "Analytics")
     }
 
-    @NSManaged public var numRequestsPerMonth: Int64
-    @NSManaged public var numThreatsPerMonth: Int64
-    @NSManaged public var numRequestsCaches: Int64
-    @NSManaged public var numRequestsUncached: Int64
-    @NSManaged public var flatCostPerMonth: Float
     @NSManaged public var costPerRequest: Float
+    @NSManaged public var flatCostPerMonth: Float
+    @NSManaged public var numRequestsCaches: Int64
+    @NSManaged public var numRequestsPerMonth: Int64
+    @NSManaged public var numRequestsUncached: Int64
+    @NSManaged public var numThreatsPerMonth: Int64
 
 }

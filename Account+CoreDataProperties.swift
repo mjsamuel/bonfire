@@ -2,7 +2,7 @@
 //  Account+CoreDataProperties.swift
 //  Bonfire
 //
-//  Created by James on 6/10/20.
+//  Created by James on 7/10/20.
 //  Copyright © 2020 ipse. All rights reserved.
 //
 //
@@ -17,8 +17,8 @@ extension Account {
         return NSFetchRequest<Account>(entityName: "Account")
     }
 
+    @NSManaged public var apiKey: String?
     @NSManaged public var email: String?
     @NSManaged public var zoneID: String?
-    @NSManaged public var apiKey: String?
 
 }

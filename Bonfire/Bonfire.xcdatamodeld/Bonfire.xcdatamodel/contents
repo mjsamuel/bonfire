@@ -36,10 +36,10 @@
     </entity>
     <elements>
         <element name="Account" positionX="-63" positionY="-18" width="128" height="90"/>
-        <element name="ClfZone" positionX="-63" positionY="9" width="128" height="75"/>
-        <element name="Requests" positionX="-54" positionY="18" width="128" height="105"/>
-        <element name="ClfDNS" positionX="-36" positionY="45" width="128" height="105"/>
-        <element name="CountryAnalytics" positionX="-18" positionY="72" width="128" height="90"/>
         <element name="Analytics" positionX="0" positionY="90" width="128" height="135"/>
+        <element name="ClfDNS" positionX="-36" positionY="45" width="128" height="105"/>
+        <element name="ClfZone" positionX="-63" positionY="9" width="128" height="75"/>
+        <element name="CountryAnalytics" positionX="-18" positionY="72" width="128" height="90"/>
+        <element name="Requests" positionX="-54" positionY="18" width="128" height="105"/>
     </elements>
 </model>
