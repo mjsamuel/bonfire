@@ -95,4 +95,5 @@ class DNSViewController: UITableViewController, DNSDataDelegate {
         dnsData.insert(data, at: 0)
         tableView.reloadData()
     }
+    
 }

@@ -12,6 +12,6 @@ class DNSTableCell: UITableViewCell {
     
     // Hold the DNS record for this cell to be passed through segues.
     public var dnsRecord:DNS?
-
-
+    
+    
 }

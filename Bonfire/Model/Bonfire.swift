@@ -23,6 +23,8 @@ class Bonfire {
                 self.currentZone = zones[0]
             }
         })
+        print("------------------------------")
+        print(self.currentZone)
         
     }
     
@@ -127,7 +129,6 @@ class Bonfire {
         let account = NSManagedObject(entity: accountObj, insertInto: managedContext) as! Account
         
         account.zoneID = accZoneID     // The zone will be set later when the user selects the zone they want at login or in settings.
-        
         appDelegate.saveContext()
         
     }
@@ -186,9 +187,15 @@ class Bonfire {
         unregesiterAccount()
         // Need to delete the account record.
         
-        // Delete all analytics for this zone
+        // Delete all analytics for this zone.
+        // We can delete all records since on log out:
+        //  1. We shouldnt be string this sensitive data when the user has logged out
+        //  2. There is no need to store data on log out, as on login all data is refreshed.
+        
         deleteCountryAnalytics()
         deleteAnalytics()
+        deleteDNSRecords()
+        deleteRequests()
     }
     
     
@@ -201,10 +208,10 @@ class Bonfire {
         let managedContext = appDelegate.persistentContainer.viewContext
         
         let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "CountryAnalytics")
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        let deleteAnalytics = NSBatchDeleteRequest(fetchRequest: deleteFetch)
         
         do {
-            try managedContext.execute(deleteRequest)
+            try managedContext.execute(deleteAnalytics)
             try managedContext.save()
         } catch {
             print ("There was an error")
@@ -220,10 +227,10 @@ class Bonfire {
         let managedContext = appDelegate.persistentContainer.viewContext
         
         let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Analytics")
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        let deleteAnalytics = NSBatchDeleteRequest(fetchRequest: deleteFetch)
         
         do {
-            try managedContext.execute(deleteRequest)
+            try managedContext.execute(deleteAnalytics)
             try managedContext.save()
         } catch {
             print ("There was an error")
@@ -253,6 +260,46 @@ class Bonfire {
             print ("Could not fetch \(error) , \(error.userInfo )")
         }
     }
+    
+    // Delete record of requests
+    private func deleteRequests(){
+        // Get a reference to your App Delegate
+        let appDelegate = AppDelegate.shared
+        
+        // Hold a reference to the managed context
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Requests")
+        let deleteRequests = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        
+        do {
+            try managedContext.execute(deleteRequests)
+            try managedContext.save()
+        } catch {
+            print ("There was an error")
+        }
+    }
+    
+    
+    // Delete record of requests
+    private func deleteDNSRecords(){
+        // Get a reference to your App Delegate
+        let appDelegate = AppDelegate.shared
+        
+        // Hold a reference to the managed context
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ClfDNS")
+        let deleteDNSRequests = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        
+        do {
+            try managedContext.execute(deleteDNSRequests)
+            try managedContext.save()
+        } catch {
+            print ("There was an error")
+        }
+    }
+    
     
     /**
      Shows an alert view ontop of any view controller by creating a new window and presenting inside that window.

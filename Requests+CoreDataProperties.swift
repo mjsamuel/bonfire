@@ -18,8 +18,9 @@ extension Requests {
     }
 
     @NSManaged public var action: String?
-    @NSManaged public var ipAddress: String?
     @NSManaged public var countryCode: String?
+    @NSManaged public var ipAddress: String?
+    @NSManaged public var requestID: String?
     @NSManaged public var time: String?
 
 }

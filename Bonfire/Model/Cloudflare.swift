@@ -58,6 +58,12 @@ struct Cloudflare {
         if showActInd {
             appDel.toggleActInd(on: true)
         }
+        print("+++++")
+        print(self.apiKey)
+        print(self.apiEmail)
+        print(cfBaseURL)
+        print("endpoint")
+        print(endpoint)
         let headers = [
             "X-Auth-Key": self.apiKey,
             "X-Auth-Email": self.apiEmail,
@@ -67,6 +73,7 @@ struct Cloudflare {
             switch response.result {
             case .success(_):
                 if let resultDict = response.result.value as? Dictionary<String, Any> {
+
                     completion(resultDict)
                 } else {
                     completion(["BF_Error":"Unknown"])
@@ -214,8 +221,6 @@ struct Cloudflare {
             ] as Parameters
         print(graphQLData)
         self.makeRequest(endpoint: "graphql", method: .post, data: graphQLData, showActInd: false, completion: { response in
-<<<<<<< Updated upstream
-=======
             
             // Date formatter fot converting from ISO 8601 to a date object
             let isoFormatter = ISO8601DateFormatter()
@@ -224,7 +229,7 @@ struct Cloudflare {
             stringFormatter.dateFormat = "hh:mm:ss"
             
 //            print(response)
->>>>>>> Stashed changes
+
             if let dataArray = response["data"] as? [String: Any],
                 let viewer = dataArray["viewer"] as? [String: Any],
                 let zones = viewer["zones"] as? [Any],
@@ -240,7 +245,7 @@ struct Cloudflare {
                     {
                         // Converting ISO 8601 string to a string in local time
                         let date = isoFormatter.date(from:datetime)!
-                        self.creatRequestRecord(reqAction: action.uppercased(), reqIPAddress: ip, reqCountryCode: countryCode, reqTime: stringFormatter.string(from: date))
+                        self.creatRequestRecord(reqAction: action, reqIPAddress: ip, reqCountryCode: countryCode, reqTime: stringFormatter.string(from: date))
                         
                     }
                 }
@@ -266,6 +271,7 @@ struct Cloudflare {
         self.makeRequest(endpoint: "zones/"+zoneId+"/dns_records", method: .get, showActInd: false, completion: { response in
             if let results = response["result"] as? [[String: Any]] {
                 completion(results)
+                
             } else {
                 completion(nil)
             }
@@ -294,7 +300,12 @@ struct Cloudflare {
             if let _ = response["BF_Error"] {
                 completion(false)
             } else {
+                
+                self.updateDNSRecordByID(recordID: dnsRecord.id!, updatedIPAddress: dnsRecord.content, recordName: dnsRecord.type, recordTTL: dnsRecord.ttl, recordType: dnsRecord.type)
+            
+                
                 completion(true)
+                
             }
         })
     }
@@ -311,13 +322,18 @@ struct Cloudflare {
      */
     public func newDNS (newRecord: DNS, completion: @escaping (_ success:Bool, _ newRecord:DNS?)->()) {
         let endpoint = "zones/"+newRecord.zoneID+"/dns_records/"
+        print("RECORD TYPE")
         let data = [
             "type": newRecord.type,
             "name": newRecord.name,
             "content": newRecord.content,
             "ttl": newRecord.ttl
         ] as Parameters
+        print(data)
+
         self.makeRequest(endpoint: endpoint, method: .post, data: data, showActInd: true, completion: { response in
+            print("+++++++")
+            print(response)
             if let result = response["result"] as? [String: Any],
                 let id = result["id"] as? String,
                 let name = result["name"] as? String,
@@ -326,6 +342,7 @@ struct Cloudflare {
                 let type = result["type"] as? String,
                 let zone_id = result["zone_id"] as? String {
                 let createdDNS = DNS(name: name, type: type, content: content, id: id, ttl: ttl, zoneID: zone_id)
+//                self.createNewDNSRecord(recordID: id, updatedIPAddress: content, recordName: name, recordTTL: ttl, recordType: type)
                 completion(true, createdDNS)
             } else {
                 completion(false, nil)
@@ -435,20 +452,150 @@ struct Cloudflare {
     
     
     private func creatRequestRecord(reqAction:String, reqIPAddress:String, reqCountryCode:String, reqTime:String){
+        // Check if record already exists, if so, dont add to CoreData
+        print("CHECKING REQUESTS")
+        print(checkIfRecordExists(reqIPAddress: reqIPAddress, reqCountry: reqCountryCode, reqTime: reqTime))
+        if checkIfRecordExists(reqIPAddress: reqIPAddress, reqCountry: reqCountryCode, reqTime: reqTime) == true{
+            // Get a reference to your App Delegate
+            let appDelegate = AppDelegate.shared
+            // Hold a reference to the managed context
+            let managedContext = appDelegate.persistentContainer.viewContext
+            let requestObj = NSEntityDescription.entity(forEntityName: "Requests" , in: managedContext)!
+            let request = NSManagedObject(entity: requestObj, insertInto: managedContext) as! Requests
+            request.action = reqAction
+            request.ipAddress = reqIPAddress
+            request.countryCode = reqCountryCode
+            request.time = reqTime
+            
+            
+            appDelegate.saveContext()
+        }
+    }
+    
+    private func checkIfRecordExists(reqIPAddress:String, reqCountry:String, reqTime:String) -> Bool{
+        
         // Get a reference to your App Delegate
         let appDelegate = AppDelegate.shared
         
         // Hold a reference to the managed context
         let managedContext = appDelegate.persistentContainer.viewContext
-        let requestObj = NSEntityDescription.entity(forEntityName: "Requests" , in: managedContext)!
-        let request = NSManagedObject(entity: requestObj, insertInto: managedContext) as! Requests
         
-        request.action = reqAction
-        request.ipAddress = reqIPAddress
-        request.countryCode = reqCountryCode
-        request.time = reqTime
+        do
+        {
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Requests")
+            fetchRequest.predicate = NSPredicate(format: "ipAddress == %@", reqIPAddress)
+            fetchRequest.predicate = NSPredicate(format: "countryCode == %@", reqCountry)
+            fetchRequest.predicate = NSPredicate(format: "time == %@", reqTime)
+            let results = try managedContext.fetch(fetchRequest)
+            let requests = results as! [Requests]
+            // Check if the record already exists. more then 0 = false
+            print("valusssss")
+            print(requests.count)
+            if requests.count <= 0{
+                return true
+            }else{
+                return false
+            }
         
+        }
+        catch let error as NSError {
+            print ("Could not fetch \(error) , \(error.userInfo )")
+        }
+        return false
+    }
+    
+    
+    
+    // Update the CoreData copy of the DNS record
+    private func updateDNSRecordByID(recordID:String, updatedIPAddress:String, recordName:String, recordTTL:Int, recordType:String){
         
-        appDelegate.saveContext()
+        // Get a reference to your App Delegate
+        let appDelegate = AppDelegate.shared
+        
+        // Hold a reference to the managed context
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        do
+        {
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"ClfDNS")
+            fetchRequest.predicate = NSPredicate(format: "recordID == %@", updatedIPAddress)
+            
+            let results = try managedContext.fetch(fetchRequest)
+            let dnsRecords = results as! [ClfDNS]
+            
+            // Iterate through all records with the provided ID, and update them with the new passed in IP.
+            for record in dnsRecords{
+                
+                record.ipAddress = updatedIPAddress
+                record.name = recordName
+                record.ttl = Int16(recordTTL)
+                record.recordType = recordType
+                
+            }
+            
+            
+            appDelegate.saveContext()
+            
+            
+        }
+        catch let error as NSError {
+            print ("Could not fetch \(error) , \(error.userInfo )")
+        }
+    }
+    
+    
+    // Create a new DNS record for the local CoreData
+    private func createNewDNSRecord(recordID:String, updatedIPAddress:String, recordName:String, recordTTL:Int, recordType:String){
+        // Check if record already exists, if so, dont add to CoreData
+        if self.checkIfDNSRecordExists(dnsRecordID: recordID){
+            // Get a reference to your App Delegate
+            let appDelegate = AppDelegate.shared
+            
+            // Hold a reference to the managed context
+            let managedContext = appDelegate.persistentContainer.viewContext
+            
+            let requestObj = NSEntityDescription.entity(forEntityName: "ClfDNS" , in: managedContext)!
+            let dnsRecord = NSManagedObject(entity: requestObj, insertInto: managedContext) as! ClfDNS
+            
+            dnsRecord.recordID = recordID
+            dnsRecord.ipAddress = updatedIPAddress
+            dnsRecord.name = recordName
+            dnsRecord.ttl = Int16(recordTTL)
+            dnsRecord.recordType = recordType
+            
+            appDelegate.saveContext()
+        }
+    }
+    
+    
+    private func checkIfDNSRecordExists(dnsRecordID:String) -> Bool{
+        
+        // Get a reference to your App Delegate
+        let appDelegate = AppDelegate.shared
+        
+        // Hold a reference to the managed context
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        do
+        {
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"ClfDNS")
+            fetchRequest.predicate = NSPredicate(format: "recordID == %@", dnsRecordID)
+
+            
+            let results = try managedContext.fetch(fetchRequest)
+            let requests = results as! [ClfDNS]
+            // Check if the record already exists. more then 0 = false
+            print("YES WE HAVE GO IN HERE")
+            if requests.count <= 0{
+                return true
+            }else{
+                return false
+            }
+            
+        }
+        catch let error as NSError {
+            print ("Could not fetch \(error) , \(error.userInfo )")
+        }
+        return false
     }
 }

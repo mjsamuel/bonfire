@@ -7,13 +7,14 @@
 //
 
 import Foundation
+import CoreData
 
 enum Action: String {
-    case allow = "Allow" // allows the host to the site.
-    case JSchallange = "JS challenge" // wait 5 seconds to determine if the host is a legit user.
-    case CAPTCHAchallange = "CAPTCHA challenge" // shows the host a CAPTCHA before being allowed to the site
-    case ban = "Ban" // bans the host
-    case normal = "Default"
+    case allow = "whitelist" // allows the host to the site.
+    case JSchallange = "js_challenge" // wait 5 seconds to determine if the host is a legit user.
+    case CAPTCHAchallange = "challenge" // shows the host a CAPTCHA before being allowed to the site
+    case ban = "block" // bans the host
+    case normal = "allow"
     
     static let allValues = [allow, JSchallange, CAPTCHAchallange, ban, normal]
     
@@ -55,28 +56,32 @@ struct HostAction {
     }
     
     mutating func setAction(selectedAction: Action, completion: @escaping (_ success:Bool)->()) {
+        print("hello")
+        print(selectedAction)
+        print(self.action)
         // Since the action is changing for the object we can also make the API call to Cloudflare. Only call if the action is different to the current state.
-        if(selectedAction != self.action){
-            sendActionToCloudflare(selectedAction: selectedAction, hostIP: self.ipAddress, completion: completion)
-        }
-        
-        // Update the action
-        self.action = selectedAction
+        print("aaaaa")
+        sendActionToCloudflare(selectedAction: selectedAction, hostIP: self.ipAddress, completion: completion)
+
     }
     
     // Send API calls to Clourflare based on the action
     func sendActionToCloudflare(selectedAction: Action, hostIP:String, completion: @escaping (_ success:Bool)->()) {
         
-//        DELETE ME WHEN JAMES HAS ADDED RULE ID STUFF
-        let ruleID = "NONE"
-        
+        let ruleID:String = getRuleIDByIPAddress(reqIPAddress: hostIP) ?? ""
         if (selectedAction == Action.normal) {
             print("DEBUG: Sending API call to Cloudflare to remove any firewall rule (action)")
             self.sendRemoveRuleRequest(ruleID: ruleID, completion: completion)
         } else {
+            if ruleID != ""{
+                self.sendRemoveRuleRequest(ruleID: ruleID, completion: completion)
+            }
             print("DEBUG: Sending API call to Cloudflare to: \(selectedAction) the IP: \(hostIP)")
-            self.sendAddRuleRequest(hostIP: hostIP, action: action, completion: completion)
+            self.sendAddRuleRequest(hostIP: hostIP, action: selectedAction, completion: completion)
         }
+        
+        // Update the rule with the new action
+        self.updateRequest(reqIPAddress: hostIP, newActon: selectedAction.rawValue)
     }
     
     func getAction() -> Action {
@@ -90,8 +95,9 @@ struct HostAction {
     private func sendRemoveRuleRequest(ruleID:String, completion: @escaping (_ success:Bool)->()) {
         let bonfire = Bonfire.sharedInstance
         let currentZone = bonfire.currentZone
-        let endpoint = (currentZone?.getId())!+"/firewall/access_rules/rules/"+ruleID
+        let endpoint = "zones/"+(currentZone?.getId())!+"/firewall/access_rules/rules/"+ruleID
         bonfire.cloudflare?.makeRequest(endpoint: endpoint, method: .delete, showActInd: true, completion: { response in
+
             if let _ = response["BF_Error"] {
                 bonfire.showErrorAlert(title: "Error", message: "An unknown error occured when attempting to remove firewall rule.")
                 completion(false)
@@ -104,16 +110,30 @@ struct HostAction {
     private func sendAddRuleRequest(hostIP:String, action:Action, completion: @escaping (_ success:Bool)->()) {
         let bonfire = Bonfire.sharedInstance
         let currentZone = bonfire.currentZone
-        let endpoint = (currentZone?.getId())!+"/firewall/access_rules/rules"
+        
+        print("hey")
+        print((currentZone?.getId())!)
+        let endpoint = "zones/"+(currentZone?.getId())!+"/firewall/access_rules/rules"
         let params = [
-            "mode": action,
+            "mode": action.rawValue,
             "configuration": [
                 "target": self.isIPV6 ? "ip6" : "ip",
                 "value": hostIP
             ],
             "notes": "Created in Bonfire"
         ] as [String : Any]
+        print(endpoint)
+        print(params)
+        print(action.rawValue)
         bonfire.cloudflare?.makeRequest(endpoint: endpoint, method: .post, data: params, showActInd: true, completion: { response in
+            // only do if making request to create actions against an IP
+            if let result = response["result"] as? Dictionary<String, Any>{
+                if let ruleID = result["id"]{
+                    // Update record with the returned ID
+                    self.updateRequestWithID(reqIPAddress: hostIP, ruleID: ruleID as! String)
+                }
+            }
+
             if let _ = response["BF_Error"] {
                 bonfire.showErrorAlert(title: "Error", message: "An unknown error occured when attempting to add firewall rule.")
                 completion(false)
@@ -121,6 +141,94 @@ struct HostAction {
                 completion(true)
             }
         })
+    }
+    
+    private func updateRequestWithID(reqIPAddress:String, ruleID:String){
+        
+        // Get a reference to your App Delegate
+        let appDelegate = AppDelegate.shared
+        
+        // Hold a reference to the managed context
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        do
+        {
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Requests")
+            fetchRequest.predicate = NSPredicate(format: "ipAddress == %@", reqIPAddress)
+            let results = try managedContext.fetch(fetchRequest)
+            let requests = results as! [Requests]
+            
+            // Iterate through all records with the provided IP, and update them with the new passed in action.
+            for req in requests{
+                req.requestID = ruleID
+            }
+            
+            
+            appDelegate.saveContext()
+            
+            
+        }
+        catch let error as NSError {
+            print ("Could not fetch \(error) , \(error.userInfo )")
+        }
+    }
+    
+    // Gets all requests withe the same IP, and updates the object in coredata.
+    private func updateRequest(reqIPAddress:String, newActon: String){
+        
+        // Get a reference to your App Delegate
+        let appDelegate = AppDelegate.shared
+        
+        // Hold a reference to the managed context
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        do
+        {
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Requests")
+            fetchRequest.predicate = NSPredicate(format: "ipAddress == %@", reqIPAddress)
+            let results = try managedContext.fetch(fetchRequest)
+            let requests = results as! [Requests]
+          
+            // Iterate through all records with the provided IP, and update them with the new passed in action.
+            for req in requests{
+                req.action = newActon
+            }
+            
+            
+            appDelegate.saveContext()
+            
+            
+        }
+        catch let error as NSError {
+            print ("Could not fetch \(error) , \(error.userInfo )")
+        }
+    }
+    
+    
+    // Gets all requests withe the same IP, and updates the object in coredata.
+    private func getRuleIDByIPAddress(reqIPAddress:String) -> String?{
+        
+        // Get a reference to your App Delegate
+        let appDelegate = AppDelegate.shared
+        
+        // Hold a reference to the managed context
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        do
+        {
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Requests")
+            fetchRequest.predicate = NSPredicate(format: "ipAddress == %@", reqIPAddress)
+            let results = try managedContext.fetch(fetchRequest)
+            let requests = results as! [Requests]
+           
+            // Iterate through all records with the provided IP, and update them with the new passed in action.
+            return requests[0].requestID
+            
+        }
+        catch let error as NSError {
+            print ("Could not fetch \(error) , \(error.userInfo )")
+        }
+        return ""
     }
     
 }

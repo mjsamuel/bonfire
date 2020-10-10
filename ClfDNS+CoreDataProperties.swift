@@ -2,7 +2,7 @@
 //  ClfDNS+CoreDataProperties.swift
 //  Bonfire
 //
-//  Created by James on 9/10/20.
+//  Created by James on 10/10/20.
 //  Copyright © 2020 ipse. All rights reserved.
 //
 //
@@ -21,5 +21,6 @@ extension ClfDNS {
     @NSManaged public var name: String?
     @NSManaged public var recordType: String?
     @NSManaged public var ttl: Int16
+    @NSManaged public var recordID: String?
 
 }

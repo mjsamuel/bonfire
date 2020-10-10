@@ -30,6 +30,7 @@ struct AnalyticsViewModel {
         self.threats = Int(analytics.numThreatsPerMonth)
         self.cached = Int(analytics.numRequestsCached)
         self.uncached = Int(analytics.numRequestsUncached)
+//        let counntryAnalytics:[CountryAnalytics] = getCountryAnalytics()
         for country in getCountryAnalytics()!{
             self.countries[String(country.countryName!)] = Int(country.numRequests)
         }
@@ -180,7 +181,9 @@ struct AnalyticsViewModel {
 
             let results = try managedContext.fetch(fetchRequest)
             let analytics = results as! [CountryAnalytics]
-
+            for a in analytics{
+                print(a.countryName)
+            }
             return analytics
         }
         catch let error as NSError {

@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import CoreData
 
 struct RequestsViewModel {
     private let bonfire: Bonfire = Bonfire.sharedInstance
     private var requestsData: [[String: Any]] = []
+    private var requests: [Request] = []
 
     
     /**
@@ -19,38 +21,84 @@ struct RequestsViewModel {
         self.requestsData = data
     }
     
-    public func getRequests() -> [Request] {
-        var requests: [Request] = []
+//    public func getRequests() -> [Request] {
+//        // Retrieve the requests objects.
+//        // the below method updates the requests array.
+//        getRequests()
+//
+//        // Once the requests array has been updated, return.
+//        return requests
+//    }
+
+
+    public mutating func getRequests() -> [Request]{
         
-        // Date formatter fot converting from ISO 8601 to a date object
-        let isoFormatter = ISO8601DateFormatter()
-        // Date formatter to convert the date object to a string in local time
-        let stringFormatter = DateFormatter()
-        stringFormatter.dateFormat = "hh:mm:ss"
+        // Get a reference to your App Delegate
+        let appDelegate = AppDelegate.shared
         
-        //  Converting retrieved requests into to an array of requests
-        for requestData in requestsData {
-            if let action = requestData["action"] as? String,
-                let ip = requestData["clientIP"] as? String,
-                let countryCode = requestData["clientCountryName"] as? String,
-                let datetime = requestData["datetime"] as? String
-            {
-                // Converting ISO 8601 string to a string in local time
-                let date = isoFormatter.date(from:datetime)!
+        // Hold a reference to the managed context
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        do
+        {
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Requests")
+            
+            let results = try managedContext.fetch(fetchRequest)
+            let requestsArray = results as! [Requests]
+            // create temp array
+            var tempRequests: [Request] = []
+            print("AAAAAAA")
+            for req in requestsArray{
+                print("a")
                 let request: Request = Request(
-                    action: action.uppercased(),
-                    origin: ip,
-                    countryCode: countryCode,
-                    time: stringFormatter.string(from: date))
-                requests.append(request)
+                    action: req.action!,
+                    origin: req.ipAddress!,
+                    countryCode: req.countryCode!,
+                    time: req.time!)
+               
+                tempRequests.append(request)
+                
             }
+            requests = tempRequests
+            
         }
-        
+        catch let error as NSError {
+            print ("Could not fetch \(error) , \(error.userInfo )")
+        }
         return requests
     }
     
-
+    
+    
+    // Gets all requests withe the same IP, and updates the object in coredata.
+    public func getReqestByIPAddress(reqIPAddress:String) -> Requests?{
+        
+        // Get a reference to your App Delegate
+        let appDelegate = AppDelegate.shared
+        
+        // Hold a reference to the managed context
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        do
+        {
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Requests")
+            fetchRequest.predicate = NSPredicate(format: "ipAddress == %@", reqIPAddress)
+            
+            let results = try managedContext.fetch(fetchRequest)
+            let requests = results as! [Requests]
+            
+            // Iterate through all records with the provided IP, and update them with the new passed in action.
+            return requests[0]
+            
+        }
+        catch let error as NSError {
+            print ("Could not fetch \(error) , \(error.userInfo )")
+        }
+        return nil
+    }
 }
+
+
 
 /**
  Helper struct to store and pass around requests
