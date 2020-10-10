@@ -60,6 +60,8 @@ class AnalyticsViewController: UIViewController, UITableViewDataSource {
      Updates the text of all labels from the view model
      */
     private func updateLabels() {
+//        let analytics:Analytics =
+        
         pageviewsLabel.text = viewModel.getPageviews()
         threatsLabel.text = viewModel.getThreats()
         cachedLabel.text = viewModel.getCached()

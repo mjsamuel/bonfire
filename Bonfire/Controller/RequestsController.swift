@@ -105,7 +105,7 @@ class RequestsController: UITableViewController {
         let actionSheet = UIAlertController(title: "Chose action for \(hostIP)", message:nil, preferredStyle: .actionSheet)
         
         // Define the Ban Action
-        let ban = UIAlertAction(title: Action.ban.rawValue, style: .destructive){ action in
+        let ban = UIAlertAction(title: "Ban", style: .destructive){ action in
             
             // Send off the action to the confirmation handler
             let selectedAction:Action = Action.ban
@@ -138,8 +138,19 @@ class RequestsController: UITableViewController {
             self.confirmAction(selectedAction: selectedAction, hostIP:hostIP)
         }
         
+        // Define the default action
+        let defaultAction = UIAlertAction(title: "Default", style: .default){ action in
+            
+            // Send off the action to the confirmation handler
+            let selectedAction:Action = Action.normal
+            self.confirmAction(selectedAction: selectedAction, hostIP:hostIP)
+        }
+        
         // Define an option to Cancel
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+        
+        
         
         // Add actions to the action sheet.
         actionSheet.addAction(jsChallenge)
@@ -147,6 +158,14 @@ class RequestsController: UITableViewController {
         actionSheet.addAction(allow)
         actionSheet.addAction(ban)
         actionSheet.addAction(cancel)
+        
+        // See if a rule has already been applied, then offer to set back to default (delete the action)
+        if let record:Requests = viewModel.getReqestByIPAddress(reqIPAddress: hostIP){
+
+            if record.action != Action.normal.rawValue{
+                actionSheet.addAction(defaultAction)
+            }
+        }
 
         present(actionSheet, animated: true, completion: nil)
         tableView.deselectRow(at: indexPath, animated: true)

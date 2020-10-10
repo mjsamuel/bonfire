@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 struct AnalyticsViewModel {
     private let bonfire: Bonfire = Bonfire.sharedInstance
@@ -16,16 +17,27 @@ struct AnalyticsViewModel {
     private var uncached: Int = 0
     private var countries: [String: Int] = [:]
     private var costPerMonth: Float = 0
+    private var costPerRequest: Float = 0
     
     /**
      Pulls data from the Cloudflare API
      */
     public mutating func updateData(_ data:[String:Any]) {
-        self.pageviews = data["pageviews"] as! Int
-        self.threats = data["threats"] as! Int
-        self.cached = data["requests_cached"] as! Int
-        self.uncached = data["requests_uncached"] as! Int
-        self.countries = data["top_countries"] as! [String: Int]
+        let analytics:Analytics = getAnalytics()!
+
+        
+        self.pageviews = Int(analytics.numRequestsPerMonth)
+        self.threats = Int(analytics.numThreatsPerMonth)
+        self.cached = Int(analytics.numRequestsCached)
+        self.uncached = Int(analytics.numRequestsUncached)
+//        let counntryAnalytics:[CountryAnalytics] = getCountryAnalytics()
+        for country in getCountryAnalytics()!{
+            self.countries[String(country.countryName!)] = Int(country.numRequests)
+        }
+        self.costPerMonth = analytics.flatCostPerMonth
+        self.costPerRequest = analytics.costPerRequest
+
+
     }
     
     public mutating func updatePriceData(_ price:Float) {
@@ -63,7 +75,7 @@ struct AnalyticsViewModel {
         
         //  Converting retrieved countries to an array of countries
         for(countryCode, noRequests) in countries {
-            let name: String = self.getCountry(countryCode: countryCode)
+            let name: String = self.countryCodeToName(countryCode: countryCode)
             countriesArray.append(Country(name: name, noRequests: noRequests))
         }
         
@@ -81,49 +93,103 @@ struct AnalyticsViewModel {
     
     public func getCostPerRequest() -> String {
         let allRequests: Int = self.cached + self.uncached
-        let costPerRequest: Float = self.costPerMonth / Float(allRequests)
-        
+        let costPerRequest: Float = self.costPerRequest / Float(allRequests)
+        print("CPM--------")
+        print(self.costPerRequest)
+        print(Float(allRequests))
+        print(String(costPerRequest))
         return String(costPerRequest)
     }
     
-    /**
-     Converts several ISO 3166 country codes to their country name
-     
-     - Parameters:
-        - countryCode: A valid ISO 3166 country code
-     - Returns: The country name if successful or the passed in code if unsuccessful
-     */
-    private func getCountry(countryCode: String) -> String {
-        let countryName: String
-        
-        switch countryCode {
-            case "AU":
-                countryName = "Australia"
-            case "US":
-                countryName = "United States"
-            case "GB":
-                countryName = "Great Britain"
-            case "CN":
-                countryName = "China"
-            case "RU":
-                countryName = "Russia"
-            case "JP":
-                countryName = "Japan"
-            case "DE":
-                countryName = "Germany"
-            case "FR":
-                countryName = "France"
-            case "IT":
-                countryName = "Italy"
-            case "IN":
-                countryName = "India"
-            case "ZA":
-                countryName = "South Africa"
-            default:
-                countryName = countryCode
+    private func countryCodeToName(countryCode: String) -> String {
+        if let name = (Locale.current as NSLocale).displayName(forKey: .countryCode, value: countryCode) {
+            // Country name was found
+            return name
+        } else {
+            // Country name cannot be found
+            return countryCode
         }
+    }
+    
+    private func getAnalytics() -> Analytics? {
         
-        return countryName
+        // Get a reference to your App Delegate
+        let appDelegate = AppDelegate.shared
+        
+        // Hold a reference to the managed context
+        let managedContext = appDelegate.persistentContainer.viewContext
+        do
+        {
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Analytics")
+            
+
+            let results = try managedContext.fetch(fetchRequest)
+            let account = results as! [Analytics]
+            return account[0]
+//            if account.count > 0{
+//                return account[0]
+//            }else{
+//                return nil
+//            }
+            
+        }
+        catch let error as NSError {
+            print ("Could not fetch \(error) , \(error.userInfo )")
+        }
+        return nil
+    }
+    
+    public func getRegistedAccountDetails() -> Account? {
+        
+        // Get a reference to your App Delegate
+        let appDelegate = AppDelegate.shared
+        
+        // Hold a reference to the managed context
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        do
+        {
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Account")
+            fetchRequest.fetchLimit = 1
+            
+            let results = try managedContext.fetch(fetchRequest)
+            let account = results as! [Account]
+            if account.count > 0{
+                return account[0]
+            }else{
+                return nil
+            }
+            
+        }
+        catch let error as NSError {
+            print ("Could not fetch \(error) , \(error.userInfo )")
+        }
+        return nil
+    }
+    
+    private func getCountryAnalytics() -> [CountryAnalytics]?{
+        
+        // Get a reference to your App Delegate
+        let appDelegate = AppDelegate.shared
+        
+        // Hold a reference to the managed context
+        let managedContext = appDelegate.persistentContainer.viewContext
+
+        do
+        {
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"CountryAnalytics")
+
+            let results = try managedContext.fetch(fetchRequest)
+            let analytics = results as! [CountryAnalytics]
+            for a in analytics{
+                print(a.countryName)
+            }
+            return analytics
+        }
+        catch let error as NSError {
+            print ("Could not fetch \(error) , \(error.userInfo )")
+        }
+        return nil
     }
 }
 

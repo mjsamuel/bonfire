@@ -7,13 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A44B9B02531504B0017D1F1 /* DNSTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A44B9AF2531504B0017D1F1 /* DNSTableCell.swift */; };
-		1A44B9B525318D210017D1F1 /* Requests+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A44B9B325318D210017D1F1 /* Requests+CoreDataClass.swift */; };
-		1A44B9B625318D210017D1F1 /* Requests+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A44B9B425318D210017D1F1 /* Requests+CoreDataProperties.swift */; };
-		1A44B9B92531BE930017D1F1 /* ClfDNS+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A44B9B72531BE930017D1F1 /* ClfDNS+CoreDataClass.swift */; };
-		1A44B9BA2531BE930017D1F1 /* ClfDNS+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A44B9B82531BE930017D1F1 /* ClfDNS+CoreDataProperties.swift */; };
+		1A56B86325313C160039FD25 /* Requests+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56B86125313C160039FD25 /* Requests+CoreDataClass.swift */; };
+		1A56B86425313C160039FD25 /* Requests+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56B86225313C160039FD25 /* Requests+CoreDataProperties.swift */; };
 		1A7E5DCF252FFFA70086FE59 /* Analytics+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E5DC3252FFFA70086FE59 /* Analytics+CoreDataClass.swift */; };
 		1A7E5DD0252FFFA70086FE59 /* Analytics+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E5DC4252FFFA70086FE59 /* Analytics+CoreDataProperties.swift */; };
+		1A7E5DD1252FFFA70086FE59 /* ClfDNS+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E5DC5252FFFA70086FE59 /* ClfDNS+CoreDataClass.swift */; };
+		1A7E5DD2252FFFA70086FE59 /* ClfDNS+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E5DC6252FFFA70086FE59 /* ClfDNS+CoreDataProperties.swift */; };
 		1A7E5DD3252FFFA70086FE59 /* Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E5DC7252FFFA70086FE59 /* Account+CoreDataClass.swift */; };
 		1A7E5DD4252FFFA70086FE59 /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E5DC8252FFFA70086FE59 /* Account+CoreDataProperties.swift */; };
 		1A7E5DD5252FFFA70086FE59 /* ClfZone+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E5DC9252FFFA70086FE59 /* ClfZone+CoreDataClass.swift */; };
@@ -47,14 +46,11 @@
 		C746E901252A1DB400AF3B8C /* RequestsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C746E900252A1DB400AF3B8C /* RequestsUITests.swift */; };
 		C746E903252A2FEF00AF3B8C /* LoginUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C746E902252A2FEF00AF3B8C /* LoginUITests.swift */; };
 		C746E905252A378D00AF3B8C /* DnsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C746E904252A378D00AF3B8C /* DnsUITests.swift */; };
-		C74F7873253185E500AF88C7 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74F7872253185E500AF88C7 /* MockData.swift */; };
-		C74F78742531B84B00AF88C7 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74F7872253185E500AF88C7 /* MockData.swift */; };
-		C74F78752531B84F00AF88C7 /* MockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C755D7DF25317EFB008A6F97 /* MockServer.swift */; };
-		C755D7E025317EFB008A6F97 /* MockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C755D7DF25317EFB008A6F97 /* MockServer.swift */; };
 		C76E625925284B2200C47F11 /* ActionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76E625825284B2200C47F11 /* ActionTests.swift */; };
-		C76E625B2528630B00C47F11 /* CloudflareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76E625A2528630B00C47F11 /* CloudflareTests.swift */; };
+		C76E625B2528630B00C47F11 /* ClourflareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76E625A2528630B00C47F11 /* ClourflareTests.swift */; };
 		C77158842528A4BF00F7392D /* AnalyticsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77158832528A4BF00F7392D /* AnalyticsUITests.swift */; };
 		C77F25D7252823CD002F89DE /* ZoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77F25D6252823CD002F89DE /* ZoneTests.swift */; };
+		C77F25D9252840CC002F89DE /* HostActionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77F25D8252840CC002F89DE /* HostActionsTests.swift */; };
 		C7816C2224F54A50001DCF48 /* RequestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7816C2124F54A50001DCF48 /* RequestsViewModel.swift */; };
 		C7816C2424F54A69001DCF48 /* RequestsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7816C2324F54A69001DCF48 /* RequestsController.swift */; };
 		C7A5567424DE536E00C21123 /* Cloudflare.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A5567324DE536E00C21123 /* Cloudflare.swift */; };
@@ -87,13 +83,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1A44B9AF2531504B0017D1F1 /* DNSTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSTableCell.swift; sourceTree = "<group>"; };
-		1A44B9B325318D210017D1F1 /* Requests+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Requests+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		1A44B9B425318D210017D1F1 /* Requests+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Requests+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		1A44B9B72531BE930017D1F1 /* ClfDNS+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClfDNS+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		1A44B9B82531BE930017D1F1 /* ClfDNS+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClfDNS+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		1A56B86125313C160039FD25 /* Requests+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Requests+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		1A56B86225313C160039FD25 /* Requests+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Requests+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		1A7E5DC3252FFFA70086FE59 /* Analytics+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analytics+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		1A7E5DC4252FFFA70086FE59 /* Analytics+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analytics+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		1A7E5DC5252FFFA70086FE59 /* ClfDNS+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClfDNS+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		1A7E5DC6252FFFA70086FE59 /* ClfDNS+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClfDNS+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		1A7E5DC7252FFFA70086FE59 /* Account+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		1A7E5DC8252FFFA70086FE59 /* Account+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		1A7E5DC9252FFFA70086FE59 /* ClfZone+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClfZone+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
@@ -129,12 +124,11 @@
 		C746E900252A1DB400AF3B8C /* RequestsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsUITests.swift; sourceTree = "<group>"; };
 		C746E902252A2FEF00AF3B8C /* LoginUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUITests.swift; sourceTree = "<group>"; };
 		C746E904252A378D00AF3B8C /* DnsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsUITests.swift; sourceTree = "<group>"; };
-		C74F7872253185E500AF88C7 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
-		C755D7DF25317EFB008A6F97 /* MockServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServer.swift; sourceTree = "<group>"; };
 		C76E625825284B2200C47F11 /* ActionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionTests.swift; sourceTree = "<group>"; };
-		C76E625A2528630B00C47F11 /* CloudflareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudflareTests.swift; sourceTree = "<group>"; };
+		C76E625A2528630B00C47F11 /* ClourflareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClourflareTests.swift; sourceTree = "<group>"; };
 		C77158832528A4BF00F7392D /* AnalyticsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsUITests.swift; sourceTree = "<group>"; };
 		C77F25D6252823CD002F89DE /* ZoneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneTests.swift; sourceTree = "<group>"; };
+		C77F25D8252840CC002F89DE /* HostActionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostActionsTests.swift; sourceTree = "<group>"; };
 		C7816C2124F54A50001DCF48 /* RequestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsViewModel.swift; sourceTree = "<group>"; };
 		C7816C2324F54A69001DCF48 /* RequestsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsController.swift; sourceTree = "<group>"; };
 		C7A5567324DE536E00C21123 /* Cloudflare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloudflare.swift; sourceTree = "<group>"; };
@@ -192,7 +186,6 @@
 			children = (
 				453FE08D24F3799500DA3383 /* TextFieldWithInsets.swift */,
 				45009791252AE39E002C2B0E /* UniversalActInd.swift */,
-				1A44B9AF2531504B0017D1F1 /* DNSTableCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -220,24 +213,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C74F786F253185A900AF88C7 /* Mocks */ = {
-			isa = PBXGroup;
-			children = (
-				C755D7DF25317EFB008A6F97 /* MockServer.swift */,
-				C74F7872253185E500AF88C7 /* MockData.swift */,
-			);
-			path = Mocks;
-			sourceTree = "<group>";
-		};
 		C7A5566F24DE518900C21123 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1A44B9B72531BE930017D1F1 /* ClfDNS+CoreDataClass.swift */,
-				1A44B9B82531BE930017D1F1 /* ClfDNS+CoreDataProperties.swift */,
-				1A44B9B325318D210017D1F1 /* Requests+CoreDataClass.swift */,
-				1A44B9B425318D210017D1F1 /* Requests+CoreDataProperties.swift */,
+				1A56B86125313C160039FD25 /* Requests+CoreDataClass.swift */,
+				1A56B86225313C160039FD25 /* Requests+CoreDataProperties.swift */,
 				1A7E5DC3252FFFA70086FE59 /* Analytics+CoreDataClass.swift */,
 				1A7E5DC4252FFFA70086FE59 /* Analytics+CoreDataProperties.swift */,
+				1A7E5DC5252FFFA70086FE59 /* ClfDNS+CoreDataClass.swift */,
+				1A7E5DC6252FFFA70086FE59 /* ClfDNS+CoreDataProperties.swift */,
 				1A7E5DC7252FFFA70086FE59 /* Account+CoreDataClass.swift */,
 				1A7E5DC8252FFFA70086FE59 /* Account+CoreDataProperties.swift */,
 				1A7E5DC9252FFFA70086FE59 /* ClfZone+CoreDataClass.swift */,
@@ -337,8 +321,9 @@
 			isa = PBXGroup;
 			children = (
 				C7B95A4224DE4C0E00459A5C /* BonfireTests.swift */,
-				C76E625A2528630B00C47F11 /* CloudflareTests.swift */,
+				C76E625A2528630B00C47F11 /* ClourflareTests.swift */,
 				C76E625825284B2200C47F11 /* ActionTests.swift */,
+				C77F25D8252840CC002F89DE /* HostActionsTests.swift */,
 				C77F25D6252823CD002F89DE /* ZoneTests.swift */,
 				C7B95A4424DE4C0E00459A5C /* Info.plist */,
 			);
@@ -348,7 +333,6 @@
 		C7B95A4C24DE4C0E00459A5C /* BonfireUITests */ = {
 			isa = PBXGroup;
 			children = (
-				C74F786F253185A900AF88C7 /* Mocks */,
 				C77158832528A4BF00F7392D /* AnalyticsUITests.swift */,
 				C7B95A4D24DE4C0E00459A5C /* BonfireUITests.swift */,
 				C746E904252A378D00AF3B8C /* DnsUITests.swift */,
@@ -609,33 +593,32 @@
 				4510CA0224F8F5B700CB32C9 /* LoginViewController.swift in Sources */,
 				C7A5567424DE536E00C21123 /* Cloudflare.swift in Sources */,
 				AACC225224F94C880016CBED /* DNSViewController.swift in Sources */,
+				1A7E5DD1252FFFA70086FE59 /* ClfDNS+CoreDataClass.swift in Sources */,
 				1A7E5DD6252FFFA70086FE59 /* ClfZone+CoreDataProperties.swift in Sources */,
 				1A7E5DD7252FFFA70086FE59 /* CountryAnalytics+CoreDataClass.swift in Sources */,
 				455241FB24FF88D3001051C9 /* MainTabBarController.swift in Sources */,
 				C70132BE24EE98A1003C9B05 /* Bonfire.swift in Sources */,
-				1A44B9BA2531BE930017D1F1 /* ClfDNS+CoreDataProperties.swift in Sources */,
 				1A7E5DD0252FFFA70086FE59 /* Analytics+CoreDataProperties.swift in Sources */,
 				AACC225024F94C770016CBED /* DNSViewModel.swift in Sources */,
+				1A7E5DD2252FFFA70086FE59 /* ClfDNS+CoreDataProperties.swift in Sources */,
 				1A7E5DD3252FFFA70086FE59 /* Account+CoreDataClass.swift in Sources */,
 				C70132C024EEA14A003C9B05 /* Zone.swift in Sources */,
 				C7B95A2D24DE4C0B00459A5C /* ViewController.swift in Sources */,
-				1A44B9B92531BE930017D1F1 /* ClfDNS+CoreDataClass.swift in Sources */,
 				1A7E5DD8252FFFA70086FE59 /* CountryAnalytics+CoreDataProperties.swift in Sources */,
 				C7B95A3324DE4C0B00459A5C /* Bonfire.xcdatamodeld in Sources */,
 				453FE08024F347F500DA3383 /* SettingsTableTableViewController.swift in Sources */,
 				C7B95A2B24DE4C0B00459A5C /* AppDelegate.swift in Sources */,
-				1A44B9B02531504B0017D1F1 /* DNSTableCell.swift in Sources */,
 				1A7E5DD5252FFFA70086FE59 /* ClfZone+CoreDataClass.swift in Sources */,
 				453FE08424F3627B00DA3383 /* SelectZoneController.swift in Sources */,
 				C7A5567624DE55A900C21123 /* AnalyticsViewModel.swift in Sources */,
 				453FE08E24F3799500DA3383 /* TextFieldWithInsets.swift in Sources */,
 				C73F9E9924EF5A5A0014B594 /* AnalyticsViewController.swift in Sources */,
+				1A56B86325313C160039FD25 /* Requests+CoreDataClass.swift in Sources */,
 				C7816C2224F54A50001DCF48 /* RequestsViewModel.swift in Sources */,
 				45009792252AE39E002C2B0E /* UniversalActInd.swift in Sources */,
+				1A56B86425313C160039FD25 /* Requests+CoreDataProperties.swift in Sources */,
 				1AA886BC24F8EA71007432CB /* HostActions.swift in Sources */,
 				AA6A6A73250268E400760433 /* DNSNewViewController.swift in Sources */,
-				1A44B9B525318D210017D1F1 /* Requests+CoreDataClass.swift in Sources */,
-				1A44B9B625318D210017D1F1 /* Requests+CoreDataProperties.swift in Sources */,
 				C7816C2424F54A69001DCF48 /* RequestsController.swift in Sources */,
 				1A7E5DD4252FFFA70086FE59 /* Account+CoreDataProperties.swift in Sources */,
 				1A7E5DCF252FFFA70086FE59 /* Analytics+CoreDataClass.swift in Sources */,
@@ -647,12 +630,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C76E625B2528630B00C47F11 /* CloudflareTests.swift in Sources */,
-				C74F78742531B84B00AF88C7 /* MockData.swift in Sources */,
-				C74F78752531B84F00AF88C7 /* MockServer.swift in Sources */,
+				C76E625B2528630B00C47F11 /* ClourflareTests.swift in Sources */,
 				C77F25D7252823CD002F89DE /* ZoneTests.swift in Sources */,
 				C76E625925284B2200C47F11 /* ActionTests.swift in Sources */,
 				C7B95A4324DE4C0E00459A5C /* BonfireTests.swift in Sources */,
+				C77F25D9252840CC002F89DE /* HostActionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -660,12 +642,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C755D7E025317EFB008A6F97 /* MockServer.swift in Sources */,
 				C746E905252A378D00AF3B8C /* DnsUITests.swift in Sources */,
 				C746E901252A1DB400AF3B8C /* RequestsUITests.swift in Sources */,
 				C77158842528A4BF00F7392D /* AnalyticsUITests.swift in Sources */,
 				C7B95A4E24DE4C0E00459A5C /* BonfireUITests.swift in Sources */,
-				C74F7873253185E500AF88C7 /* MockData.swift in Sources */,
 				C746E903252A2FEF00AF3B8C /* LoginUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -863,6 +843,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B830B26B2ED4A8E53392BA7D /* Pods-BonfireTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BonfireTests/Info.plist;
@@ -873,7 +854,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ipse.BonfireTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bonfire.app/Bonfire";
 			};
@@ -883,6 +864,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E6C0F0530D9D4C2D49B37560 /* Pods-BonfireTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BonfireTests/Info.plist;
@@ -893,7 +875,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ipse.BonfireTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bonfire.app/Bonfire";
 			};
@@ -903,6 +885,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6E7812CC048274743B96F595 /* Pods-Bonfire-BonfireUITests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BonfireUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -912,7 +895,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ipse.BonfireUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Bonfire;
 			};
@@ -922,6 +905,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A227889E415BDE8CF2E1A162 /* Pods-Bonfire-BonfireUITests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BonfireUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -931,7 +915,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ipse.BonfireUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Bonfire;
 			};

@@ -8,9 +8,17 @@
 import UIKit
 import CoreData
 
+extension UIApplicationDelegate {
+    static var shared:Self {
+        return UIApplication.shared.delegate! as! Self
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    
+    
     var window: UIWindow?
     
     var universalActInd : UniversalActInd?
@@ -97,6 +105,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return container
     }()
 
+   
     // MARK: - Core Data Saving support
 
     func saveContext () {
