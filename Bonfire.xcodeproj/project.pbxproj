@@ -35,6 +35,7 @@
 		C746E901252A1DB400AF3B8C /* RequestsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C746E900252A1DB400AF3B8C /* RequestsUITests.swift */; };
 		C746E903252A2FEF00AF3B8C /* LoginUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C746E902252A2FEF00AF3B8C /* LoginUITests.swift */; };
 		C746E905252A378D00AF3B8C /* DnsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C746E904252A378D00AF3B8C /* DnsUITests.swift */; };
+		C755D7E025317EFB008A6F97 /* MockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C755D7DF25317EFB008A6F97 /* MockServer.swift */; };
 		C76E625925284B2200C47F11 /* ActionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76E625825284B2200C47F11 /* ActionTests.swift */; };
 		C76E625B2528630B00C47F11 /* ClourflareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76E625A2528630B00C47F11 /* ClourflareTests.swift */; };
 		C77158842528A4BF00F7392D /* AnalyticsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77158832528A4BF00F7392D /* AnalyticsUITests.swift */; };
@@ -102,6 +103,7 @@
 		C746E900252A1DB400AF3B8C /* RequestsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsUITests.swift; sourceTree = "<group>"; };
 		C746E902252A2FEF00AF3B8C /* LoginUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUITests.swift; sourceTree = "<group>"; };
 		C746E904252A378D00AF3B8C /* DnsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsUITests.swift; sourceTree = "<group>"; };
+		C755D7DF25317EFB008A6F97 /* MockServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServer.swift; sourceTree = "<group>"; };
 		C76E625825284B2200C47F11 /* ActionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionTests.swift; sourceTree = "<group>"; };
 		C76E625A2528630B00C47F11 /* ClourflareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClourflareTests.swift; sourceTree = "<group>"; };
 		C77158832528A4BF00F7392D /* AnalyticsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsUITests.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 		C7B95A4C24DE4C0E00459A5C /* BonfireUITests */ = {
 			isa = PBXGroup;
 			children = (
+				C755D7DF25317EFB008A6F97 /* MockServer.swift */,
 				C77158832528A4BF00F7392D /* AnalyticsUITests.swift */,
 				C7B95A4D24DE4C0E00459A5C /* BonfireUITests.swift */,
 				C746E904252A378D00AF3B8C /* DnsUITests.swift */,
@@ -598,6 +601,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C755D7E025317EFB008A6F97 /* MockServer.swift in Sources */,
 				C746E905252A378D00AF3B8C /* DnsUITests.swift in Sources */,
 				C746E901252A1DB400AF3B8C /* RequestsUITests.swift in Sources */,
 				C77158842528A4BF00F7392D /* AnalyticsUITests.swift in Sources */,
@@ -799,7 +803,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B830B26B2ED4A8E53392BA7D /* Pods-BonfireTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BonfireTests/Info.plist;
@@ -810,7 +813,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ipse.BonfireTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bonfire.app/Bonfire";
 			};
@@ -820,7 +823,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E6C0F0530D9D4C2D49B37560 /* Pods-BonfireTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BonfireTests/Info.plist;
@@ -831,7 +833,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ipse.BonfireTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bonfire.app/Bonfire";
 			};
@@ -841,7 +843,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6E7812CC048274743B96F595 /* Pods-Bonfire-BonfireUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BonfireUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -851,7 +852,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ipse.BonfireUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Bonfire;
 			};
@@ -861,7 +862,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A227889E415BDE8CF2E1A162 /* Pods-Bonfire-BonfireUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BonfireUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -871,7 +871,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ipse.BonfireUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Bonfire;
 			};

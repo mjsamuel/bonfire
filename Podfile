@@ -7,6 +7,8 @@ target 'Bonfire' do
 
   # Pods for Bonfire
   pod 'Alamofire', '~> 4.0'
+  pod 'Swifter', '~> 1.4.7'
+
 
   target 'BonfireTests' do
     inherit! :search_paths

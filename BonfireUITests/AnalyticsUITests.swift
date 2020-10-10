@@ -7,24 +7,29 @@
 //
 
 import XCTest
+import Swifter
 
 class AnalyticsUITests: XCTestCase {
     
+    let mockServer: MockServer = MockServer()
     var app: XCUIApplication?
     
     override func setUp() {
         continueAfterFailure = false
+        
+        configureMockServer()
+        try! mockServer.server.start()
 
         app = XCUIApplication()
-//        app?.launchEnvironment["-FakedFeedResponse"] = "success.json"
-        XCUIApplication().launch()
-        XCUIDevice.shared.orientation = .portrait
+        app?.launchArguments = ["USE_MOCK_SERVER"]
+        app?.launch()
         
         login()
     }
 
     override func tearDown() {
         super.tearDown()
+        mockServer.server.stop()
     }
 
     func testNumberOfTiles() {
@@ -64,7 +69,75 @@ class AnalyticsUITests: XCTestCase {
         testTileContent()
         testNumberOfTiles()
     }
-
+    
+    func configureMockServer() {
+        let data: Data = """
+            {
+              "success": true,
+              "errors": [],
+              "messages": [],
+              "result": [
+                {
+                  "id": "023e105f4ecef8ad9ca31a8372d0c353",
+                  "name": "example.com",
+                  "development_mode": 7200,
+                  "original_name_servers": [
+                    "ns1.originaldnshost.com",
+                    "ns2.originaldnshost.com"
+                  ],
+                  "original_registrar": "GoDaddy",
+                  "original_dnshost": "NameCheap",
+                  "created_on": "2014-01-01T05:20:00.12345Z",
+                  "modified_on": "2014-01-01T05:20:00.12345Z",
+                  "activated_on": "2014-01-02T00:01:00.12345Z",
+                  "owner": {
+                    "id": {},
+                    "email": {},
+                    "type": "user"
+                  },
+                  "account": {
+                    "id": "01a7362d577a6c3019a474fd6f485823",
+                    "name": "Demo Account"
+                  },
+                  "permissions": [
+                    "#zone:read",
+                    "#zone:edit"
+                  ],
+                  "plan": {
+                    "id": "e592fd9519420ba7405e1307bff33214",
+                    "name": "Pro Plan",
+                    "price": 20,
+                    "currency": "USD",
+                    "frequency": "monthly",
+                    "legacy_id": "pro",
+                    "is_subscribed": true,
+                    "can_subscribe": true
+                  },
+                  "plan_pending": {
+                    "id": "e592fd9519420ba7405e1307bff33214",
+                    "name": "Pro Plan",
+                    "price": 20,
+                    "currency": "USD",
+                    "frequency": "monthly",
+                    "legacy_id": "pro",
+                    "is_subscribed": true,
+                    "can_subscribe": true
+                  },
+                  "status": "active",
+                  "paused": false,
+                  "type": "full",
+                  "name_servers": [
+                    "tony.ns.cloudflare.com",
+                    "woz.ns.cloudflare.com"
+                  ]
+                }
+              ]
+            }
+        """.data(using: .utf8)!
+        
+        mockServer.addRoute(route: "zones", jsonData: data, requestType: .get)
+    }
+    
     func login() {
         let emailField = app?.textFields["emailField"]
         emailField?.tap()
@@ -73,6 +146,8 @@ class AnalyticsUITests: XCTestCase {
         let apiKeyField = app?.textFields["apiKeyField"]
         apiKeyField?.tap()
         apiKeyField?.typeText("test\n")
+        
+        sleep(2)
     }
 
 }
