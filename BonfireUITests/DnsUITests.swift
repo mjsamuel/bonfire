@@ -10,28 +10,41 @@ import XCTest
 
 class DnsUITests: XCTestCase {
 
+    let mockServer: MockServer = MockServer()
     var app: XCUIApplication?
     
     override func setUp() {
         continueAfterFailure = false
         
+        configureMockServer()
+        try! mockServer.server.start()
+        
         app = XCUIApplication()
-        XCUIApplication().launch()
+        app?.launchArguments = ["USE_MOCK_SERVER"]
+        app?.launch()
+        
         XCUIDevice.shared.orientation = .portrait
         
         login()
         
+        // Selecting the DNS scene from the tab bar
         let tabItem = app?.tabBars.firstMatch.buttons.element(boundBy: 2)
         tabItem?.tap()
     }
     
     override func tearDown() {
         super.tearDown()
+        mockServer.server.stop()
     }
     
-    func testNumberOfRequests() {
+    func testValidNumberOfRequests() {
+        sleep(1)
         let numberRequests = app?.tables.cells.count
         XCTAssertEqual(numberRequests, 4)
+    }
+    
+    func testValidCellData() {
+    
     }
     
     func testModifyDNS() {
@@ -52,7 +65,15 @@ class DnsUITests: XCTestCase {
         XCTAssertEqual(cellLabel, "198.51.100.2")
     }
     
+    func configureMockServer() {
+        // Specifying routes that will be required for this scene
+        mockServer.addRoute(route: "zones", jsonData: MockData().zoneData, requestType: .get)
+        mockServer.addRoute(route: "zones/023e105f4ecef8ad9ca31a8372d0c353/dns_records", jsonData: MockData().dnsData, requestType: .get)
+        mockServer.addRoute(route: "zones/023e105f4ecef8ad9ca31a8372d0c353/dns_records/372e67954025e0ba6aaa6d586b9e0b59", jsonData: MockData().updateDnsResponse, requestType: .put)
+    }
+    
     func login() {
+        // Helper method to automate going through the login page
         let emailField = app?.textFields["emailField"]
         emailField?.tap()
         emailField?.typeText("test\n")
@@ -60,6 +81,8 @@ class DnsUITests: XCTestCase {
         let apiKeyField = app?.textFields["apiKeyField"]
         apiKeyField?.tap()
         apiKeyField?.typeText("test\n")
+        
+        sleep(1)
     }
 
 }

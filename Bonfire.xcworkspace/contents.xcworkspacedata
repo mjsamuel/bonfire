@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/matthewsamuel/School/ipse/Assignment 2/Bonfire/BonfireUITests/Mocks/MockData.swift">
+   </FileRef>
+   <FileRef
       location = "group:Bonfire.xcodeproj">
    </FileRef>
    <FileRef

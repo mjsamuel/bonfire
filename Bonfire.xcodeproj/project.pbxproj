@@ -35,6 +35,7 @@
 		C746E901252A1DB400AF3B8C /* RequestsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C746E900252A1DB400AF3B8C /* RequestsUITests.swift */; };
 		C746E903252A2FEF00AF3B8C /* LoginUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C746E902252A2FEF00AF3B8C /* LoginUITests.swift */; };
 		C746E905252A378D00AF3B8C /* DnsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C746E904252A378D00AF3B8C /* DnsUITests.swift */; };
+		C74F7873253185E500AF88C7 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C74F7872253185E500AF88C7 /* MockData.swift */; };
 		C755D7E025317EFB008A6F97 /* MockServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C755D7DF25317EFB008A6F97 /* MockServer.swift */; };
 		C76E625925284B2200C47F11 /* ActionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76E625825284B2200C47F11 /* ActionTests.swift */; };
 		C76E625B2528630B00C47F11 /* ClourflareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76E625A2528630B00C47F11 /* ClourflareTests.swift */; };
@@ -103,6 +104,7 @@
 		C746E900252A1DB400AF3B8C /* RequestsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsUITests.swift; sourceTree = "<group>"; };
 		C746E902252A2FEF00AF3B8C /* LoginUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUITests.swift; sourceTree = "<group>"; };
 		C746E904252A378D00AF3B8C /* DnsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsUITests.swift; sourceTree = "<group>"; };
+		C74F7872253185E500AF88C7 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		C755D7DF25317EFB008A6F97 /* MockServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockServer.swift; sourceTree = "<group>"; };
 		C76E625825284B2200C47F11 /* ActionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionTests.swift; sourceTree = "<group>"; };
 		C76E625A2528630B00C47F11 /* ClourflareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClourflareTests.swift; sourceTree = "<group>"; };
@@ -192,6 +194,15 @@
 				D0C6C29947AC8F1D12CD3FC0 /* Pods_BonfireTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C74F786F253185A900AF88C7 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				C755D7DF25317EFB008A6F97 /* MockServer.swift */,
+				C74F7872253185E500AF88C7 /* MockData.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		C7A5566F24DE518900C21123 /* Model */ = {
@@ -302,7 +313,7 @@
 		C7B95A4C24DE4C0E00459A5C /* BonfireUITests */ = {
 			isa = PBXGroup;
 			children = (
-				C755D7DF25317EFB008A6F97 /* MockServer.swift */,
+				C74F786F253185A900AF88C7 /* Mocks */,
 				C77158832528A4BF00F7392D /* AnalyticsUITests.swift */,
 				C7B95A4D24DE4C0E00459A5C /* BonfireUITests.swift */,
 				C746E904252A378D00AF3B8C /* DnsUITests.swift */,
@@ -606,6 +617,7 @@
 				C746E901252A1DB400AF3B8C /* RequestsUITests.swift in Sources */,
 				C77158842528A4BF00F7392D /* AnalyticsUITests.swift in Sources */,
 				C7B95A4E24DE4C0E00459A5C /* BonfireUITests.swift in Sources */,
+				C74F7873253185E500AF88C7 /* MockData.swift in Sources */,
 				C746E903252A2FEF00AF3B8C /* LoginUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

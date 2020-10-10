@@ -27,6 +27,8 @@ struct MockServer {
             server.post[route] = response
         case .get:
             server.get[route] = response
+        case .put:
+            server.put[route] = response
         }
     }
 }
@@ -34,4 +36,5 @@ struct MockServer {
 enum RequestType {
     case get
     case post
+    case put
 }

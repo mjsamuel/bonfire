@@ -10,18 +10,25 @@ import XCTest
 
 class LoginUITests: XCTestCase {
 
+    let mockServer: MockServer = MockServer()
     var app: XCUIApplication?
     
     override func setUp() {
         continueAfterFailure = false
         
+        configureMockServer()
+        try! mockServer.server.start()
+
         app = XCUIApplication()
-        XCUIApplication().launch()
+        app?.launchArguments = ["USE_MOCK_SERVER"]
+        app?.launch()
+        
         XCUIDevice.shared.orientation = .portrait
     }
     
     override func tearDown() {
         super.tearDown()
+        mockServer.server.stop()
     }
     
     func testValidScene() {
@@ -45,4 +52,8 @@ class LoginUITests: XCTestCase {
         XCTAssertFalse(apiKeyField?.exists ?? false)
     }
 
+    func configureMockServer() {
+        // Specifying routes that will be required for this scene
+        mockServer.addRoute(route: "zones", jsonData: MockData().zoneData, requestType: .get)
+    }
 }
