@@ -1,4 +1,45 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14492.1" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Account" representedClassName=".Account" syncable="YES">
+        <attribute name="apiKey" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="zoneID" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Analytics" representedClassName="Analytics" syncable="YES">
+        <attribute name="costPerRequest" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="flatCostPerMonth" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="numRequestsCaches" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="numRequestsPerMonth" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="numRequestsUncached" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="numThreatsPerMonth" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="ClfDNS" representedClassName="ClfDNS" syncable="YES">
+        <attribute name="ipAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="recordType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ttl" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="ClfZone" representedClassName="ClfZone" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="zoneID" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="CountryAnalytics" representedClassName="CountryAnalytics" syncable="YES">
+        <attribute name="countryCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="numRequests" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="zoneID" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Requests" representedClassName="Requests" syncable="YES">
+        <attribute name="action" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ipAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="method" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Account" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="Analytics" positionX="0" positionY="90" width="128" height="135"/>
+        <element name="ClfDNS" positionX="-36" positionY="45" width="128" height="105"/>
+        <element name="ClfZone" positionX="-63" positionY="9" width="128" height="75"/>
+        <element name="CountryAnalytics" positionX="-18" positionY="72" width="128" height="90"/>
+        <element name="Requests" positionX="-54" positionY="18" width="128" height="105"/>
+    </elements>
 </model>
