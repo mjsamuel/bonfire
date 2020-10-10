@@ -19,6 +19,7 @@ class RequestsUITests: XCTestCase {
         configureMockServer()
         try! mockServer.server.start()
         
+        // Launching the app and specificying that it should be run with a mock server
         app = XCUIApplication()
         app?.launchArguments = ["USE_MOCK_SERVER"]
         app?.launch()
@@ -30,19 +31,55 @@ class RequestsUITests: XCTestCase {
         // Selecting the Requests scene from the tab bar
         let tabItem = app?.tabBars.firstMatch.buttons.element(boundBy: 1)
         tabItem?.tap()
+        
+        sleep(1)
     }
     
     override func tearDown() {
         super.tearDown()
         mockServer.server.stop()
     }
-
+    
+    /**
+     Tests whether the ammount of cells presented match the number of mock requests provided
+     */
     func testValidNumberOfRequests() {
-        sleep(1)
         let numberRequests = app?.tables.cells.count
         XCTAssertEqual(numberRequests, 5)
     }
+
+    /**
+     Tests whether the data in cells that are presented match the mock data provided
+     */
+    func testValidCellData() {
+        // Looping through every table cell
+        let numberRequests = app?.tables.cells.count
+        for i in 0...numberRequests! - 1 {
+            let dnsCell = app?.tables.cells.element(boundBy: i)
+            let label = dnsCell?.staticTexts.element(boundBy: 0).label
+            
+            let expextedText: String
+            
+            switch i {
+            case 1:
+                expextedText = "LOG - 203.0.113.69 (GB)"
+            case 2:
+                expextedText = "POST - 203.0.113.233 (US)"
+            case 3:
+                expextedText = "GET - 203.0.113.233 (US)"
+            case 4:
+                expextedText = "ALLOW - 2001:8003:d4c0:5f00:62a4:4cff:fe5c:b8e0 (AU)"
+            default:
+                expextedText = "GET - 220.253.122.100 (AU)"
+            }
+            
+            XCTAssertEqual(label, expextedText)
+        }
+    }
     
+    /**
+     Tests that the correct alert is shown when banning a request
+     */
     func testBanRequest() {
         app?.tables.cells.element(boundBy: 0).tap()
         app?.sheets.buttons["Ban"].tap()
@@ -51,6 +88,9 @@ class RequestsUITests: XCTestCase {
         XCTAssertTrue(alertLabel?.contains("Ban") ?? false)
     }
     
+    /**
+     Tests that the correct alert is shown when JS challenging a request
+     */
     func testJsChallengeRequest() {
         app?.tables.cells.element(boundBy: 0).tap()
         app?.sheets.buttons["JS Challenge"].tap()
@@ -59,6 +99,9 @@ class RequestsUITests: XCTestCase {
         XCTAssertTrue(alertLabel?.contains("JS challenge") ?? false)
     }
     
+    /**
+     Tests that the correct alert is shown when allowing a request
+     */
     func testAllowRequest() {
         app?.tables.cells.element(boundBy: 0).tap()
         app?.sheets.buttons["Allow"].tap()
@@ -67,6 +110,9 @@ class RequestsUITests: XCTestCase {
         XCTAssertTrue(alertLabel?.contains("Allow") ?? false)
     }
     
+    /**
+     Tests that the correct alert is shown when captcha challenging a request
+     */
     func testCaptchaChallengeRequest() {
         app?.tables.cells.element(boundBy: 0).tap()
         app?.sheets.buttons["CAPTCHA Challenge"].tap()
@@ -75,14 +121,18 @@ class RequestsUITests: XCTestCase {
         XCTAssertTrue(alertLabel?.contains("CAPTCHA Challenge") ?? false)
     }
     
+    /**
+     Specifies the routes that will be required to test this scene
+     */
     func configureMockServer() {
-        // Specifying routes that will be required for this scene
         mockServer.addRoute(route: "zones", jsonData: MockData().zoneData, requestType: .get)
         mockServer.addRoute(route: "graphql", jsonData: MockData().requestsData, requestType: .post)
     }
 
+    /**
+     Helper method to automate going through the login page
+     */
     func login() {
-        // Helper method to automate going through the login page
         let emailField = app?.textFields["emailField"]
         emailField?.tap()
         emailField?.typeText("test\n")
@@ -92,7 +142,6 @@ class RequestsUITests: XCTestCase {
         apiKeyField?.typeText("test\n")
         
         sleep(1)
-
     }
 
 }

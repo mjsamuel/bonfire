@@ -19,6 +19,7 @@ class LoginUITests: XCTestCase {
         configureMockServer()
         try! mockServer.server.start()
 
+        // Launching the app and specificying that it should be run with a mock server
         app = XCUIApplication()
         app?.launchArguments = ["USE_MOCK_SERVER"]
         app?.launch()
@@ -31,6 +32,9 @@ class LoginUITests: XCTestCase {
         mockServer.server.stop()
     }
     
+    /**
+     Test wether the login view is valid and presenting the correct fields
+     */
     func testValidScene() {
         let emailField = app?.textFields["emailField"]
         XCTAssertTrue(emailField?.exists ?? false)
@@ -39,6 +43,9 @@ class LoginUITests: XCTestCase {
         XCTAssertTrue(apiKeyField?.exists ?? false)
     }
     
+    /**
+     Test that upon a successfull login, the login page is dismissed
+     */
     func testLogin() {
         let emailField = app?.textFields["emailField"]
         emailField?.tap()
@@ -51,9 +58,11 @@ class LoginUITests: XCTestCase {
         XCTAssertFalse(emailField?.exists ?? false)
         XCTAssertFalse(apiKeyField?.exists ?? false)
     }
-
+    
+    /**
+     Specifies the routes that will be required to test this scene
+     */
     func configureMockServer() {
-        // Specifying routes that will be required for this scene
         mockServer.addRoute(route: "zones", jsonData: MockData().zoneData, requestType: .get)
     }
 }

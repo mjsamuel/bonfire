@@ -19,6 +19,7 @@ class AnalyticsUITests: XCTestCase {
         configureMockServer()
         try! mockServer.server.start()
 
+        // Launching the app and specificying that it should be run with a mock server
         app = XCUIApplication()
         app?.launchArguments = ["USE_MOCK_SERVER"]
         app?.launch()
@@ -33,11 +34,17 @@ class AnalyticsUITests: XCTestCase {
         mockServer.server.stop()
     }
 
+    /**
+     Tests whether the correct number of tiles are presented
+     */
     func testValidNumberOfTiles() {
         let numberTiles = app?.otherElements.matching(identifier: "tile").count
         XCTAssertEqual(numberTiles, 5)
     }
 
+    /**
+     Tests whether the data presented in each tile matches the mock data provided
+     */
     func testValidTileContent() {
         let pageviewsLabel = app?.staticTexts.element(matching: .any, identifier: "pageviewsLabel").label
         XCTAssertEqual(pageviewsLabel, "5724723")
@@ -60,22 +67,28 @@ class AnalyticsUITests: XCTestCase {
         let cprLabel = app?.staticTexts.element(matching: .any, identifier: "cprLabel").label
         XCTAssertEqual(cprLabel, "$0.0")
     }
-    
+
+    /**
+     Testing whether elements are still correct when the device is placed in landscape (as this scene uses addaptive layout)
+     */
     func testRotate() {
-        // Testing wether elements are still correct in landscape (as this scene uses addaptive layout)
         XCUIDevice.shared.orientation = .landscapeLeft
         testValidTileContent()
         testValidNumberOfTiles()
     }
-    
+
+    /**
+     Specifies the routes that will be required to test this scene
+     */
     func configureMockServer() {
-        // Specifying routes that will be required for this scene
         mockServer.addRoute(route: "zones", jsonData: MockData().zoneData, requestType: .get)
         mockServer.addRoute(route: "zones/023e105f4ecef8ad9ca31a8372d0c353/analytics/dashboard", jsonData: MockData().analyticsData, requestType: .get)
     }
-    
+
+    /**
+     Helper method to automate going through the login page
+     */
     func login() {
-        // Helper method to automate going through the login page
         let emailField = app?.textFields["emailField"]
         emailField?.tap()
         emailField?.typeText("test\n")
