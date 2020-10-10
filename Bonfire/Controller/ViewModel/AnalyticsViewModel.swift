@@ -17,10 +17,6 @@ struct AnalyticsViewModel {
     private var countries: [String: Int] = [:]
     private var costPerMonth: Float = 0
     
-    init() {
-//        updateData()
-    }
-    
     /**
      Pulls data from the Cloudflare API
      */

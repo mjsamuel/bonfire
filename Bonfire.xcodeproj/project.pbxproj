@@ -28,6 +28,7 @@
 		453FE08424F3627B00DA3383 /* SelectZoneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453FE08324F3627B00DA3383 /* SelectZoneController.swift */; };
 		453FE08624F3698400DA3383 /* login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453FE08524F3698400DA3383 /* login.storyboard */; };
 		453FE08E24F3799500DA3383 /* TextFieldWithInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453FE08D24F3799500DA3383 /* TextFieldWithInsets.swift */; };
+		4540D6F1252FC6E800635617 /* DNSTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4540D6F0252FC6E800635617 /* DNSTableCell.swift */; };
 		455241FB24FF88D3001051C9 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455241FA24FF88D3001051C9 /* MainTabBarController.swift */; };
 		4DD89630596E7A0317B46210 /* Pods_Bonfire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA72968198355B717D28C29 /* Pods_Bonfire.framework */; };
 		5BC753866A9A1DD21BED48C7 /* Pods_Bonfire_BonfireUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8AE55588C7E51767E441F5 /* Pods_Bonfire_BonfireUITests.framework */; };
@@ -105,6 +106,7 @@
 		453FE08324F3627B00DA3383 /* SelectZoneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectZoneController.swift; sourceTree = "<group>"; };
 		453FE08524F3698400DA3383 /* login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = login.storyboard; sourceTree = "<group>"; };
 		453FE08D24F3799500DA3383 /* TextFieldWithInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithInsets.swift; sourceTree = "<group>"; };
+		4540D6F0252FC6E800635617 /* DNSTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSTableCell.swift; sourceTree = "<group>"; };
 		455241FA24FF88D3001051C9 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		542C2E13102B3DC2E111F422 /* Pods-Bonfire.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bonfire.release.xcconfig"; path = "Target Support Files/Pods-Bonfire/Pods-Bonfire.release.xcconfig"; sourceTree = "<group>"; };
 		6E7812CC048274743B96F595 /* Pods-Bonfire-BonfireUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bonfire-BonfireUITests.debug.xcconfig"; path = "Target Support Files/Pods-Bonfire-BonfireUITests/Pods-Bonfire-BonfireUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 			children = (
 				453FE08D24F3799500DA3383 /* TextFieldWithInsets.swift */,
 				45009791252AE39E002C2B0E /* UniversalActInd.swift */,
+				4540D6F0252FC6E800635617 /* DNSTableCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -605,8 +608,11 @@
 				1A7E5DBB252DD84E0086FE59 /* Requests+CoreDataClass.swift in Sources */,
 				1A7E5DB9252DD84E0086FE59 /* ClfZone+CoreDataClass.swift in Sources */,
 				C7B95A2B24DE4C0B00459A5C /* AppDelegate.swift in Sources */,
+				4540D6F1252FC6E800635617 /* DNSTableCell.swift in Sources */,
+
 				1A7E5DC1252DD84E0086FE59 /* CountryAnalytics+CoreDataClass.swift in Sources */,
 				1A7E5DBF252DD84E0086FE59 /* ClfDNS+CoreDataClass.swift in Sources */,
+        
 				453FE08424F3627B00DA3383 /* SelectZoneController.swift in Sources */,
 				C7A5567624DE55A900C21123 /* AnalyticsViewModel.swift in Sources */,
 				453FE08E24F3799500DA3383 /* TextFieldWithInsets.swift in Sources */,

@@ -32,6 +32,7 @@ class Bonfire {
      - Parameters:
         - email: The email of the user
         - apiKey: The api key corresponding to that account
+        - completion: The code block to run once a response has been recieved (Recieves the parameter "success" as a Bool)
      */
     public func login(email: String, apiKey: String, completion: @escaping (_ success: Bool)->()) {
         cloudflare = Cloudflare(email: email, apiKey: apiKey)
@@ -59,7 +60,7 @@ class Bonfire {
                 }
             } else {
                 // Show error alert no zones found or not valid creds
-                self.showErrorAlert(title: "Login Failed", message: "Please confirm your email and API key. You must have atleast 1 zone configured in CloudFlare.")
+                self.showErrorAlert(title: "Login Failed", message: "Please confirm your email and API key. You must have at least 1 zone configured in CloudFlare.")
             }
             completion(self.cloudflare!.isLoggedIn)
         })
