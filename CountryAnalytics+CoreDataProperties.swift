@@ -2,7 +2,7 @@
 //  CountryAnalytics+CoreDataProperties.swift
 //  Bonfire
 //
-//  Created by James on 7/10/20.
+//  Created by James on 9/10/20.
 //  Copyright © 2020 ipse. All rights reserved.
 //
 //
@@ -17,7 +17,7 @@ extension CountryAnalytics {
         return NSFetchRequest<CountryAnalytics>(entityName: "CountryAnalytics")
     }
 
-    @NSManaged public var countryCode: String?
+    @NSManaged public var countryName: String?
     @NSManaged public var numRequests: Int64
     @NSManaged public var zoneID: String?
 

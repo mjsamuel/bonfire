@@ -28,39 +28,17 @@ struct Cloudflare {
         
         // Check if an account is already stored
         let account:Account? = self.getRegistedAccountDetails()
-
-        self.apiKey = account!.apiKey ?? apiKey
-        self.apiEmail = account!.email ?? email
-
-
-        
-    }
-    public func getRegistedAccountDetails() -> Account? {
-        
-        // Get a reference to your App Delegate
-        let appDelegate = AppDelegate.shared
-        
-        // Hold a reference to the managed context
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        do
-        {
-            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Account")
-            fetchRequest.fetchLimit = 1
-            
-            let results = try managedContext.fetch(fetchRequest)
-            let account = results as! [Account]
-            if account.count > 0{
-                return account[0]
-            }else{
-                return nil
-            }
-            
+        if account != nil{
+            self.apiKey = account!.apiKey ?? apiKey
+            self.apiEmail = account!.email ?? email
+        }else{
+            self.apiKey = apiKey
+            self.apiEmail = email
         }
-        catch let error as NSError {
-            print ("Could not fetch \(error) , \(error.userInfo )")
-        }
-        return nil
+       
+
+
+        
     }
     
 
@@ -120,7 +98,7 @@ struct Cloudflare {
         self.makeRequest(endpoint: "zones", method: .get, showActInd: true, completion: { response in
             if let result: Array<Dictionary<String, Any>> = response["result"] as? Array<Dictionary<String, Any>> {
                 for zone in result {
-                    print("\(zone["name"])")
+//                    print("\(zone["name"])")
                     if let zname:String = zone["name"] as? String, let zid:String = zone["id"] as? String {
                         print("got name")
                         retVal.append(Zone(name: zname, id: zid))
@@ -153,11 +131,16 @@ struct Cloudflare {
                 let threats_all = threats["all"] as? Int,
                 let pageviews = totals["pageviews"] as? [String: Any],
                 let pageviews_all = pageviews["all"] as? Int {
-                for a in top_countries{
-                    print("------")
-                    print(a.key)
-                    print(a.value)
+                // Add records for the requests per country associated to this zone.
+                for country in top_countries{
+                    // Add the country name (code) and the number of requests its made, identified by the zoneID.
+                    
+                    self.addCountryRecord(countryName: country.key, requestCount: country.value, zoneID: zoneId)
                 }
+                
+                // Add record of analytics
+                self.creatAnalytics(numRequestsPerMonth: pageviews_all, numRequestsCached: requests_cached, numRequestsUncached: requests_uncached, numThreatsPerMonth: threats_all)
+                
                 completion([
                     "requests_cached": requests_cached,
                     "requests_uncached": requests_uncached,
@@ -171,6 +154,7 @@ struct Cloudflare {
         })
         
     }
+    
     
     // Creat the analytics
     
@@ -189,6 +173,10 @@ struct Cloudflare {
                 if resultsArray.count > 0 {
                     if let results = resultsArray[0] as? [String: Any],
                         let price = results["price"] as? Float {
+                        
+                        // Update the CoreData with the costs per month (flat cost)
+                        self.updateAnalyticsWithCost(cost:price)
+                        
                         completion([
                             "price": price
                             ])
@@ -226,11 +214,37 @@ struct Cloudflare {
             ] as Parameters
         print(graphQLData)
         self.makeRequest(endpoint: "graphql", method: .post, data: graphQLData, showActInd: false, completion: { response in
+<<<<<<< Updated upstream
+=======
+            
+            // Date formatter fot converting from ISO 8601 to a date object
+            let isoFormatter = ISO8601DateFormatter()
+            // Date formatter to convert the date object to a string in local time
+            let stringFormatter = DateFormatter()
+            stringFormatter.dateFormat = "hh:mm:ss"
+            
+//            print(response)
+>>>>>>> Stashed changes
             if let dataArray = response["data"] as? [String: Any],
                 let viewer = dataArray["viewer"] as? [String: Any],
                 let zones = viewer["zones"] as? [Any],
                 let zone = zones[0] as? [String: Any],
                 let requests = zone["firewallEventsAdaptive"] as? [[String: Any]] {
+                
+                // Extract the data needed to add the request record, add it to coredata.
+                for requestData in requests {
+                    if let action = requestData["action"] as? String,
+                        let ip = requestData["clientIP"] as? String,
+                        let countryCode = requestData["clientCountryName"] as? String,
+                        let datetime = requestData["datetime"] as? String
+                    {
+                        // Converting ISO 8601 string to a string in local time
+                        let date = isoFormatter.date(from:datetime)!
+                        self.creatRequestRecord(reqAction: action.uppercased(), reqIPAddress: ip, reqCountryCode: countryCode, reqTime: stringFormatter.string(from: date))
+                        
+                    }
+                }
+                
                 completion(requests)
             } else {
                 completion(nil)
@@ -317,5 +331,124 @@ struct Cloudflare {
                 completion(false, nil)
             }
         })
+    }
+    
+    
+    
+    
+    
+    private func addCountryRecord(countryName:String, requestCount:Int, zoneID: String){
+        // Get a reference to your App Delegate
+        let appDelegate = AppDelegate.shared
+        
+        // Hold a reference to the managed context
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let countryAnalyticsObj = NSEntityDescription.entity(forEntityName: "CountryAnalytics" , in: managedContext)!
+        let countryAnalytics = NSManagedObject(entity: countryAnalyticsObj, insertInto: managedContext) as! CountryAnalytics
+        
+        countryAnalytics.countryName = countryName
+        countryAnalytics.numRequests = Int64(requestCount)
+        countryAnalytics.zoneID = zoneID
+        print("adding country")
+        appDelegate.saveContext()
+    }
+    
+    private func creatAnalytics(numRequestsPerMonth:Int, numRequestsCached:Int, numRequestsUncached:Int, numThreatsPerMonth:Int){
+        // Get a reference to your App Delegate
+        let appDelegate = AppDelegate.shared
+        
+        // Hold a reference to the managed context
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let analyticsObj = NSEntityDescription.entity(forEntityName: "Analytics" , in: managedContext)!
+        let analytics = NSManagedObject(entity: analyticsObj, insertInto: managedContext) as! Analytics
+        
+        analytics.numRequestsPerMonth = Int64(numRequestsPerMonth)
+        analytics.numRequestsCached = Int64(numRequestsCached)
+        analytics.numRequestsUncached = Int64(numRequestsUncached)
+        
+        analytics.numThreatsPerMonth = Int64(numThreatsPerMonth)
+        // Get the cost if using workers $5.00 per 10,000,000 requests
+        let costPerReq:Float = 5.00 / 10000000
+        
+        analytics.costPerRequest = costPerReq * 10000000
+        
+        
+        appDelegate.saveContext()
+    }
+    
+    
+    public func getRegistedAccountDetails() -> Account? {
+        
+        // Get a reference to your App Delegate
+        let appDelegate = AppDelegate.shared
+        
+        // Hold a reference to the managed context
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        do
+        {
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Account")
+            fetchRequest.fetchLimit = 1
+            
+            let results = try managedContext.fetch(fetchRequest)
+            let account = results as! [Account]
+            if account.count > 0{
+                return account[0]
+            }else{
+                return nil
+            }
+            
+        }
+        catch let error as NSError {
+            print ("Could not fetch \(error) , \(error.userInfo )")
+        }
+        return nil
+    }
+    
+    private func updateAnalyticsWithCost(cost: Float32){
+        
+        
+        // Get a reference to your App Delegate
+        let appDelegate = AppDelegate.shared
+        
+        // Hold a reference to the managed context
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        do
+        {
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Analytics")
+
+            let results = try managedContext.fetch(fetchRequest)
+            let analytics = results as! [Analytics]
+            if analytics.count > 0{
+                analytics[0].flatCostPerMonth = cost
+            }
+            appDelegate.saveContext()
+
+            
+        }
+        catch let error as NSError {
+            print ("Could not fetch \(error) , \(error.userInfo )")
+        }
+    }
+    
+    
+    
+    private func creatRequestRecord(reqAction:String, reqIPAddress:String, reqCountryCode:String, reqTime:String){
+        // Get a reference to your App Delegate
+        let appDelegate = AppDelegate.shared
+        
+        // Hold a reference to the managed context
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let requestObj = NSEntityDescription.entity(forEntityName: "Requests" , in: managedContext)!
+        let request = NSManagedObject(entity: requestObj, insertInto: managedContext) as! Requests
+        
+        request.action = reqAction
+        request.ipAddress = reqIPAddress
+        request.countryCode = reqCountryCode
+        request.time = reqTime
+        
+        
+        appDelegate.saveContext()
     }
 }

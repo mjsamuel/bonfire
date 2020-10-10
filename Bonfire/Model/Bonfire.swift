@@ -185,6 +185,49 @@ class Bonfire {
         print("LOGGING OUT")
         unregesiterAccount()
         // Need to delete the account record.
+        
+        // Delete all analytics for this zone
+        deleteCountryAnalytics()
+        deleteAnalytics()
+    }
+    
+    
+    // Delete record of CountryAnalytics
+    private func deleteCountryAnalytics(){
+        // Get a reference to your App Delegate
+        let appDelegate = AppDelegate.shared
+        
+        // Hold a reference to the managed context
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "CountryAnalytics")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        
+        do {
+            try managedContext.execute(deleteRequest)
+            try managedContext.save()
+        } catch {
+            print ("There was an error")
+        }
+    }
+    
+    // Delete record of Analytics
+    private func deleteAnalytics(){
+        // Get a reference to your App Delegate
+        let appDelegate = AppDelegate.shared
+        
+        // Hold a reference to the managed context
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Analytics")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        
+        do {
+            try managedContext.execute(deleteRequest)
+            try managedContext.save()
+        } catch {
+            print ("There was an error")
+        }
     }
     
     // Logout user and delete record

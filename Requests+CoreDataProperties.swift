@@ -2,7 +2,7 @@
 //  Requests+CoreDataProperties.swift
 //  Bonfire
 //
-//  Created by James on 7/10/20.
+//  Created by James on 10/10/20.
 //  Copyright © 2020 ipse. All rights reserved.
 //
 //
@@ -19,7 +19,7 @@ extension Requests {
 
     @NSManaged public var action: String?
     @NSManaged public var ipAddress: String?
-    @NSManaged public var method: String?
+    @NSManaged public var countryCode: String?
     @NSManaged public var time: String?
 
 }

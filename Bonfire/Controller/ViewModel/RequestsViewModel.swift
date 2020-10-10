@@ -48,6 +48,8 @@ struct RequestsViewModel {
         
         return requests
     }
+    
+
 }
 
 /**
