@@ -24,7 +24,10 @@ class ZoneTests: XCTestCase {
     override func tearDown() {
         super.tearDown()
     }
-
+    
+    /**
+     Tests that when a zone is instantiated it is valid
+     */
     func testValidZone() {
         let expectedZone: Zone = Zone(name: ZONE_NAME, id: ZONE_ID)
         

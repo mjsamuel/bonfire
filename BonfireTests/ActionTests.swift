@@ -22,6 +22,9 @@ class ActionTests: XCTestCase {
         super.tearDown()
     }
     
+    /**
+     Tests that an action when created via a rawValue is the correct action
+     */
     func testRawValues() {
         action = Action(rawValue: "Allow")
         XCTAssertEqual(action, Action.allow)
@@ -38,7 +41,10 @@ class ActionTests: XCTestCase {
         action = Action(rawValue: "Default")
         XCTAssertEqual(action, Action.normal)
     }
-
+    
+    /**
+     Tests that every action has a description associated with it
+     */
     func testGetDescription() {
         XCTAssertNotNil(Action.allow.description)
         XCTAssertNotNil(Action.JSchallange.description)

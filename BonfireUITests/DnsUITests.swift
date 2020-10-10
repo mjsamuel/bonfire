@@ -83,7 +83,7 @@ class DnsUITests: XCTestCase {
     }
     
     /**
-     Test whether modifying a DNS record will update the table view
+     Test whether modifying a DNS record will update the table view, spanning multiple scenes
      */
     func testModifyDNS() {
         let dnsCell = app?.tables.cells.element(boundBy: 0)
