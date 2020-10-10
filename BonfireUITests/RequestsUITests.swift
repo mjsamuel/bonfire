@@ -62,15 +62,15 @@ class RequestsUITests: XCTestCase {
             
             switch i {
             case 1:
-                expextedText = "LOG - 203.0.113.69 (GB)"
+                expextedText = "log - 203.0.113.69 (GB)"
             case 2:
-                expextedText = "POST - 203.0.113.233 (US)"
+                expextedText = "post - 203.0.113.233 (US)"
             case 3:
-                expextedText = "GET - 203.0.113.233 (US)"
+                expextedText = "get - 203.0.113.233 (US)"
             case 4:
-                expextedText = "ALLOW - 2001:8003:d4c0:5f00:62a4:4cff:fe5c:b8e0 (AU)"
+                expextedText = "allow - 2001:8003:d4c0:5f00:62a4:4cff:fe5c:b8e0 (AU)"
             default:
-                expextedText = "GET - 220.253.122.100 (AU)"
+                expextedText = "get - 220.253.122.100 (AU)"
             }
             
             XCTAssertEqual(label, expextedText)
@@ -85,7 +85,7 @@ class RequestsUITests: XCTestCase {
         app?.sheets.buttons["Ban"].tap()
         
         let alertLabel = app?.alerts.element.label
-        XCTAssertTrue(alertLabel?.contains("Ban") ?? false)
+        XCTAssertTrue(alertLabel?.contains("block") ?? false)
     }
     
     /**
@@ -96,7 +96,7 @@ class RequestsUITests: XCTestCase {
         app?.sheets.buttons["JS Challenge"].tap()
         
         let alertLabel = app?.alerts.element.label
-        XCTAssertTrue(alertLabel?.contains("JS challenge") ?? false)
+        XCTAssertTrue(alertLabel?.contains("js_challenge") ?? false)
     }
     
     /**
@@ -107,7 +107,7 @@ class RequestsUITests: XCTestCase {
         app?.sheets.buttons["Allow"].tap()
         
         let alertLabel = app?.alerts.element.label
-        XCTAssertTrue(alertLabel?.contains("Allow") ?? false)
+        XCTAssertTrue(alertLabel?.contains("whitelist") ?? false)
     }
     
     /**

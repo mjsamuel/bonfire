@@ -26,19 +26,19 @@ class ActionTests: XCTestCase {
      Tests that an action when created via a rawValue is the correct action
      */
     func testRawValues() {
-        action = Action(rawValue: "Allow")
+        action = Action(rawValue: "whitelist")
         XCTAssertEqual(action, Action.allow)
         
-        action = Action(rawValue: "JS challenge")
+        action = Action(rawValue: "js_challenge")
         XCTAssertEqual(action, Action.JSchallange)
         
-        action = Action(rawValue: "CAPTCHA challenge")
+        action = Action(rawValue: "challenge")
         XCTAssertEqual(action, Action.CAPTCHAchallange)
         
-        action = Action(rawValue: "Ban")
+        action = Action(rawValue: "block")
         XCTAssertEqual(action, Action.ban)
         
-        action = Action(rawValue: "Default")
+        action = Action(rawValue: "allow")
         XCTAssertEqual(action, Action.normal)
     }
     

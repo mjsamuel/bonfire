@@ -65,7 +65,7 @@ class AnalyticsUITests: XCTestCase {
         XCTAssertEqual(cpmLabel, "$0.0")
 
         let cprLabel = app?.staticTexts.element(matching: .any, identifier: "cprLabel").label
-        XCTAssertEqual(cprLabel, "$0.0")
+        XCTAssertEqual(cprLabel, "$0.0025")
     }
 
     /**

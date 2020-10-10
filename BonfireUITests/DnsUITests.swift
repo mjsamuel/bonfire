@@ -45,7 +45,7 @@ class DnsUITests: XCTestCase {
      */
     func testValidNumberOfRequests() {
         let numberRequests = app?.tables.cells.count
-        XCTAssertEqual(numberRequests, 4)
+        XCTAssertEqual(numberRequests, 1)
     }
     
     /**

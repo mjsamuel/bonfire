@@ -39,10 +39,6 @@ struct Cloudflare {
         if ProcessInfo.processInfo.arguments.contains("USE_MOCK_SERVER") {
             self.cfBaseURL = "http://localhost:8080/"
         }
-       
-
-
-        
     }
     
 
