@@ -10,7 +10,7 @@ import CoreData
 
 struct Cloudflare {
     
-    private let cfBaseURL = "https://api.cloudflare.com/client/v4/"
+    private var cfBaseURL = "https://api.cloudflare.com/client/v4/"
     public var isLoggedIn = false
     private var apiKey = ""
     private var apiEmail = ""
@@ -35,10 +35,10 @@ struct Cloudflare {
             self.apiKey = apiKey
             self.apiEmail = email
         }
-       
-
-
-        
+        // If in a testing enviroment the cfBaseURL is set to locaclhost in order to access our mock server
+        if ProcessInfo.processInfo.arguments.contains("USE_MOCK_SERVER") {
+            self.cfBaseURL = "http://localhost:8080/"
+        }
     }
     
 
