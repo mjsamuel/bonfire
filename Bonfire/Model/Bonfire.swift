@@ -23,8 +23,7 @@ class Bonfire {
                 self.currentZone = zones[0]
             }
         })
-        print("------------------------------")
-        print(self.currentZone)
+
         
     }
     
@@ -37,6 +36,10 @@ class Bonfire {
         - completion: The code block to run once a response has been recieved (Recieves the parameter "success" as a Bool)
      */
     public func login(email: String, apiKey: String, completion: @escaping (_ success: Bool)->()) {
+        // Call logout to ensure no previous data is carried over to the new login.
+        // Not the cleanest way, but for user security, this is a must.
+        
+        logout()
         cloudflare = Cloudflare(email: email, apiKey: apiKey)
         cloudflare?.getZones(completion: { zones in
             self.cloudflare!.isLoggedIn = (zones.count > 0)
@@ -46,14 +49,12 @@ class Bonfire {
                 self.registerZones(zoneName: zone.name, zoneID: zone.getId())
             }
             
-            print("LOGGED IN")
             
             if self.cloudflare!.isLoggedIn {
                 self.currentZone = zones[0]
                 self.zones = zones
                 let account:Account? = self.getRegistedAccountDetails()
                 if account == nil{
-                    print("CREATING")
                     // Register the account
                     self.registerAccount(accEmail: email, accAPIKey: apiKey)
                     
@@ -113,8 +114,7 @@ class Bonfire {
         account.email = accEmail    // The email account of the user
         account.apiKey = accAPIKey  // The API key to mke requests
         account.zoneID = ""     // The zone will be set later when the user selects the zone they want at login or in settings.
-        print("aaa")
-        print(accEmail)
+
         appDelegate.saveContext()
         
     }
@@ -165,7 +165,6 @@ class Bonfire {
             
         }
         catch let error as NSError {
-            print("Could not fetch \(error) , \(error.userInfo )")
             return nil
         }
 
@@ -183,7 +182,6 @@ class Bonfire {
         cloudflare = nil
         zones = nil
         currentZone = nil
-        print("LOGGING OUT")
         unregesiterAccount()
         // Need to delete the account record.
         
@@ -239,25 +237,20 @@ class Bonfire {
     
     // Logout user and delete record
     public func unregesiterAccount() {
-        
         // Get a reference to your App Delegate
         let appDelegate = AppDelegate.shared
         
         // Hold a reference to the managed context
         let managedContext = appDelegate.persistentContainer.viewContext
         
-        do
-        {
-            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Account")
-            fetchRequest.fetchLimit = 1
-            
-            let results = try managedContext.fetch(fetchRequest)
-            let account = results as! [Account]
-            managedContext.delete(account[0])
-            
-        }
-        catch let error as NSError {
-            print ("Could not fetch \(error) , \(error.userInfo )")
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Account")
+        let deleteRequests = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        
+        do {
+            try managedContext.execute(deleteRequests)
+            try managedContext.save()
+        } catch {
+            print ("There was an error")
         }
     }
     

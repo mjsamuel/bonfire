@@ -97,7 +97,6 @@ class RequestsController: UITableViewController {
         let request: Request = requests[indexPath.row]
         let hostIP: String = request.origin
         
-        print("DEBUG: host IP addres selected: \(hostIP)")
         
         // -- Handle action sheet --
         

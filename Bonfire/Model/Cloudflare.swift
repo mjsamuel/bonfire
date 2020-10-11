@@ -58,12 +58,7 @@ struct Cloudflare {
         if showActInd {
             appDel.toggleActInd(on: true)
         }
-        print("+++++")
-        print(self.apiKey)
-        print(self.apiEmail)
-        print(cfBaseURL)
-        print("endpoint")
-        print(endpoint)
+
         let headers = [
             "X-Auth-Key": self.apiKey,
             "X-Auth-Email": self.apiEmail,
@@ -105,9 +100,7 @@ struct Cloudflare {
         self.makeRequest(endpoint: "zones", method: .get, showActInd: true, completion: { response in
             if let result: Array<Dictionary<String, Any>> = response["result"] as? Array<Dictionary<String, Any>> {
                 for zone in result {
-//                    print("\(zone["name"])")
                     if let zname:String = zone["name"] as? String, let zid:String = zone["id"] as? String {
-                        print("got name")
                         retVal.append(Zone(name: zname, id: zid))
                     }
                 }
@@ -219,7 +212,6 @@ struct Cloudflare {
                     ]
                 ]
             ] as Parameters
-        print(graphQLData)
         self.makeRequest(endpoint: "graphql", method: .post, data: graphQLData, showActInd: false, completion: { response in
             
             // Date formatter fot converting from ISO 8601 to a date object
@@ -228,7 +220,6 @@ struct Cloudflare {
             let stringFormatter = DateFormatter()
             stringFormatter.dateFormat = "hh:mm:ss"
             
-//            print(response)
 
             if let dataArray = response["data"] as? [String: Any],
                 let viewer = dataArray["viewer"] as? [String: Any],
@@ -322,18 +313,15 @@ struct Cloudflare {
      */
     public func newDNS (newRecord: DNS, completion: @escaping (_ success:Bool, _ newRecord:DNS?)->()) {
         let endpoint = "zones/"+newRecord.zoneID+"/dns_records/"
-        print("RECORD TYPE")
         let data = [
             "type": newRecord.type,
             "name": newRecord.name,
             "content": newRecord.content,
             "ttl": newRecord.ttl
         ] as Parameters
-        print(data)
 
         self.makeRequest(endpoint: endpoint, method: .post, data: data, showActInd: true, completion: { response in
-            print("+++++++")
-            print(response)
+
             if let result = response["result"] as? [String: Any],
                 let id = result["id"] as? String,
                 let name = result["name"] as? String,
@@ -366,7 +354,6 @@ struct Cloudflare {
         countryAnalytics.countryName = countryName
         countryAnalytics.numRequests = Int64(requestCount)
         countryAnalytics.zoneID = zoneID
-        print("adding country")
         appDelegate.saveContext()
     }
     
@@ -453,8 +440,7 @@ struct Cloudflare {
     
     private func creatRequestRecord(reqAction:String, reqIPAddress:String, reqCountryCode:String, reqTime:String){
         // Check if record already exists, if so, dont add to CoreData
-        print("CHECKING REQUESTS")
-        print(checkIfRecordExists(reqIPAddress: reqIPAddress, reqCountry: reqCountryCode, reqTime: reqTime))
+
         if checkIfRecordExists(reqIPAddress: reqIPAddress, reqCountry: reqCountryCode, reqTime: reqTime) == true{
             // Get a reference to your App Delegate
             let appDelegate = AppDelegate.shared
@@ -489,8 +475,7 @@ struct Cloudflare {
             let results = try managedContext.fetch(fetchRequest)
             let requests = results as! [Requests]
             // Check if the record already exists. more then 0 = false
-            print("valusssss")
-            print(requests.count)
+
             if requests.count <= 0{
                 return true
             }else{
@@ -585,7 +570,6 @@ struct Cloudflare {
             let results = try managedContext.fetch(fetchRequest)
             let requests = results as! [ClfDNS]
             // Check if the record already exists. more then 0 = false
-            print("YES WE HAVE GO IN HERE")
             if requests.count <= 0{
                 return true
             }else{

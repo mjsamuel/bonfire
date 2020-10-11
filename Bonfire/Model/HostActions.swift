@@ -56,11 +56,7 @@ struct HostAction {
     }
     
     mutating func setAction(selectedAction: Action, completion: @escaping (_ success:Bool)->()) {
-        print("hello")
-        print(selectedAction)
-        print(self.action)
         // Since the action is changing for the object we can also make the API call to Cloudflare. Only call if the action is different to the current state.
-        print("aaaaa")
         sendActionToCloudflare(selectedAction: selectedAction, hostIP: self.ipAddress, completion: completion)
 
     }
@@ -70,13 +66,11 @@ struct HostAction {
         
         let ruleID:String = getRuleIDByIPAddress(reqIPAddress: hostIP) ?? ""
         if (selectedAction == Action.normal) {
-            print("DEBUG: Sending API call to Cloudflare to remove any firewall rule (action)")
             self.sendRemoveRuleRequest(ruleID: ruleID, completion: completion)
         } else {
             if ruleID != ""{
                 self.sendRemoveRuleRequest(ruleID: ruleID, completion: completion)
             }
-            print("DEBUG: Sending API call to Cloudflare to: \(selectedAction) the IP: \(hostIP)")
             self.sendAddRuleRequest(hostIP: hostIP, action: selectedAction, completion: completion)
         }
         
@@ -111,8 +105,7 @@ struct HostAction {
         let bonfire = Bonfire.sharedInstance
         let currentZone = bonfire.currentZone
         
-        print("hey")
-        print((currentZone?.getId())!)
+
         let endpoint = "zones/"+(currentZone?.getId())!+"/firewall/access_rules/rules"
         let params = [
             "mode": action.rawValue,
@@ -122,9 +115,7 @@ struct HostAction {
             ],
             "notes": "Created in Bonfire"
         ] as [String : Any]
-        print(endpoint)
-        print(params)
-        print(action.rawValue)
+
         bonfire.cloudflare?.makeRequest(endpoint: endpoint, method: .post, data: params, showActInd: true, completion: { response in
             // only do if making request to create actions against an IP
             if let result = response["result"] as? Dictionary<String, Any>{
