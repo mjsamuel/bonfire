@@ -97,8 +97,11 @@ To use this app, you will need to login with providing the following in login / 
 
 ### 📲 Install <a name = "install"></a>
 - You will need to first download and compile the xCode project code into a useable app, which you will have to self sign. 
+- If you are testing or marking this app, please check ```example_creds.txt``` for the example credentials to log in and use the app. 
 - **Note:** Apple only allows self signed certified apps to run for 7 days, then you will need to re-sign the app.
-  
+- **Note:** Credentials provided will be rolled and become **invalid** after he assignment has been marked. 
+
+
 <br/>
 
 ## 📋 Acknowledgments <a name = "acknowledgments"></a>
