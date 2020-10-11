@@ -92,7 +92,8 @@ What the above does simply enables Cloudflare™ to log all activity to your sit
 To use this app, you will need to login with providing the following in login / initial setup:
 - Cloudflare™ API key
 - Cloudflare™ email account
-
+- If you are testing or marking this app, please check example_creds.txt for the example credentials to log in and use the app.
+- **Tip:** When viewing requests in app, if you visit <a href="https://bonfire.jwrc.me">🔗 the app site</a> you can view your own IP Address, and test taking actions against your IP address!
 
 
 ### 📲 Install <a name = "install"></a>
