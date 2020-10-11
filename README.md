@@ -92,13 +92,13 @@ What the above does simply enables Cloudflare™ to log all activity to your sit
 To use this app, you will need to login with providing the following in login / initial setup:
 - Cloudflare™ API key
 - Cloudflare™ email account
-- If you are testing or marking this app, please check example_creds.txt for the example credentials to log in and use the app.
+- If you are testing or marking this app, please check ```readme.txt``` for the example credentials to log in and use the app.
 - **Tip:** When viewing requests in app, if you visit <a href="https://bonfire.jwrc.me">🔗 the app site</a> you can view your own IP Address, and test taking actions against your IP address!
 
 
 ### 📲 Install <a name = "install"></a>
 - You will need to first download and compile the xCode project code into a useable app, which you will have to self sign. 
-- If you are testing or marking this app, please check ```example_creds.txt``` for the example credentials to log in and use the app. 
+- If you are testing or marking this app, please check ```readme.txt``` for the example credentials to log in and use the app. 
 - **Note:** Apple only allows self signed certified apps to run for 7 days, then you will need to re-sign the app.
 - **Note:** Credentials provided will be rolled and become **invalid** after the assignment has been marked. 
 
