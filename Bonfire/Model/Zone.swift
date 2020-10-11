@@ -10,7 +10,7 @@ import Foundation
 /**
  Struct to represent a Zone
  */
-struct Zone {
+struct Zone: Equatable {
     
     private let id: String
     public var name: String
@@ -22,6 +22,10 @@ struct Zone {
     
     public func getId() -> String {
         return self.id
+    }
+
+    static func == (lhs: Zone, rhs: Zone) -> Bool {
+        return lhs.id == rhs.id && lhs.name == rhs.name
     }
     
 }

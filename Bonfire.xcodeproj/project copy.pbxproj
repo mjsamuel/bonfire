@@ -1,0 +1,979 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A56B86325313C160039FD25 /* Requests+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56B86125313C160039FD25 /* Requests+CoreDataClass.swift */; };
+		1A56B86425313C160039FD25 /* Requests+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56B86225313C160039FD25 /* Requests+CoreDataProperties.swift */; };
+		1A7E5DCF252FFFA70086FE59 /* Analytics+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E5DC3252FFFA70086FE59 /* Analytics+CoreDataClass.swift */; };
+		1A7E5DD0252FFFA70086FE59 /* Analytics+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E5DC4252FFFA70086FE59 /* Analytics+CoreDataProperties.swift */; };
+		1A7E5DD1252FFFA70086FE59 /* ClfDNS+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E5DC5252FFFA70086FE59 /* ClfDNS+CoreDataClass.swift */; };
+		1A7E5DD2252FFFA70086FE59 /* ClfDNS+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E5DC6252FFFA70086FE59 /* ClfDNS+CoreDataProperties.swift */; };
+		1A7E5DD3252FFFA70086FE59 /* Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E5DC7252FFFA70086FE59 /* Account+CoreDataClass.swift */; };
+		1A7E5DD4252FFFA70086FE59 /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E5DC8252FFFA70086FE59 /* Account+CoreDataProperties.swift */; };
+		1A7E5DD5252FFFA70086FE59 /* ClfZone+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E5DC9252FFFA70086FE59 /* ClfZone+CoreDataClass.swift */; };
+		1A7E5DD6252FFFA70086FE59 /* ClfZone+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E5DCA252FFFA70086FE59 /* ClfZone+CoreDataProperties.swift */; };
+		1A7E5DD7252FFFA70086FE59 /* CountryAnalytics+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E5DCB252FFFA70086FE59 /* CountryAnalytics+CoreDataClass.swift */; };
+		1A7E5DD8252FFFA70086FE59 /* CountryAnalytics+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E5DCC252FFFA70086FE59 /* CountryAnalytics+CoreDataProperties.swift */; };
+		1AA886BC24F8EA71007432CB /* HostActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA886BB24F8EA71007432CB /* HostActions.swift */; };
+		45009790252AE1AA002C2B0E /* UniversalActInd.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4500978F252AE1AA002C2B0E /* UniversalActInd.storyboard */; };
+		45009792252AE39E002C2B0E /* UniversalActInd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45009791252AE39E002C2B0E /* UniversalActInd.swift */; };
+		4510CA0224F8F5B700CB32C9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4510CA0124F8F5B700CB32C9 /* LoginViewController.swift */; };
+		453FE08024F347F500DA3383 /* SettingsTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453FE07F24F347F500DA3383 /* SettingsTableTableViewController.swift */; };
+		453FE08224F3593600DA3383 /* SelectZone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453FE08124F3593600DA3383 /* SelectZone.storyboard */; };
+		453FE08424F3627B00DA3383 /* SelectZoneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453FE08324F3627B00DA3383 /* SelectZoneController.swift */; };
+		453FE08624F3698400DA3383 /* login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453FE08524F3698400DA3383 /* login.storyboard */; };
+		453FE08E24F3799500DA3383 /* TextFieldWithInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453FE08D24F3799500DA3383 /* TextFieldWithInsets.swift */; };
+		455241FB24FF88D3001051C9 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 455241FA24FF88D3001051C9 /* MainTabBarController.swift */; };
+		4DD89630596E7A0317B46210 /* Pods_Bonfire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA72968198355B717D28C29 /* Pods_Bonfire.framework */; };
+		5BC753866A9A1DD21BED48C7 /* Pods_Bonfire_BonfireUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8AE55588C7E51767E441F5 /* Pods_Bonfire_BonfireUITests.framework */; };
+		5E961D88AFD300EA48DBA491 /* Pods_BonfireTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0C6C29947AC8F1D12CD3FC0 /* Pods_BonfireTests.framework */; };
+		AA6A6A73250268E400760433 /* DNSNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6A6A72250268E400760433 /* DNSNewViewController.swift */; };
+		AAA04D3D2501F39900CA216B /* DNSEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA04D3C2501F39900CA216B /* DNSEditViewController.swift */; };
+		AACC225024F94C770016CBED /* DNSViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACC224F24F94C770016CBED /* DNSViewModel.swift */; };
+		AACC225224F94C880016CBED /* DNSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACC225124F94C880016CBED /* DNSViewController.swift */; };
+		C70132BE24EE98A1003C9B05 /* Bonfire.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70132BD24EE98A1003C9B05 /* Bonfire.swift */; };
+		C70132C024EEA14A003C9B05 /* Zone.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70132BF24EEA14A003C9B05 /* Zone.swift */; };
+		C71E19CC24EAB8C9001E83C1 /* Analytics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71E19CB24EAB8C9001E83C1 /* Analytics.storyboard */; };
+		C71E19D324EABE65001E83C1 /* Requests.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71E19D224EABE65001E83C1 /* Requests.storyboard */; };
+		C71E19D524EABE79001E83C1 /* DNS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71E19D424EABE79001E83C1 /* DNS.storyboard */; };
+		C71E19D724EABE88001E83C1 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71E19D624EABE88001E83C1 /* Settings.storyboard */; };
+		C73F9E9924EF5A5A0014B594 /* AnalyticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73F9E9824EF5A5A0014B594 /* AnalyticsViewController.swift */; };
+		C746E901252A1DB400AF3B8C /* RequestsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C746E900252A1DB400AF3B8C /* RequestsUITests.swift */; };
+		C746E903252A2FEF00AF3B8C /* LoginUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C746E902252A2FEF00AF3B8C /* LoginUITests.swift */; };
+		C746E905252A378D00AF3B8C /* DnsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C746E904252A378D00AF3B8C /* DnsUITests.swift */; };
+		C76E625925284B2200C47F11 /* ActionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76E625825284B2200C47F11 /* ActionTests.swift */; };
+		C76E625B2528630B00C47F11 /* ClourflareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76E625A2528630B00C47F11 /* ClourflareTests.swift */; };
+		C77158842528A4BF00F7392D /* AnalyticsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77158832528A4BF00F7392D /* AnalyticsUITests.swift */; };
+		C77F25D7252823CD002F89DE /* ZoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77F25D6252823CD002F89DE /* ZoneTests.swift */; };
+		C77F25D9252840CC002F89DE /* HostActionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77F25D8252840CC002F89DE /* HostActionsTests.swift */; };
+		C7816C2224F54A50001DCF48 /* RequestsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7816C2124F54A50001DCF48 /* RequestsViewModel.swift */; };
+		C7816C2424F54A69001DCF48 /* RequestsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7816C2324F54A69001DCF48 /* RequestsController.swift */; };
+		C7A5567424DE536E00C21123 /* Cloudflare.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A5567324DE536E00C21123 /* Cloudflare.swift */; };
+		C7A5567624DE55A900C21123 /* AnalyticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A5567524DE55A900C21123 /* AnalyticsViewModel.swift */; };
+		C7B95A2B24DE4C0B00459A5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B95A2A24DE4C0B00459A5C /* AppDelegate.swift */; };
+		C7B95A2D24DE4C0B00459A5C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B95A2C24DE4C0B00459A5C /* ViewController.swift */; };
+		C7B95A3024DE4C0B00459A5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7B95A2E24DE4C0B00459A5C /* Main.storyboard */; };
+		C7B95A3324DE4C0B00459A5C /* Bonfire.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C7B95A3124DE4C0B00459A5C /* Bonfire.xcdatamodeld */; };
+		C7B95A3524DE4C0D00459A5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7B95A3424DE4C0D00459A5C /* Assets.xcassets */; };
+		C7B95A3824DE4C0D00459A5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7B95A3624DE4C0D00459A5C /* LaunchScreen.storyboard */; };
+		C7B95A4324DE4C0E00459A5C /* BonfireTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B95A4224DE4C0E00459A5C /* BonfireTests.swift */; };
+		C7B95A4E24DE4C0E00459A5C /* BonfireUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B95A4D24DE4C0E00459A5C /* BonfireUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C7B95A3F24DE4C0E00459A5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7B95A1F24DE4C0B00459A5C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C7B95A2624DE4C0B00459A5C;
+			remoteInfo = Bonfire;
+		};
+		C7B95A4A24DE4C0E00459A5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7B95A1F24DE4C0B00459A5C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C7B95A2624DE4C0B00459A5C;
+			remoteInfo = Bonfire;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1A56B86125313C160039FD25 /* Requests+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Requests+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		1A56B86225313C160039FD25 /* Requests+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Requests+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		1A7E5DC3252FFFA70086FE59 /* Analytics+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analytics+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		1A7E5DC4252FFFA70086FE59 /* Analytics+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analytics+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		1A7E5DC5252FFFA70086FE59 /* ClfDNS+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClfDNS+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		1A7E5DC6252FFFA70086FE59 /* ClfDNS+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClfDNS+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		1A7E5DC7252FFFA70086FE59 /* Account+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		1A7E5DC8252FFFA70086FE59 /* Account+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		1A7E5DC9252FFFA70086FE59 /* ClfZone+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClfZone+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		1A7E5DCA252FFFA70086FE59 /* ClfZone+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClfZone+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		1A7E5DCB252FFFA70086FE59 /* CountryAnalytics+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CountryAnalytics+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		1A7E5DCC252FFFA70086FE59 /* CountryAnalytics+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CountryAnalytics+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		1AA886BB24F8EA71007432CB /* HostActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostActions.swift; sourceTree = "<group>"; };
+		2A8AE55588C7E51767E441F5 /* Pods_Bonfire_BonfireUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bonfire_BonfireUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4500978F252AE1AA002C2B0E /* UniversalActInd.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UniversalActInd.storyboard; sourceTree = "<group>"; };
+		45009791252AE39E002C2B0E /* UniversalActInd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalActInd.swift; sourceTree = "<group>"; };
+		4510CA0124F8F5B700CB32C9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		453FE07F24F347F500DA3383 /* SettingsTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableTableViewController.swift; sourceTree = "<group>"; };
+		453FE08124F3593600DA3383 /* SelectZone.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectZone.storyboard; sourceTree = "<group>"; };
+		453FE08324F3627B00DA3383 /* SelectZoneController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectZoneController.swift; sourceTree = "<group>"; };
+		453FE08524F3698400DA3383 /* login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = login.storyboard; sourceTree = "<group>"; };
+		453FE08D24F3799500DA3383 /* TextFieldWithInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithInsets.swift; sourceTree = "<group>"; };
+		455241FA24FF88D3001051C9 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		542C2E13102B3DC2E111F422 /* Pods-Bonfire.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bonfire.release.xcconfig"; path = "Target Support Files/Pods-Bonfire/Pods-Bonfire.release.xcconfig"; sourceTree = "<group>"; };
+		6E7812CC048274743B96F595 /* Pods-Bonfire-BonfireUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bonfire-BonfireUITests.debug.xcconfig"; path = "Target Support Files/Pods-Bonfire-BonfireUITests/Pods-Bonfire-BonfireUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A227889E415BDE8CF2E1A162 /* Pods-Bonfire-BonfireUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bonfire-BonfireUITests.release.xcconfig"; path = "Target Support Files/Pods-Bonfire-BonfireUITests/Pods-Bonfire-BonfireUITests.release.xcconfig"; sourceTree = "<group>"; };
+		AA6A6A72250268E400760433 /* DNSNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSNewViewController.swift; sourceTree = "<group>"; };
+		AAA04D3C2501F39900CA216B /* DNSEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSEditViewController.swift; sourceTree = "<group>"; };
+		AACC224F24F94C770016CBED /* DNSViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSViewModel.swift; sourceTree = "<group>"; };
+		AACC225124F94C880016CBED /* DNSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSViewController.swift; sourceTree = "<group>"; };
+		B830B26B2ED4A8E53392BA7D /* Pods-BonfireTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BonfireTests.debug.xcconfig"; path = "Target Support Files/Pods-BonfireTests/Pods-BonfireTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C70132BD24EE98A1003C9B05 /* Bonfire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bonfire.swift; sourceTree = "<group>"; };
+		C70132BF24EEA14A003C9B05 /* Zone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zone.swift; sourceTree = "<group>"; };
+		C71E19CB24EAB8C9001E83C1 /* Analytics.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Analytics.storyboard; sourceTree = "<group>"; };
+		C71E19D224EABE65001E83C1 /* Requests.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Requests.storyboard; sourceTree = "<group>"; };
+		C71E19D424EABE79001E83C1 /* DNS.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DNS.storyboard; sourceTree = "<group>"; };
+		C71E19D624EABE88001E83C1 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		C73F9E9824EF5A5A0014B594 /* AnalyticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewController.swift; sourceTree = "<group>"; };
+		C746E900252A1DB400AF3B8C /* RequestsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsUITests.swift; sourceTree = "<group>"; };
+		C746E902252A2FEF00AF3B8C /* LoginUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUITests.swift; sourceTree = "<group>"; };
+		C746E904252A378D00AF3B8C /* DnsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsUITests.swift; sourceTree = "<group>"; };
+		C76E625825284B2200C47F11 /* ActionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionTests.swift; sourceTree = "<group>"; };
+		C76E625A2528630B00C47F11 /* ClourflareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClourflareTests.swift; sourceTree = "<group>"; };
+		C77158832528A4BF00F7392D /* AnalyticsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsUITests.swift; sourceTree = "<group>"; };
+		C77F25D6252823CD002F89DE /* ZoneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoneTests.swift; sourceTree = "<group>"; };
+		C77F25D8252840CC002F89DE /* HostActionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostActionsTests.swift; sourceTree = "<group>"; };
+		C7816C2124F54A50001DCF48 /* RequestsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsViewModel.swift; sourceTree = "<group>"; };
+		C7816C2324F54A69001DCF48 /* RequestsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsController.swift; sourceTree = "<group>"; };
+		C7A5567324DE536E00C21123 /* Cloudflare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloudflare.swift; sourceTree = "<group>"; };
+		C7A5567524DE55A900C21123 /* AnalyticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewModel.swift; sourceTree = "<group>"; };
+		C7B95A2724DE4C0B00459A5C /* Bonfire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bonfire.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7B95A2A24DE4C0B00459A5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C7B95A2C24DE4C0B00459A5C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C7B95A2F24DE4C0B00459A5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C7B95A3224DE4C0B00459A5C /* Bonfire.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bonfire.xcdatamodel; sourceTree = "<group>"; };
+		C7B95A3424DE4C0D00459A5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C7B95A3724DE4C0D00459A5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C7B95A3924DE4C0D00459A5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7B95A3E24DE4C0E00459A5C /* BonfireTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BonfireTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7B95A4224DE4C0E00459A5C /* BonfireTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonfireTests.swift; sourceTree = "<group>"; };
+		C7B95A4424DE4C0E00459A5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7B95A4924DE4C0E00459A5C /* BonfireUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BonfireUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7B95A4D24DE4C0E00459A5C /* BonfireUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BonfireUITests.swift; sourceTree = "<group>"; };
+		C7B95A4F24DE4C0E00459A5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0C6C29947AC8F1D12CD3FC0 /* Pods_BonfireTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BonfireTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6C0F0530D9D4C2D49B37560 /* Pods-BonfireTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BonfireTests.release.xcconfig"; path = "Target Support Files/Pods-BonfireTests/Pods-BonfireTests.release.xcconfig"; sourceTree = "<group>"; };
+		E775DE0814B7809DD2AF21DC /* Pods-Bonfire.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bonfire.debug.xcconfig"; path = "Target Support Files/Pods-Bonfire/Pods-Bonfire.debug.xcconfig"; sourceTree = "<group>"; };
+		FEA72968198355B717D28C29 /* Pods_Bonfire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bonfire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C7B95A2424DE4C0B00459A5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4DD89630596E7A0317B46210 /* Pods_Bonfire.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7B95A3B24DE4C0E00459A5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E961D88AFD300EA48DBA491 /* Pods_BonfireTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7B95A4624DE4C0E00459A5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5BC753866A9A1DD21BED48C7 /* Pods_Bonfire_BonfireUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		453FE08C24F3796A00DA3383 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				453FE08D24F3799500DA3383 /* TextFieldWithInsets.swift */,
+				45009791252AE39E002C2B0E /* UniversalActInd.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		5A5C3751D7CE0430CD96297C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E775DE0814B7809DD2AF21DC /* Pods-Bonfire.debug.xcconfig */,
+				542C2E13102B3DC2E111F422 /* Pods-Bonfire.release.xcconfig */,
+				6E7812CC048274743B96F595 /* Pods-Bonfire-BonfireUITests.debug.xcconfig */,
+				A227889E415BDE8CF2E1A162 /* Pods-Bonfire-BonfireUITests.release.xcconfig */,
+				B830B26B2ED4A8E53392BA7D /* Pods-BonfireTests.debug.xcconfig */,
+				E6C0F0530D9D4C2D49B37560 /* Pods-BonfireTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		927AB9E101D8225F4D08AA5E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FEA72968198355B717D28C29 /* Pods_Bonfire.framework */,
+				2A8AE55588C7E51767E441F5 /* Pods_Bonfire_BonfireUITests.framework */,
+				D0C6C29947AC8F1D12CD3FC0 /* Pods_BonfireTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C7A5566F24DE518900C21123 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1A56B86125313C160039FD25 /* Requests+CoreDataClass.swift */,
+				1A56B86225313C160039FD25 /* Requests+CoreDataProperties.swift */,
+				1A7E5DC3252FFFA70086FE59 /* Analytics+CoreDataClass.swift */,
+				1A7E5DC4252FFFA70086FE59 /* Analytics+CoreDataProperties.swift */,
+				1A7E5DC5252FFFA70086FE59 /* ClfDNS+CoreDataClass.swift */,
+				1A7E5DC6252FFFA70086FE59 /* ClfDNS+CoreDataProperties.swift */,
+				1A7E5DC7252FFFA70086FE59 /* Account+CoreDataClass.swift */,
+				1A7E5DC8252FFFA70086FE59 /* Account+CoreDataProperties.swift */,
+				1A7E5DC9252FFFA70086FE59 /* ClfZone+CoreDataClass.swift */,
+				1A7E5DCA252FFFA70086FE59 /* ClfZone+CoreDataProperties.swift */,
+				1A7E5DCB252FFFA70086FE59 /* CountryAnalytics+CoreDataClass.swift */,
+				1A7E5DCC252FFFA70086FE59 /* CountryAnalytics+CoreDataProperties.swift */,
+				C70132BD24EE98A1003C9B05 /* Bonfire.swift */,
+				C7A5567324DE536E00C21123 /* Cloudflare.swift */,
+				1AA886BB24F8EA71007432CB /* HostActions.swift */,
+				C70132BF24EEA14A003C9B05 /* Zone.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C7A5567024DE519000C21123 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				453FE08C24F3796A00DA3383 /* Components */,
+				C7B95A2E24DE4C0B00459A5C /* Main.storyboard */,
+				C71E19CB24EAB8C9001E83C1 /* Analytics.storyboard */,
+				C71E19D224EABE65001E83C1 /* Requests.storyboard */,
+				C71E19D424EABE79001E83C1 /* DNS.storyboard */,
+				C71E19D624EABE88001E83C1 /* Settings.storyboard */,
+				453FE08124F3593600DA3383 /* SelectZone.storyboard */,
+				453FE08524F3698400DA3383 /* login.storyboard */,
+				4500978F252AE1AA002C2B0E /* UniversalActInd.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C7A5567124DE51A900C21123 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C7A5567224DE51CE00C21123 /* ViewModel */,
+				C73F9E9824EF5A5A0014B594 /* AnalyticsViewController.swift */,
+				AACC225124F94C880016CBED /* DNSViewController.swift */,
+				AAA04D3C2501F39900CA216B /* DNSEditViewController.swift */,
+				AA6A6A72250268E400760433 /* DNSNewViewController.swift */,
+				C7816C2324F54A69001DCF48 /* RequestsController.swift */,
+				C7B95A2C24DE4C0B00459A5C /* ViewController.swift */,
+				455241FA24FF88D3001051C9 /* MainTabBarController.swift */,
+				4510CA0124F8F5B700CB32C9 /* LoginViewController.swift */,
+				453FE07F24F347F500DA3383 /* SettingsTableTableViewController.swift */,
+				453FE08324F3627B00DA3383 /* SelectZoneController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C7A5567224DE51CE00C21123 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C7A5567524DE55A900C21123 /* AnalyticsViewModel.swift */,
+				AACC224F24F94C770016CBED /* DNSViewModel.swift */,
+				C7816C2124F54A50001DCF48 /* RequestsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		C7B95A1E24DE4C0B00459A5C = {
+			isa = PBXGroup;
+			children = (
+				C7B95A2924DE4C0B00459A5C /* Bonfire */,
+				C7B95A4124DE4C0E00459A5C /* BonfireTests */,
+				C7B95A4C24DE4C0E00459A5C /* BonfireUITests */,
+				C7B95A2824DE4C0B00459A5C /* Products */,
+				5A5C3751D7CE0430CD96297C /* Pods */,
+				927AB9E101D8225F4D08AA5E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C7B95A2824DE4C0B00459A5C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C7B95A2724DE4C0B00459A5C /* Bonfire.app */,
+				C7B95A3E24DE4C0E00459A5C /* BonfireTests.xctest */,
+				C7B95A4924DE4C0E00459A5C /* BonfireUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C7B95A2924DE4C0B00459A5C /* Bonfire */ = {
+			isa = PBXGroup;
+			children = (
+				C7A5566F24DE518900C21123 /* Model */,
+				C7A5567024DE519000C21123 /* View */,
+				C7A5567124DE51A900C21123 /* Controller */,
+				C7B95A2A24DE4C0B00459A5C /* AppDelegate.swift */,
+				C7B95A3624DE4C0D00459A5C /* LaunchScreen.storyboard */,
+				C7B95A3424DE4C0D00459A5C /* Assets.xcassets */,
+				C7B95A3124DE4C0B00459A5C /* Bonfire.xcdatamodeld */,
+				C7B95A3924DE4C0D00459A5C /* Info.plist */,
+			);
+			path = Bonfire;
+			sourceTree = "<group>";
+		};
+		C7B95A4124DE4C0E00459A5C /* BonfireTests */ = {
+			isa = PBXGroup;
+			children = (
+				C7B95A4224DE4C0E00459A5C /* BonfireTests.swift */,
+				C76E625A2528630B00C47F11 /* ClourflareTests.swift */,
+				C76E625825284B2200C47F11 /* ActionTests.swift */,
+				C77F25D8252840CC002F89DE /* HostActionsTests.swift */,
+				C77F25D6252823CD002F89DE /* ZoneTests.swift */,
+				C7B95A4424DE4C0E00459A5C /* Info.plist */,
+			);
+			path = BonfireTests;
+			sourceTree = "<group>";
+		};
+		C7B95A4C24DE4C0E00459A5C /* BonfireUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C77158832528A4BF00F7392D /* AnalyticsUITests.swift */,
+				C7B95A4D24DE4C0E00459A5C /* BonfireUITests.swift */,
+				C746E904252A378D00AF3B8C /* DnsUITests.swift */,
+				C746E902252A2FEF00AF3B8C /* LoginUITests.swift */,
+				C746E900252A1DB400AF3B8C /* RequestsUITests.swift */,
+				C7B95A4F24DE4C0E00459A5C /* Info.plist */,
+			);
+			path = BonfireUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C7B95A2624DE4C0B00459A5C /* Bonfire */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7B95A5224DE4C0E00459A5C /* Build configuration list for PBXNativeTarget "Bonfire" */;
+			buildPhases = (
+				B3C3823E930C2AD9C49C7D1B /* [CP] Check Pods Manifest.lock */,
+				C7B95A2324DE4C0B00459A5C /* Sources */,
+				C7B95A2424DE4C0B00459A5C /* Frameworks */,
+				C7B95A2524DE4C0B00459A5C /* Resources */,
+				44C56FD1756B261A2EB2C832 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Bonfire;
+			productName = Bonfire;
+			productReference = C7B95A2724DE4C0B00459A5C /* Bonfire.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C7B95A3D24DE4C0E00459A5C /* BonfireTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7B95A5524DE4C0E00459A5C /* Build configuration list for PBXNativeTarget "BonfireTests" */;
+			buildPhases = (
+				F02E0D5E2AC345E5157849ED /* [CP] Check Pods Manifest.lock */,
+				C7B95A3A24DE4C0E00459A5C /* Sources */,
+				C7B95A3B24DE4C0E00459A5C /* Frameworks */,
+				C7B95A3C24DE4C0E00459A5C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C7B95A4024DE4C0E00459A5C /* PBXTargetDependency */,
+			);
+			name = BonfireTests;
+			productName = BonfireTests;
+			productReference = C7B95A3E24DE4C0E00459A5C /* BonfireTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C7B95A4824DE4C0E00459A5C /* BonfireUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C7B95A5824DE4C0E00459A5C /* Build configuration list for PBXNativeTarget "BonfireUITests" */;
+			buildPhases = (
+				3FBB1DAFDF258167011B936F /* [CP] Check Pods Manifest.lock */,
+				C7B95A4524DE4C0E00459A5C /* Sources */,
+				C7B95A4624DE4C0E00459A5C /* Frameworks */,
+				C7B95A4724DE4C0E00459A5C /* Resources */,
+				83333C0D2FD51DB93B1E20B5 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C7B95A4B24DE4C0E00459A5C /* PBXTargetDependency */,
+			);
+			name = BonfireUITests;
+			productName = BonfireUITests;
+			productReference = C7B95A4924DE4C0E00459A5C /* BonfireUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C7B95A1F24DE4C0B00459A5C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1030;
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = ipse;
+				TargetAttributes = {
+					C7B95A2624DE4C0B00459A5C = {
+						CreatedOnToolsVersion = 10.3;
+						LastSwiftMigration = 1030;
+					};
+					C7B95A3D24DE4C0E00459A5C = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = C7B95A2624DE4C0B00459A5C;
+					};
+					C7B95A4824DE4C0E00459A5C = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = C7B95A2624DE4C0B00459A5C;
+					};
+				};
+			};
+			buildConfigurationList = C7B95A2224DE4C0B00459A5C /* Build configuration list for PBXProject "Bonfire" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C7B95A1E24DE4C0B00459A5C;
+			productRefGroup = C7B95A2824DE4C0B00459A5C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C7B95A2624DE4C0B00459A5C /* Bonfire */,
+				C7B95A3D24DE4C0E00459A5C /* BonfireTests */,
+				C7B95A4824DE4C0E00459A5C /* BonfireUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C7B95A2524DE4C0B00459A5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				453FE08224F3593600DA3383 /* SelectZone.storyboard in Resources */,
+				453FE08624F3698400DA3383 /* login.storyboard in Resources */,
+				C7B95A3824DE4C0D00459A5C /* LaunchScreen.storyboard in Resources */,
+				C7B95A3524DE4C0D00459A5C /* Assets.xcassets in Resources */,
+				C71E19D524EABE79001E83C1 /* DNS.storyboard in Resources */,
+				C7B95A3024DE4C0B00459A5C /* Main.storyboard in Resources */,
+				C71E19D324EABE65001E83C1 /* Requests.storyboard in Resources */,
+				45009790252AE1AA002C2B0E /* UniversalActInd.storyboard in Resources */,
+				C71E19CC24EAB8C9001E83C1 /* Analytics.storyboard in Resources */,
+				C71E19D724EABE88001E83C1 /* Settings.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7B95A3C24DE4C0E00459A5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7B95A4724DE4C0E00459A5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3FBB1DAFDF258167011B936F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bonfire-BonfireUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		44C56FD1756B261A2EB2C832 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bonfire/Pods-Bonfire-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bonfire/Pods-Bonfire-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bonfire/Pods-Bonfire-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		83333C0D2FD51DB93B1E20B5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bonfire-BonfireUITests/Pods-Bonfire-BonfireUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bonfire-BonfireUITests/Pods-Bonfire-BonfireUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bonfire-BonfireUITests/Pods-Bonfire-BonfireUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B3C3823E930C2AD9C49C7D1B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bonfire-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F02E0D5E2AC345E5157849ED /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BonfireTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C7B95A2324DE4C0B00459A5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4510CA0224F8F5B700CB32C9 /* LoginViewController.swift in Sources */,
+				C7A5567424DE536E00C21123 /* Cloudflare.swift in Sources */,
+				AACC225224F94C880016CBED /* DNSViewController.swift in Sources */,
+				1A7E5DD1252FFFA70086FE59 /* ClfDNS+CoreDataClass.swift in Sources */,
+				1A7E5DD6252FFFA70086FE59 /* ClfZone+CoreDataProperties.swift in Sources */,
+				1A7E5DD7252FFFA70086FE59 /* CountryAnalytics+CoreDataClass.swift in Sources */,
+				455241FB24FF88D3001051C9 /* MainTabBarController.swift in Sources */,
+				C70132BE24EE98A1003C9B05 /* Bonfire.swift in Sources */,
+				1A7E5DD0252FFFA70086FE59 /* Analytics+CoreDataProperties.swift in Sources */,
+				AACC225024F94C770016CBED /* DNSViewModel.swift in Sources */,
+				1A7E5DD2252FFFA70086FE59 /* ClfDNS+CoreDataProperties.swift in Sources */,
+				1A7E5DD3252FFFA70086FE59 /* Account+CoreDataClass.swift in Sources */,
+				C70132C024EEA14A003C9B05 /* Zone.swift in Sources */,
+				C7B95A2D24DE4C0B00459A5C /* ViewController.swift in Sources */,
+				1A7E5DD8252FFFA70086FE59 /* CountryAnalytics+CoreDataProperties.swift in Sources */,
+				C7B95A3324DE4C0B00459A5C /* Bonfire.xcdatamodeld in Sources */,
+				453FE08024F347F500DA3383 /* SettingsTableTableViewController.swift in Sources */,
+				C7B95A2B24DE4C0B00459A5C /* AppDelegate.swift in Sources */,
+				1A7E5DD5252FFFA70086FE59 /* ClfZone+CoreDataClass.swift in Sources */,
+				453FE08424F3627B00DA3383 /* SelectZoneController.swift in Sources */,
+				C7A5567624DE55A900C21123 /* AnalyticsViewModel.swift in Sources */,
+				453FE08E24F3799500DA3383 /* TextFieldWithInsets.swift in Sources */,
+				C73F9E9924EF5A5A0014B594 /* AnalyticsViewController.swift in Sources */,
+				1A56B86325313C160039FD25 /* Requests+CoreDataClass.swift in Sources */,
+				C7816C2224F54A50001DCF48 /* RequestsViewModel.swift in Sources */,
+				45009792252AE39E002C2B0E /* UniversalActInd.swift in Sources */,
+				1A56B86425313C160039FD25 /* Requests+CoreDataProperties.swift in Sources */,
+				1AA886BC24F8EA71007432CB /* HostActions.swift in Sources */,
+				AA6A6A73250268E400760433 /* DNSNewViewController.swift in Sources */,
+				C7816C2424F54A69001DCF48 /* RequestsController.swift in Sources */,
+				1A7E5DD4252FFFA70086FE59 /* Account+CoreDataProperties.swift in Sources */,
+				1A7E5DCF252FFFA70086FE59 /* Analytics+CoreDataClass.swift in Sources */,
+				AAA04D3D2501F39900CA216B /* DNSEditViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7B95A3A24DE4C0E00459A5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C76E625B2528630B00C47F11 /* ClourflareTests.swift in Sources */,
+				C77F25D7252823CD002F89DE /* ZoneTests.swift in Sources */,
+				C76E625925284B2200C47F11 /* ActionTests.swift in Sources */,
+				C7B95A4324DE4C0E00459A5C /* BonfireTests.swift in Sources */,
+				C77F25D9252840CC002F89DE /* HostActionsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7B95A4524DE4C0E00459A5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C746E905252A378D00AF3B8C /* DnsUITests.swift in Sources */,
+				C746E901252A1DB400AF3B8C /* RequestsUITests.swift in Sources */,
+				C77158842528A4BF00F7392D /* AnalyticsUITests.swift in Sources */,
+				C7B95A4E24DE4C0E00459A5C /* BonfireUITests.swift in Sources */,
+				C746E903252A2FEF00AF3B8C /* LoginUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C7B95A4024DE4C0E00459A5C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C7B95A2624DE4C0B00459A5C /* Bonfire */;
+			targetProxy = C7B95A3F24DE4C0E00459A5C /* PBXContainerItemProxy */;
+		};
+		C7B95A4B24DE4C0E00459A5C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C7B95A2624DE4C0B00459A5C /* Bonfire */;
+			targetProxy = C7B95A4A24DE4C0E00459A5C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C7B95A2E24DE4C0B00459A5C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C7B95A2F24DE4C0B00459A5C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C7B95A3624DE4C0D00459A5C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C7B95A3724DE4C0D00459A5C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C7B95A5024DE4C0E00459A5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C7B95A5124DE4C0E00459A5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C7B95A5324DE4C0E00459A5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E775DE0814B7809DD2AF21DC /* Pods-Bonfire.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6YNMVWJMLK;
+				INFOPLIST_FILE = Bonfire/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ipse.Bonfire;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C7B95A5424DE4C0E00459A5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 542C2E13102B3DC2E111F422 /* Pods-Bonfire.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6YNMVWJMLK;
+				INFOPLIST_FILE = Bonfire/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ipse.Bonfire;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C7B95A5624DE4C0E00459A5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B830B26B2ED4A8E53392BA7D /* Pods-BonfireTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = BonfireTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ipse.BonfireTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bonfire.app/Bonfire";
+			};
+			name = Debug;
+		};
+		C7B95A5724DE4C0E00459A5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6C0F0530D9D4C2D49B37560 /* Pods-BonfireTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = BonfireTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ipse.BonfireTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bonfire.app/Bonfire";
+			};
+			name = Release;
+		};
+		C7B95A5924DE4C0E00459A5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E7812CC048274743B96F595 /* Pods-Bonfire-BonfireUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = BonfireUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ipse.BonfireUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Bonfire;
+			};
+			name = Debug;
+		};
+		C7B95A5A24DE4C0E00459A5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A227889E415BDE8CF2E1A162 /* Pods-Bonfire-BonfireUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = BonfireUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ipse.BonfireUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Bonfire;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C7B95A2224DE4C0B00459A5C /* Build configuration list for PBXProject "Bonfire" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7B95A5024DE4C0E00459A5C /* Debug */,
+				C7B95A5124DE4C0E00459A5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C7B95A5224DE4C0E00459A5C /* Build configuration list for PBXNativeTarget "Bonfire" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7B95A5324DE4C0E00459A5C /* Debug */,
+				C7B95A5424DE4C0E00459A5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C7B95A5524DE4C0E00459A5C /* Build configuration list for PBXNativeTarget "BonfireTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7B95A5624DE4C0E00459A5C /* Debug */,
+				C7B95A5724DE4C0E00459A5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C7B95A5824DE4C0E00459A5C /* Build configuration list for PBXNativeTarget "BonfireUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C7B95A5924DE4C0E00459A5C /* Debug */,
+				C7B95A5A24DE4C0E00459A5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C7B95A3124DE4C0B00459A5C /* Bonfire.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C7B95A3224DE4C0B00459A5C /* Bonfire.xcdatamodel */,
+			);
+			currentVersion = C7B95A3224DE4C0B00459A5C /* Bonfire.xcdatamodel */;
+			path = Bonfire.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = C7B95A1F24DE4C0B00459A5C /* Project object */;
+}

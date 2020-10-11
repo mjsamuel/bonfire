@@ -8,16 +8,48 @@
 import UIKit
 import CoreData
 
+extension UIApplicationDelegate {
+    static var shared:Self {
+        return UIApplication.shared.delegate! as! Self
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    
+    
     var window: UIWindow?
+    
+    var universalActInd : UniversalActInd?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         return true
+    }
+    
+    /**
+     Show or hide the activity indicator.
+     This places the indicator above any current view(s) by creating a new window above the current one.
+    **/
+    func toggleActInd(on: Bool) {
+        if on {
+            // Hide if already exists
+            if (universalActInd != nil) {
+                universalActInd?.view.removeFromSuperview()
+                universalActInd = nil
+            }
+            universalActInd = UniversalActInd.viewController()
+            self.window?.addSubview((universalActInd?.view)!)
+        } else {
+            if universalActInd != nil {
+                universalActInd?.fadeAway(completion: {
+                    self.universalActInd?.view.removeFromSuperview()
+                })
+            }
+        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -73,6 +105,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return container
     }()
 
+   
     // MARK: - Core Data Saving support
 
     func saveContext () {

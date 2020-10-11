@@ -8,16 +8,28 @@
 import UIKit
 
 class RequestsController: UITableViewController {
-    private let viewModel: RequestsViewModel = RequestsViewModel()
+    private var viewModel: RequestsViewModel = RequestsViewModel()
     private var requests: [Request] = []
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    private let bonfire: Bonfire = Bonfire.sharedInstance
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.updateTable()
     }
     
     func updateTable() {
-        self.requests = viewModel.getRequests()
+        if (bonfire.currentZone != nil) {
+            // Request a list of the requests to the current zone from CloudFlare.
+            bonfire.cloudflare!.getRequests(zoneId: bonfire.currentZone!.getId(), completion: { data in
+                // If successful, update our data and reload the table.
+                if data != nil {
+                    self.viewModel.updateData(data!)
+                    self.requests = self.viewModel.getRequests()
+                    self.tableView.reloadData()
+                }
+            })
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,7 +77,9 @@ class RequestsController: UITableViewController {
         confirmationAlert.addAction(UIAlertAction(title: "Ok", style: .destructive, handler: { (action: UIAlertAction!) in
             var host:HostAction = HostAction(action: selectedAction, hostIP: hostIP)
             // update the action state
-            host.setAction(selectedAction: selectedAction)
+            host.setAction(selectedAction: selectedAction, completion: { _ in
+                self.updateTable()
+            })
             // Send the action to Clourflare
         }))
        
@@ -83,7 +97,6 @@ class RequestsController: UITableViewController {
         let request: Request = requests[indexPath.row]
         let hostIP: String = request.origin
         
-        print("DEBUG: host IP addres selected: \(hostIP)")
         
         // -- Handle action sheet --
         
@@ -91,7 +104,7 @@ class RequestsController: UITableViewController {
         let actionSheet = UIAlertController(title: "Chose action for \(hostIP)", message:nil, preferredStyle: .actionSheet)
         
         // Define the Ban Action
-        let ban = UIAlertAction(title: Action.ban.rawValue, style: .destructive){ action in
+        let ban = UIAlertAction(title: "Ban", style: .destructive){ action in
             
             // Send off the action to the confirmation handler
             let selectedAction:Action = Action.ban
@@ -124,8 +137,19 @@ class RequestsController: UITableViewController {
             self.confirmAction(selectedAction: selectedAction, hostIP:hostIP)
         }
         
+        // Define the default action
+        let defaultAction = UIAlertAction(title: "Default", style: .default){ action in
+            
+            // Send off the action to the confirmation handler
+            let selectedAction:Action = Action.normal
+            self.confirmAction(selectedAction: selectedAction, hostIP:hostIP)
+        }
+        
         // Define an option to Cancel
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+        
+        
         
         // Add actions to the action sheet.
         actionSheet.addAction(jsChallenge)
@@ -133,6 +157,14 @@ class RequestsController: UITableViewController {
         actionSheet.addAction(allow)
         actionSheet.addAction(ban)
         actionSheet.addAction(cancel)
+        
+        // See if a rule has already been applied, then offer to set back to default (delete the action)
+        if let record:Requests = viewModel.getReqestByIPAddress(reqIPAddress: hostIP){
+
+            if record.action != Action.normal.rawValue{
+                actionSheet.addAction(defaultAction)
+            }
+        }
 
         present(actionSheet, animated: true, completion: nil)
         tableView.deselectRow(at: indexPath, animated: true)
