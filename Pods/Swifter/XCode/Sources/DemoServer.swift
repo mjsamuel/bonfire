@@ -10,7 +10,6 @@ import Foundation
 // swiftlint:disable function_body_length
 public func demoServer(_ publicDir: String) -> HttpServer {
     
-    print(publicDir)
     
     let server = HttpServer()
     
@@ -197,7 +196,6 @@ public func demoServer(_ publicDir: String) -> HttpServer {
     }
     
     server.middleware.append { request in
-        print("Middleware: \(request.address ?? "unknown address") -> \(request.method) -> \(request.path)")
         return nil
     }
     

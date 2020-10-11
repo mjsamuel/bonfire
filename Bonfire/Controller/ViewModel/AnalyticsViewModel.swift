@@ -94,10 +94,6 @@ struct AnalyticsViewModel {
     public func getCostPerRequest() -> String {
         let allRequests: Int = self.cached + self.uncached
         let costPerRequest: Float = self.costPerRequest / Float(allRequests)
-        print("CPM--------")
-        print(self.costPerRequest)
-        print(Float(allRequests))
-        print(String(costPerRequest))
         return String(costPerRequest)
     }
     
@@ -181,9 +177,7 @@ struct AnalyticsViewModel {
 
             let results = try managedContext.fetch(fetchRequest)
             let analytics = results as! [CountryAnalytics]
-            for a in analytics{
-                print(a.countryName)
-            }
+
             return analytics
         }
         catch let error as NSError {

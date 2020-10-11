@@ -47,9 +47,7 @@ struct RequestsViewModel {
             let requestsArray = results as! [Requests]
             // create temp array
             var tempRequests: [Request] = []
-            print("AAAAAAA")
             for req in requestsArray{
-                print("a")
                 let request: Request = Request(
                     action: req.action!,
                     origin: req.ipAddress!,

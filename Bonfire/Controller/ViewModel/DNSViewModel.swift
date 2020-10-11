@@ -65,7 +65,6 @@ struct DNSViewModel {
                     id: record.recordID!,
                     ttl: Int(record.ttl),
                     zoneID: bonfire.currentZone!.getId())
-                print("hello")
                 dnsRecords.append(dns)
             }
         }
@@ -88,8 +87,7 @@ struct DNSViewModel {
             let managedContext = appDelegate.persistentContainer.viewContext
             let dnsObj = NSEntityDescription.entity(forEntityName: "ClfDNS" , in: managedContext)!
             let record = NSManagedObject(entity: dnsObj, insertInto: managedContext) as! ClfDNS
-            print("GENERATING DNS RECOD")
-            print(recordName)
+
             record.ipAddress = recordIPAddress
             record.name = recordName
             record.recordType = recordType
@@ -117,7 +115,6 @@ struct DNSViewModel {
             let results = try managedContext.fetch(fetchRequest)
             let requests = results as! [ClfDNS]
             // Check if the record already exists. more then 0 = false
-            print("YES WE HAVE GO IN HERE")
             if requests.count <= 0{
                 return true
             }else{

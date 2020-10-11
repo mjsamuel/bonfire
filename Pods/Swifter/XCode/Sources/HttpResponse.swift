@@ -173,7 +173,6 @@ public enum HttpResponse {
 
     let resp = handler(updatedRequest)
         if resp == .NotFound {
-        print("Client requested not found: \(request.url)")
     }
 */
 
