@@ -27,6 +27,8 @@
 		AACC225224F94C880016CBED /* DNSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACC225124F94C880016CBED /* DNSViewController.swift */; };
 		C70132BE24EE98A1003C9B05 /* Bonfire.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70132BD24EE98A1003C9B05 /* Bonfire.swift */; };
 		C70132C024EEA14A003C9B05 /* Zone.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70132BF24EEA14A003C9B05 /* Zone.swift */; };
+		C70481DC252ADB4F0064DC9B /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70481DB252ADB4F0064DC9B /* AboutUsViewController.swift */; };
+		C70481DE252ADE8B0064DC9B /* AboutUsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70481DD252ADE8B0064DC9B /* AboutUsViewModel.swift */; };
 		C71E19CC24EAB8C9001E83C1 /* Analytics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71E19CB24EAB8C9001E83C1 /* Analytics.storyboard */; };
 		C71E19D324EABE65001E83C1 /* Requests.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71E19D224EABE65001E83C1 /* Requests.storyboard */; };
 		C71E19D524EABE79001E83C1 /* DNS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71E19D424EABE79001E83C1 /* DNS.storyboard */; };
@@ -94,6 +96,8 @@
 		B830B26B2ED4A8E53392BA7D /* Pods-BonfireTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BonfireTests.debug.xcconfig"; path = "Target Support Files/Pods-BonfireTests/Pods-BonfireTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C70132BD24EE98A1003C9B05 /* Bonfire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bonfire.swift; sourceTree = "<group>"; };
 		C70132BF24EEA14A003C9B05 /* Zone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zone.swift; sourceTree = "<group>"; };
+		C70481DB252ADB4F0064DC9B /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
+		C70481DD252ADE8B0064DC9B /* AboutUsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewModel.swift; sourceTree = "<group>"; };
 		C71E19CB24EAB8C9001E83C1 /* Analytics.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Analytics.storyboard; sourceTree = "<group>"; };
 		C71E19D224EABE65001E83C1 /* Requests.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Requests.storyboard; sourceTree = "<group>"; };
 		C71E19D424EABE79001E83C1 /* DNS.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DNS.storyboard; sourceTree = "<group>"; };
@@ -223,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				C7A5567224DE51CE00C21123 /* ViewModel */,
+				C70481DB252ADB4F0064DC9B /* AboutUsViewController.swift */,
 				C73F9E9824EF5A5A0014B594 /* AnalyticsViewController.swift */,
 				AACC225124F94C880016CBED /* DNSViewController.swift */,
 				AAA04D3C2501F39900CA216B /* DNSEditViewController.swift */,
@@ -240,6 +245,7 @@
 		C7A5567224DE51CE00C21123 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				C70481DD252ADE8B0064DC9B /* AboutUsViewModel.swift */,
 				C7A5567524DE55A900C21123 /* AnalyticsViewModel.swift */,
 				AACC224F24F94C770016CBED /* DNSViewModel.swift */,
 				C7816C2124F54A50001DCF48 /* RequestsViewModel.swift */,
@@ -559,8 +565,10 @@
 			files = (
 				4510CA0224F8F5B700CB32C9 /* LoginViewController.swift in Sources */,
 				C7A5567424DE536E00C21123 /* Cloudflare.swift in Sources */,
+				C70481DE252ADE8B0064DC9B /* AboutUsViewModel.swift in Sources */,
 				AACC225224F94C880016CBED /* DNSViewController.swift in Sources */,
 				455241FB24FF88D3001051C9 /* MainTabBarController.swift in Sources */,
+				C70481DC252ADB4F0064DC9B /* AboutUsViewController.swift in Sources */,
 				C70132BE24EE98A1003C9B05 /* Bonfire.swift in Sources */,
 				AACC225024F94C770016CBED /* DNSViewModel.swift in Sources */,
 				C70132C024EEA14A003C9B05 /* Zone.swift in Sources */,
@@ -763,7 +771,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6YNMVWJMLK;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Bonfire/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -782,7 +790,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6YNMVWJMLK;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Bonfire/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
