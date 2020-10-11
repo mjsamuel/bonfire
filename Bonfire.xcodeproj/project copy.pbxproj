@@ -7,13 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A44B9B02531504B0017D1F1 /* DNSTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A44B9AF2531504B0017D1F1 /* DNSTableCell.swift */; };
-		1A44B9B525318D210017D1F1 /* Requests+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A44B9B325318D210017D1F1 /* Requests+CoreDataClass.swift */; };
-		1A44B9B625318D210017D1F1 /* Requests+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A44B9B425318D210017D1F1 /* Requests+CoreDataProperties.swift */; };
-		1A44B9B92531BE930017D1F1 /* ClfDNS+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A44B9B72531BE930017D1F1 /* ClfDNS+CoreDataClass.swift */; };
-		1A44B9BA2531BE930017D1F1 /* ClfDNS+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A44B9B82531BE930017D1F1 /* ClfDNS+CoreDataProperties.swift */; };
+		1A56B86325313C160039FD25 /* Requests+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56B86125313C160039FD25 /* Requests+CoreDataClass.swift */; };
+		1A56B86425313C160039FD25 /* Requests+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A56B86225313C160039FD25 /* Requests+CoreDataProperties.swift */; };
 		1A7E5DCF252FFFA70086FE59 /* Analytics+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E5DC3252FFFA70086FE59 /* Analytics+CoreDataClass.swift */; };
 		1A7E5DD0252FFFA70086FE59 /* Analytics+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E5DC4252FFFA70086FE59 /* Analytics+CoreDataProperties.swift */; };
+		1A7E5DD1252FFFA70086FE59 /* ClfDNS+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E5DC5252FFFA70086FE59 /* ClfDNS+CoreDataClass.swift */; };
+		1A7E5DD2252FFFA70086FE59 /* ClfDNS+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E5DC6252FFFA70086FE59 /* ClfDNS+CoreDataProperties.swift */; };
 		1A7E5DD3252FFFA70086FE59 /* Account+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E5DC7252FFFA70086FE59 /* Account+CoreDataClass.swift */; };
 		1A7E5DD4252FFFA70086FE59 /* Account+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E5DC8252FFFA70086FE59 /* Account+CoreDataProperties.swift */; };
 		1A7E5DD5252FFFA70086FE59 /* ClfZone+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7E5DC9252FFFA70086FE59 /* ClfZone+CoreDataClass.swift */; };
@@ -39,8 +38,6 @@
 		AACC225224F94C880016CBED /* DNSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACC225124F94C880016CBED /* DNSViewController.swift */; };
 		C70132BE24EE98A1003C9B05 /* Bonfire.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70132BD24EE98A1003C9B05 /* Bonfire.swift */; };
 		C70132C024EEA14A003C9B05 /* Zone.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70132BF24EEA14A003C9B05 /* Zone.swift */; };
-		C70481DC252ADB4F0064DC9B /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70481DB252ADB4F0064DC9B /* AboutUsViewController.swift */; };
-		C70481DE252ADE8B0064DC9B /* AboutUsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70481DD252ADE8B0064DC9B /* AboutUsViewModel.swift */; };
 		C71E19CC24EAB8C9001E83C1 /* Analytics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71E19CB24EAB8C9001E83C1 /* Analytics.storyboard */; };
 		C71E19D324EABE65001E83C1 /* Requests.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71E19D224EABE65001E83C1 /* Requests.storyboard */; };
 		C71E19D524EABE79001E83C1 /* DNS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71E19D424EABE79001E83C1 /* DNS.storyboard */; };
@@ -86,13 +83,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1A44B9AF2531504B0017D1F1 /* DNSTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSTableCell.swift; sourceTree = "<group>"; };
-		1A44B9B325318D210017D1F1 /* Requests+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Requests+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		1A44B9B425318D210017D1F1 /* Requests+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Requests+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		1A44B9B72531BE930017D1F1 /* ClfDNS+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClfDNS+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		1A44B9B82531BE930017D1F1 /* ClfDNS+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClfDNS+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		1A56B86125313C160039FD25 /* Requests+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Requests+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		1A56B86225313C160039FD25 /* Requests+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Requests+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		1A7E5DC3252FFFA70086FE59 /* Analytics+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analytics+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		1A7E5DC4252FFFA70086FE59 /* Analytics+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analytics+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		1A7E5DC5252FFFA70086FE59 /* ClfDNS+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClfDNS+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		1A7E5DC6252FFFA70086FE59 /* ClfDNS+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClfDNS+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		1A7E5DC7252FFFA70086FE59 /* Account+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		1A7E5DC8252FFFA70086FE59 /* Account+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		1A7E5DC9252FFFA70086FE59 /* ClfZone+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClfZone+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
@@ -120,8 +116,6 @@
 		B830B26B2ED4A8E53392BA7D /* Pods-BonfireTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BonfireTests.debug.xcconfig"; path = "Target Support Files/Pods-BonfireTests/Pods-BonfireTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C70132BD24EE98A1003C9B05 /* Bonfire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bonfire.swift; sourceTree = "<group>"; };
 		C70132BF24EEA14A003C9B05 /* Zone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zone.swift; sourceTree = "<group>"; };
-		C70481DB252ADB4F0064DC9B /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
-		C70481DD252ADE8B0064DC9B /* AboutUsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewModel.swift; sourceTree = "<group>"; };
 		C71E19CB24EAB8C9001E83C1 /* Analytics.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Analytics.storyboard; sourceTree = "<group>"; };
 		C71E19D224EABE65001E83C1 /* Requests.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Requests.storyboard; sourceTree = "<group>"; };
 		C71E19D424EABE79001E83C1 /* DNS.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DNS.storyboard; sourceTree = "<group>"; };
@@ -192,7 +186,6 @@
 			children = (
 				453FE08D24F3799500DA3383 /* TextFieldWithInsets.swift */,
 				45009791252AE39E002C2B0E /* UniversalActInd.swift */,
-				1A44B9AF2531504B0017D1F1 /* DNSTableCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -223,12 +216,12 @@
 		C7A5566F24DE518900C21123 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1A44B9B72531BE930017D1F1 /* ClfDNS+CoreDataClass.swift */,
-				1A44B9B82531BE930017D1F1 /* ClfDNS+CoreDataProperties.swift */,
-				1A44B9B325318D210017D1F1 /* Requests+CoreDataClass.swift */,
-				1A44B9B425318D210017D1F1 /* Requests+CoreDataProperties.swift */,
+				1A56B86125313C160039FD25 /* Requests+CoreDataClass.swift */,
+				1A56B86225313C160039FD25 /* Requests+CoreDataProperties.swift */,
 				1A7E5DC3252FFFA70086FE59 /* Analytics+CoreDataClass.swift */,
 				1A7E5DC4252FFFA70086FE59 /* Analytics+CoreDataProperties.swift */,
+				1A7E5DC5252FFFA70086FE59 /* ClfDNS+CoreDataClass.swift */,
+				1A7E5DC6252FFFA70086FE59 /* ClfDNS+CoreDataProperties.swift */,
 				1A7E5DC7252FFFA70086FE59 /* Account+CoreDataClass.swift */,
 				1A7E5DC8252FFFA70086FE59 /* Account+CoreDataProperties.swift */,
 				1A7E5DC9252FFFA70086FE59 /* ClfZone+CoreDataClass.swift */,
@@ -263,7 +256,6 @@
 			isa = PBXGroup;
 			children = (
 				C7A5567224DE51CE00C21123 /* ViewModel */,
-				C70481DB252ADB4F0064DC9B /* AboutUsViewController.swift */,
 				C73F9E9824EF5A5A0014B594 /* AnalyticsViewController.swift */,
 				AACC225124F94C880016CBED /* DNSViewController.swift */,
 				AAA04D3C2501F39900CA216B /* DNSEditViewController.swift */,
@@ -281,7 +273,6 @@
 		C7A5567224DE51CE00C21123 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				C70481DD252ADE8B0064DC9B /* AboutUsViewModel.swift */,
 				C7A5567524DE55A900C21123 /* AnalyticsViewModel.swift */,
 				AACC224F24F94C770016CBED /* DNSViewModel.swift */,
 				C7816C2124F54A50001DCF48 /* RequestsViewModel.swift */,
@@ -601,36 +592,33 @@
 			files = (
 				4510CA0224F8F5B700CB32C9 /* LoginViewController.swift in Sources */,
 				C7A5567424DE536E00C21123 /* Cloudflare.swift in Sources */,
-				C70481DE252ADE8B0064DC9B /* AboutUsViewModel.swift in Sources */,
 				AACC225224F94C880016CBED /* DNSViewController.swift in Sources */,
+				1A7E5DD1252FFFA70086FE59 /* ClfDNS+CoreDataClass.swift in Sources */,
 				1A7E5DD6252FFFA70086FE59 /* ClfZone+CoreDataProperties.swift in Sources */,
 				1A7E5DD7252FFFA70086FE59 /* CountryAnalytics+CoreDataClass.swift in Sources */,
 				455241FB24FF88D3001051C9 /* MainTabBarController.swift in Sources */,
-				C70481DC252ADB4F0064DC9B /* AboutUsViewController.swift in Sources */,
 				C70132BE24EE98A1003C9B05 /* Bonfire.swift in Sources */,
-				1A44B9BA2531BE930017D1F1 /* ClfDNS+CoreDataProperties.swift in Sources */,
 				1A7E5DD0252FFFA70086FE59 /* Analytics+CoreDataProperties.swift in Sources */,
 				AACC225024F94C770016CBED /* DNSViewModel.swift in Sources */,
+				1A7E5DD2252FFFA70086FE59 /* ClfDNS+CoreDataProperties.swift in Sources */,
 				1A7E5DD3252FFFA70086FE59 /* Account+CoreDataClass.swift in Sources */,
 				C70132C024EEA14A003C9B05 /* Zone.swift in Sources */,
 				C7B95A2D24DE4C0B00459A5C /* ViewController.swift in Sources */,
-				1A44B9B92531BE930017D1F1 /* ClfDNS+CoreDataClass.swift in Sources */,
 				1A7E5DD8252FFFA70086FE59 /* CountryAnalytics+CoreDataProperties.swift in Sources */,
 				C7B95A3324DE4C0B00459A5C /* Bonfire.xcdatamodeld in Sources */,
 				453FE08024F347F500DA3383 /* SettingsTableTableViewController.swift in Sources */,
 				C7B95A2B24DE4C0B00459A5C /* AppDelegate.swift in Sources */,
-				1A44B9B02531504B0017D1F1 /* DNSTableCell.swift in Sources */,
 				1A7E5DD5252FFFA70086FE59 /* ClfZone+CoreDataClass.swift in Sources */,
 				453FE08424F3627B00DA3383 /* SelectZoneController.swift in Sources */,
 				C7A5567624DE55A900C21123 /* AnalyticsViewModel.swift in Sources */,
 				453FE08E24F3799500DA3383 /* TextFieldWithInsets.swift in Sources */,
 				C73F9E9924EF5A5A0014B594 /* AnalyticsViewController.swift in Sources */,
+				1A56B86325313C160039FD25 /* Requests+CoreDataClass.swift in Sources */,
 				C7816C2224F54A50001DCF48 /* RequestsViewModel.swift in Sources */,
 				45009792252AE39E002C2B0E /* UniversalActInd.swift in Sources */,
+				1A56B86425313C160039FD25 /* Requests+CoreDataProperties.swift in Sources */,
 				1AA886BC24F8EA71007432CB /* HostActions.swift in Sources */,
 				AA6A6A73250268E400760433 /* DNSNewViewController.swift in Sources */,
-				1A44B9B525318D210017D1F1 /* Requests+CoreDataClass.swift in Sources */,
-				1A44B9B625318D210017D1F1 /* Requests+CoreDataProperties.swift in Sources */,
 				C7816C2424F54A69001DCF48 /* RequestsController.swift in Sources */,
 				1A7E5DD4252FFFA70086FE59 /* Account+CoreDataProperties.swift in Sources */,
 				1A7E5DCF252FFFA70086FE59 /* Analytics+CoreDataClass.swift in Sources */,
@@ -819,7 +807,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6YNMVWJMLK;
 				INFOPLIST_FILE = Bonfire/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -838,7 +826,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6YNMVWJMLK;
 				INFOPLIST_FILE = Bonfire/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
