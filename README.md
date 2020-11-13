@@ -79,7 +79,7 @@ You will need to add some firewall settings on your zone.
 
 1. Create a new firewall rule in your zone.
 2. Give the rule any name. For example you can name it 'Activity Logging'
-3. Click 'Edit expression' and past the code bellow into the text field. (This simply just logs any and all requests to your site.)
+3. Click 'Edit expression' and paste the code bellow into the text field. (This simply just logs any and all requests to your site.)
 ```(http.request.method eq "GET") or (http.request.method eq "POST") or (http.request.method eq "PURGE") or (http.request.method eq "PUT") or (http.request.method eq "HEAD") or (http.request.method eq "OPTIONS") or (http.request.method eq "DELETE") or (http.request.method eq "PATCH")```
 3. Finally chose the action, set this to 'Allow'.
 4. Click 'Deploy'
@@ -92,13 +92,17 @@ What the above does simply enables Cloudflare™ to log all activity to your sit
 To use this app, you will need to login with providing the following in login / initial setup:
 - Cloudflare™ API key
 - Cloudflare™ email account
-
+- If you are testing or marking this app, please check ```readme.txt``` for the example credentials to log in and use the app.
+- **Tip:** When viewing requests in app, if you visit <a href="https://bonfire.jwrc.me">🔗 the app site</a> you can view your own IP Address, and test taking actions against your IP address!
 
 
 ### 📲 Install <a name = "install"></a>
 - You will need to first download and compile the xCode project code into a useable app, which you will have to self sign. 
+- If you are testing or marking this app, please check ```readme.txt``` for the example credentials to log in and use the app. 
 - **Note:** Apple only allows self signed certified apps to run for 7 days, then you will need to re-sign the app.
-  
+- **Note:** Credentials provided will be rolled and become **invalid** after the assignment has been marked. 
+
+
 <br/>
 
 ## 📋 Acknowledgments <a name = "acknowledgments"></a>
