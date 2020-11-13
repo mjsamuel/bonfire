@@ -90,18 +90,18 @@
 
 /* Begin PBXFileReference section */
 		1A44B9AF2531504B0017D1F1 /* DNSTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSTableCell.swift; sourceTree = "<group>"; };
-		1A44B9B325318D210017D1F1 /* Requests+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Requests+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		1A44B9B425318D210017D1F1 /* Requests+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Requests+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		1A44B9B72531BE930017D1F1 /* ClfDNS+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClfDNS+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		1A44B9B82531BE930017D1F1 /* ClfDNS+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClfDNS+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		1A7E5DC3252FFFA70086FE59 /* Analytics+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analytics+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		1A7E5DC4252FFFA70086FE59 /* Analytics+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analytics+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		1A7E5DC7252FFFA70086FE59 /* Account+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		1A7E5DC8252FFFA70086FE59 /* Account+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Account+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		1A7E5DC9252FFFA70086FE59 /* ClfZone+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClfZone+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		1A7E5DCA252FFFA70086FE59 /* ClfZone+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClfZone+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		1A7E5DCB252FFFA70086FE59 /* CountryAnalytics+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CountryAnalytics+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		1A7E5DCC252FFFA70086FE59 /* CountryAnalytics+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CountryAnalytics+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		1A44B9B325318D210017D1F1 /* Requests+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Requests+CoreDataClass.swift"; path = "Bonfire/Model/CoreData/Requests+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		1A44B9B425318D210017D1F1 /* Requests+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Requests+CoreDataProperties.swift"; path = "Bonfire/Model/CoreData/Requests+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		1A44B9B72531BE930017D1F1 /* ClfDNS+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ClfDNS+CoreDataClass.swift"; path = "Bonfire/Model/CoreData/ClfDNS+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		1A44B9B82531BE930017D1F1 /* ClfDNS+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ClfDNS+CoreDataProperties.swift"; path = "Bonfire/Model/CoreData/ClfDNS+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		1A7E5DC3252FFFA70086FE59 /* Analytics+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Analytics+CoreDataClass.swift"; path = "Bonfire/Model/CoreData/Analytics+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		1A7E5DC4252FFFA70086FE59 /* Analytics+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Analytics+CoreDataProperties.swift"; path = "Bonfire/Model/CoreData/Analytics+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		1A7E5DC7252FFFA70086FE59 /* Account+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Account+CoreDataClass.swift"; path = "Bonfire/Model/CoreData/Account+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		1A7E5DC8252FFFA70086FE59 /* Account+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Account+CoreDataProperties.swift"; path = "Bonfire/Model/CoreData/Account+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		1A7E5DC9252FFFA70086FE59 /* ClfZone+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ClfZone+CoreDataClass.swift"; path = "Bonfire/Model/CoreData/ClfZone+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		1A7E5DCA252FFFA70086FE59 /* ClfZone+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ClfZone+CoreDataProperties.swift"; path = "Bonfire/Model/CoreData/ClfZone+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		1A7E5DCB252FFFA70086FE59 /* CountryAnalytics+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CountryAnalytics+CoreDataClass.swift"; path = "Bonfire/Model/CoreData/CountryAnalytics+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		1A7E5DCC252FFFA70086FE59 /* CountryAnalytics+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CountryAnalytics+CoreDataProperties.swift"; path = "Bonfire/Model/CoreData/CountryAnalytics+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		1AA886BB24F8EA71007432CB /* HostActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostActions.swift; sourceTree = "<group>"; };
 		2A8AE55588C7E51767E441F5 /* Pods_Bonfire_BonfireUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bonfire_BonfireUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4500978F252AE1AA002C2B0E /* UniversalActInd.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UniversalActInd.storyboard; sourceTree = "<group>"; };
@@ -233,9 +233,11 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
-		C7A5566F24DE518900C21123 /* Model */ = {
+		C76E7607255E2F0A0013A685 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				1A7E5DCB252FFFA70086FE59 /* CountryAnalytics+CoreDataClass.swift */,
+				1A7E5DCC252FFFA70086FE59 /* CountryAnalytics+CoreDataProperties.swift */,
 				1A44B9B72531BE930017D1F1 /* ClfDNS+CoreDataClass.swift */,
 				1A44B9B82531BE930017D1F1 /* ClfDNS+CoreDataProperties.swift */,
 				1A44B9B325318D210017D1F1 /* Requests+CoreDataClass.swift */,
@@ -246,8 +248,14 @@
 				1A7E5DC8252FFFA70086FE59 /* Account+CoreDataProperties.swift */,
 				1A7E5DC9252FFFA70086FE59 /* ClfZone+CoreDataClass.swift */,
 				1A7E5DCA252FFFA70086FE59 /* ClfZone+CoreDataProperties.swift */,
-				1A7E5DCB252FFFA70086FE59 /* CountryAnalytics+CoreDataClass.swift */,
-				1A7E5DCC252FFFA70086FE59 /* CountryAnalytics+CoreDataProperties.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		C7A5566F24DE518900C21123 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C76E7607255E2F0A0013A685 /* CoreData */,
 				C70132BD24EE98A1003C9B05 /* Bonfire.swift */,
 				C7A5567324DE536E00C21123 /* Cloudflare.swift */,
 				1AA886BB24F8EA71007432CB /* HostActions.swift */,
