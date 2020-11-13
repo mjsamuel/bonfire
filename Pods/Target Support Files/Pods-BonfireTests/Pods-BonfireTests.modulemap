@@ -1,6 +1,0 @@
-framework module Pods_BonfireTests {
-  umbrella header "Pods-BonfireTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

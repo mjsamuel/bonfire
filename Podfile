@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform:ios, '12.4'
 
 target 'Bonfire' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -7,8 +7,7 @@ target 'Bonfire' do
 
   # Pods for Bonfire
   pod 'Alamofire', '~> 4.0'
-  pod 'Swifter', '~> 1.4.7'
-
+  pod 'Swifter', '~> 1.5.0'
 
   target 'BonfireTests' do
     inherit! :search_paths
